@@ -6,10 +6,12 @@ const Plans = function (props) {
   return (
     <Fragment>
       <div className={classes.plans}>
-        {props.plans === null ||
-          (props.plans.length === 0 && (
-            <h4 className={classes.message}>There are no plans yet</h4>
-          ))}
+        {props.plans === null && (
+          <h4 className={classes.message}>There are no plans yet</h4>
+        )}
+        {props.plans.length === 0 && (
+          <h4 className={classes.message}>There are no plans yet</h4>
+        )}
         {props.plans &&
           props.plans.map(plan => {
             const date = new Date(plan.date);
