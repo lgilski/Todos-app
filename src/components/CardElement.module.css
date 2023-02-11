@@ -1,0 +1,41 @@
+.btnClose-small {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 8px;
+  top: 8px;
+  background-color: #023436;
+  color: #e6f9f7;
+  text-align: center;
+
+  font-size: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 100%;
+}
+
+.btnClose-small:hover,
+.btnClose-small:active {
+  cursor: pointer;
+  background-color: #e6f9f7;
+  color: #023436;
+  transition: all 0.2s;
+}
+.list-element {
+  position: relative;
+  width: 90%;
+  background-color: #00bfb3;
+  padding: 30px 8px 4px 8px;
+  border-radius: 9px;
+}
+
+/* .happened {
+  background-color: #b3ece8;
+}
+
+.happened li {
+  color: black;
+} */

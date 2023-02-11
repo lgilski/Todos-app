@@ -1,0 +1,37 @@
+.plans {
+  max-width: 1500px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin: auto;
+  margin-top: 64px;
+  margin-bottom: 72px;
+
+  gap: 32px;
+}
+
+.message {
+  grid-column: 2;
+
+  text-align: center;
+  background-color: #03b5aa;
+  color: #023436;
+  padding: 16px;
+  font-size: 64px;
+  border-radius: 9px;
+}
+
+@media (max-width: 1500px) {
+  .plans {
+    max-width: 1000px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .plans {
+    max-width: 500px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

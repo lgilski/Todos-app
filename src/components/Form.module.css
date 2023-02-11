@@ -1,0 +1,51 @@
+.form {
+  background-color: #03b5aa;
+  padding: 16px;
+  margin: auto;
+  border-radius: 7px;
+  max-width: 800px;
+  margin-top: 86px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+.form label {
+  font-size: 28px;
+}
+
+.form input {
+  width: 100%;
+  display: block;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  background-color: #99e5e1;
+  font-size: 20px;
+}
+
+.form input[type='date'] {
+  max-width: 180px;
+  display: block;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  background-color: #99e5e1;
+  font-size: 20px;
+}
+
+.form select {
+  display: block;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  background-color: #99e5e1;
+  font-size: 20px;
+}
+
+.form Button {
+  align-self: flex-end;
+}

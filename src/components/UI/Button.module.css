@@ -1,0 +1,20 @@
+.btn {
+  background-color: #e6f9f7;
+  color: #023436;
+  font-size: 28px;
+  padding: 8px;
+  border-radius: 16px;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn:link,
+.btn:visited {
+}
+
+.btn:hover,
+.btn:active {
+  cursor: pointer;
+  background-color: #023436;
+  color: #e6f9f7;
+}

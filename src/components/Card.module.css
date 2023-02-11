@@ -1,0 +1,87 @@
+.card {
+  position: relative;
+  background-color: #b3ece8;
+  display: block;
+  width: 450px;
+  /* margin: 0 100px; */
+  padding: 24px;
+  border-radius: 9px;
+
+  color: #023436;
+  font-size: 24px;
+}
+
+.card-black {
+  background-color: #355d5e;
+  /* color: #b3ece8; */
+}
+
+.card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.date h3 {
+  font-size: 64px;
+  font-weight: 800;
+}
+
+.date h4 {
+  font-size: 40px;
+}
+
+.btnClose {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  right: 8px;
+  top: 8px;
+  background-color: #00bfb3;
+  text-align: center;
+
+  font-size: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 100%;
+}
+
+.btnClose:hover,
+.btnClose:active {
+  cursor: pointer;
+  background-color: #023436;
+  color: #e6f9f7;
+  transition: all 0.2s;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.withinSevenDays {
+  color: #029188;
+}
+
+.happened {
+  /* color: #68d3cc; */
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 320px;
+  }
+}
