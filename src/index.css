@@ -14,6 +14,11 @@ html {
 
 body {
   margin: 0;
-  background-color: #023436;
+  /* background-color: #023436; */
+  background: linear-gradient(
+    90deg,
+    rgba(2, 52, 54, 1) 0%,
+    rgba(53, 93, 94, 1) 100%
+  );
   /* 023436 */
 }

@@ -1,6 +1,13 @@
 .card {
+  transition: all 0.5s;
   position: relative;
-  background-color: #b3ece8;
+  /* background-color: #b3ece8; */
+  background: linear-gradient(
+    135deg,
+    rgba(179, 236, 232, 1) 0%,
+    rgba(161, 212, 209, 1) 100%
+  );
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   display: block;
   width: 450px;
   /* margin: 0 100px; */
@@ -11,9 +18,18 @@
   font-size: 24px;
 }
 
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 30%);
+}
+
 .card-black {
-  background-color: #355d5e;
-  /* color: #b3ece8; */
+  /* background-color: #355d5e; */
+  background: linear-gradient(
+    135deg,
+    rgba(53, 93, 94, 1) 0%,
+    rgba(93, 125, 126, 1) 100%
+  );
 }
 
 .card ul {
