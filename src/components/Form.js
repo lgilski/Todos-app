@@ -79,7 +79,13 @@ const Form = function (props) {
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
       <label htmlFor='your task'>Type your plan :)</label>
-      <input ref={plan} type='text' name='your task' required></input>
+      <input
+        autocomplete='off'
+        ref={plan}
+        type='text'
+        name='your task'
+        required
+      ></input>
       <label htmlFor='days'>On what day will it be?</label>
       <input type='date' name='days' onChange={dateHandler} required></input>
       <Button type='submit'>Add</Button>
