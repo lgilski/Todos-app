@@ -39,3 +39,33 @@
 .happened li {
   color: black;
 } */
+
+.fade-small-enter {
+  opacity: 0;
+  padding: 0;
+  width: 0;
+  font-size: 0;
+}
+
+.fade-small-enter-active {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  padding: 30px 8px 4px 8px;
+  width: 90%;
+  font-size: 24px;
+}
+
+.fade-small-exit {
+  opacity: 1;
+  padding: 30px 8px 4px 8px;
+  width: 90%;
+  font-size: 24px;
+}
+
+.fade-small-exit-active {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  width: 0;
+  font-size: 0;
+}

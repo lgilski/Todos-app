@@ -2,6 +2,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classes from './Card.module.css';
 import CardElement from './CardElement';
 
+import cardElementClasses from './CardElement.module.css';
+
 const Card = function (props) {
   const onDeleteHandler = function () {
     props.onDelete(props.id);
@@ -33,7 +35,16 @@ const Card = function (props) {
       </div>
       <TransitionGroup component='ul' className={classes.list}>
         {props.text.map(task => (
-          <CSSTransition key={task.idTask} classNames='fade' timeout={300}>
+          <CSSTransition
+            key={task.idTask}
+            classNames={{
+              enterActive: cardElementClasses['fade-small-enter-active'],
+              enter: cardElementClasses['fade-small-enter'],
+              exitActive: cardElementClasses['fade-small-exit-active'],
+              exit: cardElementClasses['fade-small-exit'],
+            }}
+            timeout={300}
+          >
             <CardElement
               key={task.idTask}
               id={props.id}
