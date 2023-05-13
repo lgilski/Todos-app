@@ -1,55 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import Subtitle from './components/UI/Subtitle';
 import Form from './components/Form';
-import Plans from './components/Plans';
+import Cards from './components/Cards';
+
+import { useDispatch } from 'react-redux';
+import { dataActions } from './store';
 
 function App() {
-  const [goals, setGoals] = useState([]);
-
-  const deleteHandler = function (goalId) {
-    setGoals(previousPlans => {
-      const updatedGoals = previousPlans.filter(plan => plan.id !== goalId);
-
-      return updatedGoals;
-    });
-  };
-
-  const deleteTaskHandler = function (taskId, goalId) {
-    setGoals(previousGoals => {
-      return previousGoals.map(goal => {
-        if (goal.id === goalId) {
-          return {
-            ...goal,
-            plan: goal.plan.filter(task => task.idTask !== taskId),
-          };
-        }
-        return goal;
-      });
-    });
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const goalsFromLocalStorage = JSON.parse(localStorage.getItem('allGoals'));
+    const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
 
-    if (goalsFromLocalStorage === null) return;
+    if (cardsFromLocalStorage === null) return;
 
-    setGoals(goalsFromLocalStorage);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('allGoals', JSON.stringify(goals));
-  }, [goals]);
+    dispatch(dataActions.setCards(cardsFromLocalStorage));
+  }, [dispatch]);
 
   return (
     <div>
       <Subtitle />
-      <Form setPlans={setGoals} />
-      <Plans
-        onTaskDelete={deleteTaskHandler}
-        onDelete={deleteHandler}
-        plans={goals}
-      />
+      <Form />
+      <Cards />
     </div>
   );
 }

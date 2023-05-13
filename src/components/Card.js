@@ -1,56 +1,76 @@
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classes from './Card.module.css';
-import CardElement from './CardElement';
+import CardElement from './TaskComponent';
 
-import cardElementClasses from './CardElement.module.css';
+import TaskComponentClasses from './TaskComponent.module.css';
+import { dataActions } from '../store';
+import { useDispatch } from 'react-redux';
 
+/**
+ * @param {{ card: Card }} props
+ */
 const Card = function (props) {
-  const onDeleteHandler = function () {
-    props.onDelete(props.id);
+  const { card } = props;
+
+  console.log(card);
+
+  const dispatch = useDispatch();
+
+  const onCardDelete = function () {
+    dispatch(dataActions.deleteCard({ id: card.id }));
   };
+
+  const date = new Date(card.date);
+  const now = new Date();
+
+  const diffTime = date - now;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+  // const specificDate = card.specificDate;
+  // const text = card.card;
+  // const id = card.id;
+  const happened = diffDays < 0 ? 'true' : '';
+  const withinThreeDays =
+    diffDays <= 2 && diffDays >= 0 && diffDays !== 0 ? 'true' : '';
+  const today = diffDays === 0 ? 'true' : '';
 
   return (
     <div
-      key={props.id}
       className={`${classes.card} ${
-        props.happened === 'true' ? classes['card-black'] : ''
+        happened === 'true' ? classes['card-black'] : ''
       }`}
     >
-      <button onClick={onDeleteHandler} className={classes.btnClose}>
+      <button onClick={onCardDelete} className={classes.btnClose}>
         &#10006;
       </button>
       <div className={classes.date}>
         <h3
           className={
-            props.today === 'true'
+            today === 'true'
               ? classes.withinSevenDays
-              : props.withinThreeDays === 'true'
+              : withinThreeDays === 'true'
               ? classes.withinSevenDays
               : ''
           }
         >
-          {props.today === 'true' ? 'TODAY' : props.dayName}
+          {props.today === 'true' ? 'TODAY' : dayName}
         </h3>
-        <h4>{props.date}</h4>
+        <h4>{card.id}</h4>
       </div>
       <TransitionGroup component='ul' className={classes.list}>
-        {props.text.map(task => (
+        {card.tasks.map(task => (
           <CSSTransition
-            key={task.idTask}
+            key={task.id}
             classNames={{
-              enterActive: cardElementClasses['fade-small-enter-active'],
-              enter: cardElementClasses['fade-small-enter'],
-              exitActive: cardElementClasses['fade-small-exit-active'],
-              exit: cardElementClasses['fade-small-exit'],
+              enterActive: TaskComponentClasses['fade-small-enter-active'],
+              enter: TaskComponentClasses['fade-small-enter'],
+              exitActive: TaskComponentClasses['fade-small-exit-active'],
+              exit: TaskComponentClasses['fade-small-exit'],
             }}
             timeout={300}
           >
-            <CardElement
-              key={task.idTask}
-              id={props.id}
-              text={task}
-              onTaskDelete={props.onTaskDelete}
-            />
+            <CardElement task={task} cardId={card.id} />
           </CSSTransition>
         ))}
       </TransitionGroup>
