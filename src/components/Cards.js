@@ -5,10 +5,29 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import cardClasses from './Card.module.css';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLoaderData } from 'react-router-dom';
+import { useEffect } from 'react';
+import { dataActions } from '../store';
 
 const Cards = function () {
-  const cards = useSelector(state => state.cards);
+  const dispatch = useDispatch();
+
+  const cards = useSelector(state => state.data.cards);
+  const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
+
+  // const data = useLoaderData();
+  // console.log(data);
+
+  useEffect(() => {
+    if (cardsFromLocalStorage !== null) {
+      dispatch(dataActions.setCards(cardsFromLocalStorage));
+    } else {
+      dispatch(dataActions.setCards([]));
+    }
+  }, []);
+
+  console.log(cards);
 
   const hasCards = cards.length > 0;
 
@@ -47,6 +66,11 @@ const Cards = function () {
       </TransitionGroup>
     </div>
   );
+};
+
+export const loader = function () {
+  const cards = localStorage.getItem('cards');
+  return cards;
 };
 
 export default Cards;

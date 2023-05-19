@@ -52,7 +52,7 @@ const Card = function (props) {
               : ''
           }
         >
-          {props.today === 'true' ? 'TODAY' : dayName}
+          {today === 'true' ? 'TODAY' : dayName}
         </h3>
         <h4>{card.id}</h4>
       </div>

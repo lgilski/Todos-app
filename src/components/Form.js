@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Button from './UI/Button';
 
 import classes from './Form.module.css';
@@ -34,12 +34,12 @@ function formatDate(date) {
   return date.toLocaleDateString('pl-PL'); // DD.MM.YYYY
 }
 
-const Form = function () {
+const FormCards = function () {
   const taskInputRef = useRef();
   const [date, setDate] = useState(new Date());
 
   const dispatch = useDispatch();
-  const cards = useSelector(state => state.cards);
+  const cards = useSelector(state => state.data.cards);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -84,4 +84,4 @@ const Form = function () {
   );
 };
 
-export default Form;
+export default FormCards;

@@ -1,18 +1,18 @@
 .wrapper {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-items: center;
+  gap: 8px;
 }
 
 .subtitle {
-  font-size: 72px;
+  font-size: 48px;
   color: #9bd7d2;
   font-weight: 800;
-  margin-top: 16px;
 }
 
-p {
+.wrapper p {
   font-size: 48px;
   color: #049a8f;
 }
@@ -21,7 +21,7 @@ p {
   .subtitle {
     font-size: 54px;
   }
-  p {
+  .wrapper p {
     font-size: 32px;
   }
 }

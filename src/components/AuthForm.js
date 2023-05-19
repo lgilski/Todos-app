@@ -1,0 +1,72 @@
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigation,
+  useSearchParams,
+} from 'react-router-dom';
+
+import classes from './AuthForm.module.css';
+
+function AuthForm() {
+  const data = useActionData();
+  const navigation = useNavigation();
+
+  console.log(data);
+
+  const [searchParams] = useSearchParams();
+  const isLogin = searchParams.get('mode') === 'login';
+  const isSubmitting = navigation.state === 'submitting';
+
+  // if (data?.user?.email) {
+  //   console.log('suuuuu');
+  // }
+
+  return (
+    <div className={classes.wrapper}>
+      <Form method='post' className={classes.authForm}>
+        <h4>{isLogin ? 'Log in to account' : 'Create a new user'}</h4>
+        {data && data.error && (
+          <ul>
+            {Object.values(data.errors).map(err => (
+              <li key={err}>{err}</li>
+            ))}
+          </ul>
+        )}
+        {data && data.message && <p>{data.message}</p>}
+        <p>
+          <label htmlFor='email'>Email</label>
+          <input id='email' type='email' name='email' required></input>
+        </p>
+        <p>
+          <label htmlFor='password'>Password</label>
+          <input id='password' type='password' name='password' required></input>
+        </p>
+        {!isLogin && (
+          <p>
+            <label htmlFor='password'>Repeat password</label>
+            <input
+              id='passwordRepeat'
+              type='password'
+              name='passwordRepeat'
+              required
+            ></input>
+          </p>
+        )}
+        <div className={classes['auth-form--buttons']}>
+          <Link
+            to={`?mode=${isLogin ? 'signup' : 'login'}`}
+            className={classes['auth-form--link']}
+          >
+            {isLogin ? 'Create account' : 'Log in'}
+          </Link>
+          <button className={classes['auth-form-submit']}>
+            {isSubmitting ? 'Submitting...' : isLogin ? 'Log in' : 'Sign up'}
+          </button>
+        </div>
+      </Form>
+    </div>
+  );
+}
+
+export default AuthForm;

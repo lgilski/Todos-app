@@ -32,6 +32,19 @@ const dataSlice = createSlice({
         return new Date(a.date) - new Date(b.date);
       });
 
+      fetch(
+        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+          localStorage.getItem('email').split('.').join('-') +
+          '/cards.json',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state.cards),
+        }
+      );
+
       localStorage.setItem('cards', JSON.stringify(state.cards));
       return state;
     },
@@ -42,6 +55,19 @@ const dataSlice = createSlice({
      */
     deleteCard(state, action) {
       state.cards = state.cards.filter(card => card.id !== action.payload.id);
+
+      fetch(
+        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+          localStorage.getItem('email').split('.').join('-') +
+          '/cards.json',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state.cards),
+        }
+      );
 
       localStorage.setItem('cards', JSON.stringify(state.cards));
 
@@ -55,13 +81,26 @@ const dataSlice = createSlice({
     createTask(state, action) {
       // console.log('createTask', action);
 
-      state.cards.filter(card => {
+      state.cards.forEach(card => {
         if (card.id !== action.payload.cardId) return card;
 
         card.tasks = [action.payload.task, ...card.tasks];
 
         // return { ...card, tasks: [...card.tasks, action.payload.task] };
       });
+
+      fetch(
+        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+          localStorage.getItem('email').split('.').join('-') +
+          '/cards.json',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state.cards),
+        }
+      );
 
       localStorage.setItem('cards', JSON.stringify(state.cards));
       return state;
@@ -81,6 +120,19 @@ const dataSlice = createSlice({
         return card;
       });
 
+      fetch(
+        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+          localStorage.getItem('email').split('.').join('-') +
+          '/cards.json',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state.cards),
+        }
+      );
+
       localStorage.setItem('cards', JSON.stringify(state.cards));
       return state;
     },
@@ -88,7 +140,7 @@ const dataSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: dataSlice.reducer,
+  reducer: { data: dataSlice.reducer },
 });
 
 export const dataActions = dataSlice.actions;

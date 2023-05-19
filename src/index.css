@@ -22,3 +22,15 @@ body {
   );
   /* 023436 */
 }
+
+.developement {
+  font-size: 72px;
+  font-weight: 600;
+  text-align: center;
+  max-width: 1000px;
+  margin: 128px auto;
+
+  color: #95e0dc;
+
+  border-bottom: #09ada4 3px solid;
+}

@@ -1,0 +1,41 @@
+.wrapper {
+  max-width: 1000px;
+  margin: 128px auto;
+}
+
+.loginToGetAccess {
+  font-size: 72px;
+  font-weight: 600;
+  text-align: center;
+  max-width: 1000px;
+
+  color: #95e0dc;
+
+  /* border-bottom: #09ada4 3px solid; */
+}
+
+.signup,
+.signup:link,
+.signup:active {
+  font-size: 24px;
+  margin: 8px;
+
+  color: aliceblue;
+
+  transition: all 0.3s;
+}
+
+.signup:hover,
+.signup:active {
+  color: #4fcbc4;
+}
+
+.cards--h2 {
+  color: #95e0dc;
+  font-weight: 400;
+}
+
+.textContainer {
+  margin-top: 64px;
+  text-align: center;
+}
