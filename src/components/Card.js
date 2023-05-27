@@ -25,9 +25,7 @@ const Card = function (props) {
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-  // const specificDate = card.specificDate;
-  // const text = card.card;
-  // const id = card.id;
+
   const happened = diffDays < 0 ? 'true' : '';
   const withinThreeDays =
     diffDays <= 2 && diffDays >= 0 && diffDays !== 0 ? 'true' : '';

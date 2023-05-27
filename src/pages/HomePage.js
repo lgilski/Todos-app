@@ -1,6 +1,6 @@
 import { useRouteLoaderData } from 'react-router-dom';
 import classes from './HomePage.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { dataActions } from '../store';
 
@@ -9,9 +9,6 @@ function HomePage() {
 
   const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
 
-  // const data = useLoaderData();
-  // console.log(data);
-
   useEffect(() => {
     if (cardsFromLocalStorage !== null) {
       dispatch(dataActions.setCards(cardsFromLocalStorage));
@@ -19,12 +16,7 @@ function HomePage() {
       dispatch(dataActions.setCards([]));
     }
   }, []);
-
-  // const user = useSelector(state => state.user.user);
-
-  // const token = useRouteLoaderData('root');
-  const { token, email } = useRouteLoaderData('root');
-  // const email = localStorage.getItem('email');
+  const { email } = useRouteLoaderData('root');
 
   return (
     <>
@@ -37,7 +29,7 @@ function HomePage() {
         </div>
       </section>
       <section className={classes.wrapper}>
-        <h3 className={classes.subheader}>We have many cool features</h3>
+        <h3 className={classes.subheader}>We have many UwU features</h3>
         <div className={classes.features}>
           <div className={classes['features-element']}>
             <ion-icon name='albums-sharp'></ion-icon>
@@ -52,11 +44,11 @@ function HomePage() {
           </div>
           <div className={classes['features-element']}>
             <ion-icon name='cloud-done-sharp'></ion-icon>
-            <p>All your things are saved on your account</p>
+            <p>All your cards are saved on your account</p>
           </div>
           <div className={classes['features-element']}>
             <ion-icon name='timer-sharp'></ion-icon>
-            <p>You can set multiple cool timers in sequence</p>
+            <p>You can set multiple OwO timers in sequence</p>
           </div>
           <div className={classes['features-element']}>
             <ion-icon name='search-sharp'></ion-icon>

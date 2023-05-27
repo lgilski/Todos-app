@@ -6,7 +6,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cardClasses from './Card.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoaderData } from 'react-router-dom';
 import { useEffect } from 'react';
 import { dataActions } from '../store';
 
@@ -16,9 +15,6 @@ const Cards = function () {
   const cards = useSelector(state => state.data.cards);
   const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
 
-  // const data = useLoaderData();
-  // console.log(data);
-
   useEffect(() => {
     if (cardsFromLocalStorage !== null) {
       dispatch(dataActions.setCards(cardsFromLocalStorage));
@@ -26,8 +22,6 @@ const Cards = function () {
       dispatch(dataActions.setCards([]));
     }
   }, []);
-
-  console.log(cards);
 
   const hasCards = cards.length > 0;
 

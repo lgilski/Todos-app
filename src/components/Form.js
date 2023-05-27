@@ -75,10 +75,17 @@ const FormCards = function () {
         ref={taskInputRef}
         type='text'
         name='your task'
+        id='your task'
         required
       />
       <label htmlFor='days'>On what day will it be?</label>
-      <input type='date' name='days' onChange={onDataChange} required />
+      <input
+        type='date'
+        name='days'
+        id='days'
+        onChange={onDataChange}
+        required
+      />
       <Button type='submit'>Add</Button>
     </form>
   );

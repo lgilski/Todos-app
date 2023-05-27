@@ -1,7 +1,11 @@
+import TimerForm from '../components/TimerForm';
+import Timers from '../components/Timers';
+
 function TimerPage() {
   return (
     <section>
-      <div className='developement'>Timer page is still in developement</div>
+      <TimerForm />
+      <Timers />
     </section>
   );
 }

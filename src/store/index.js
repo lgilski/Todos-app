@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import timerReducer from './timer';
 
 /**
  * @type {DataState}
@@ -25,7 +26,6 @@ const dataSlice = createSlice({
      * @param {{ payload: Card }} action
      */
     createCard(state, action) {
-      // console.log('createCard', action);
       state.cards.push(action.payload);
 
       state.cards.sort(function (a, b) {
@@ -33,7 +33,7 @@ const dataSlice = createSlice({
       });
 
       fetch(
-        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+        process.env.REACT_APP_FIREBASE_LINK +
           localStorage.getItem('email').split('.').join('-') +
           '/cards.json',
         {
@@ -57,7 +57,7 @@ const dataSlice = createSlice({
       state.cards = state.cards.filter(card => card.id !== action.payload.id);
 
       fetch(
-        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+        process.env.REACT_APP_FIREBASE_LINK +
           localStorage.getItem('email').split('.').join('-') +
           '/cards.json',
         {
@@ -79,8 +79,6 @@ const dataSlice = createSlice({
      * @param {{ payload: { cardId: string, task: Task } }} action
      */
     createTask(state, action) {
-      // console.log('createTask', action);
-
       state.cards.forEach(card => {
         if (card.id !== action.payload.cardId) return card;
 
@@ -90,7 +88,7 @@ const dataSlice = createSlice({
       });
 
       fetch(
-        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+        process.env.REACT_APP_FIREBASE_LINK +
           localStorage.getItem('email').split('.').join('-') +
           '/cards.json',
         {
@@ -121,7 +119,7 @@ const dataSlice = createSlice({
       });
 
       fetch(
-        'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app/' +
+        process.env.REACT_APP_FIREBASE_LINK +
           localStorage.getItem('email').split('.').join('-') +
           '/cards.json',
         {
@@ -140,7 +138,7 @@ const dataSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: { data: dataSlice.reducer },
+  reducer: { data: dataSlice.reducer, timers: timerReducer },
 });
 
 export const dataActions = dataSlice.actions;

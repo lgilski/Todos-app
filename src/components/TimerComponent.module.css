@@ -1,0 +1,90 @@
+.timer {
+  margin: 32px auto;
+  max-width: 700px;
+  background-color: #95e0dc;
+  padding: 30px;
+  position: relative;
+}
+
+/* 4fcbc4 */
+
+.timer-close--btn {
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  background-color: #00bfb3;
+  color: #023436;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.timer-close--btn:hover,
+.timer-close--btn:active {
+  background-color: #023436;
+  color: #f0fbfa;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer-time {
+  text-align: center;
+  font-size: 64px;
+}
+
+.timer-name {
+  text-align: center;
+  font-size: 24px;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.timer-buttons button {
+  cursor: pointer;
+  font-size: 32px;
+  height: 100px;
+  width: 100px;
+  border: none;
+  border-radius: 100%;
+  transition: all 0.4s;
+}
+
+.timer-buttons--start {
+  background-color: #3ab09e;
+}
+
+.timer-buttons--start:hover,
+.timer-buttons--start:active {
+  background-color: #023436;
+  color: aliceblue;
+}
+
+.timer-buttons--stop {
+  background-color: #f0fbfa;
+}
+
+.timer-buttons--stop:hover,
+.timer-buttons--stop:active {
+  background-color: #e09498;
+  color: aliceblue;
+}
+
+.timer-buttons--reset {
+  background-color: #96cbe0;
+}
+
+.timer-buttons--reset:hover,
+.timer-buttons--reset:active {
+  background-color: #b1abdd;
+  color: aliceblue;
+}

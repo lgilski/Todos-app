@@ -1,0 +1,68 @@
+.wrapper {
+  max-width: 1400px;
+  margin: 64px auto;
+}
+
+.timerForm {
+  font-size: 28px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #3ab09e;
+  max-width: 600px;
+  margin: auto;
+
+  border-radius: 8px;
+}
+
+.timerForm-list {
+  list-style: none;
+}
+
+.timerForm-list li {
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 10px; */
+}
+
+.timerForm-list input {
+  width: 200px;
+  display: block;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  background-color: #99e5e1;
+  font-size: 20px;
+}
+
+.timerForm-list label {
+  font-size: 24px;
+}
+
+.timerForm-list input[type='number'] {
+  width: 100px;
+}
+
+.timerForm-list input[type='text'] {
+  margin-bottom: 20px;
+}
+
+.timerForm button {
+  align-self: flex-end;
+}
+
+li.timerForm-list--time {
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.timerForm-list--time-element label {
+  display: flex;
+  justify-content: center;
+}
+
+.border {
+  border-bottom: 3px solid #2e8d7e;
+  margin: 30px 0;
+}
