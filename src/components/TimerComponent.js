@@ -12,8 +12,6 @@ const TimerComponent = props => {
   const countDownTime = useRef(null);
   const timerData = props.timerData;
 
-  console.log(timerData.id);
-
   const completeTimeInSeconds =
     timerData.hours * 60 * 60 + timerData.minutes * 60 + timerData.seconds * 1;
 
