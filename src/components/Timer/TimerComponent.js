@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 
 import classes from './TimerComponent.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { timerActions } from '../store/timer';
+import { timerActions } from '../../store/timer';
 import TimerForm from './TimerForm';
 
 const ModalWindow = function ({ timerId, timerData }) {

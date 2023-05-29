@@ -3,7 +3,7 @@ import classes from './Card.module.css';
 import CardElement from './TaskComponent';
 
 import TaskComponentClasses from './TaskComponent.module.css';
-import { dataActions } from '../store';
+import { dataActions } from '../../store';
 import { useDispatch } from 'react-redux';
 
 /**

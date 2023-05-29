@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import classes from './TimerForm.module.css';
-import Button from './UI/Button';
+import Button from '../UI/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { timerActions } from '../store/timer';
+import { timerActions } from '../../store/timer';
 
 function generateUUID() {
   var d = new Date().getTime();

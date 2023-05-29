@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import Button from './UI/Button';
+import Button from '../UI/Button';
 
-import classes from './Form.module.css';
-import { dataActions } from '../store';
+import classes from './FormCard.module.css';
+import { dataActions } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 
 /**

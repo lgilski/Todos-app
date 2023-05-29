@@ -7,7 +7,7 @@ import cardClasses from './Card.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { dataActions } from '../store';
+import { dataActions } from '../../store';
 
 const Cards = function () {
   const dispatch = useDispatch();

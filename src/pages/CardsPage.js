@@ -1,5 +1,5 @@
-import FormCards from '../components/Form';
-import Cards from '../components/Cards';
+import FormCards from '../components/CardsFolder/FormCard';
+import Cards from '../components/CardsFolder/Cards';
 import { Link, useRouteLoaderData } from 'react-router-dom';
 
 import classes from './CardsPage.module.css';

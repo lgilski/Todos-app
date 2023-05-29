@@ -4,7 +4,7 @@ import classes from './TimerCountDownMethod.module.css';
 
 import buttonClasses from './TimerComponent.module.css';
 
-import { timerActions } from '../store/timer';
+import { timerActions } from '../../store/timer';
 
 function TimerCountDownMethod() {
   const dispatch = useDispatch();

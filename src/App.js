@@ -11,7 +11,7 @@ import { action as logoutAction } from './components/Logout';
 import { dataLoader } from './utils/auth';
 import ErrorPage from './pages/Error';
 
-import { loader as cardsLoader } from './components/Cards';
+import { loader as cardsLoader } from './components/CardsFolder/Cards';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { dataActions } from './store';

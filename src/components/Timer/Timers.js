@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import TimerComponent from './TimerComponent';
-import { timerActions } from '../store/timer';
+import { timerActions } from '../../store/timer';
 import { useEffect } from 'react';
 
 function Timers() {

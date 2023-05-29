@@ -1,6 +1,6 @@
-import TimerCountDownMethod from '../components/TimerCountDownMethod';
-import TimerForm from '../components/TimerForm';
-import Timers from '../components/Timers';
+import TimerCountDownMethod from '../components/Timer/TimerCountDownMethod';
+import TimerForm from '../components/Timer/TimerForm';
+import Timers from '../components/Timer/Timers';
 
 function TimerPage() {
   return (

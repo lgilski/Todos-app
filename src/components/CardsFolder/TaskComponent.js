@@ -1,4 +1,4 @@
-import { dataActions } from '../store';
+import { dataActions } from '../../store';
 import classes from './TaskComponent.module.css';
 
 import { useDispatch } from 'react-redux';
