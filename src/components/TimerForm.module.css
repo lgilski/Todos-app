@@ -1,6 +1,6 @@
 .wrapper {
   max-width: 1400px;
-  margin: 64px auto;
+  margin: 64px auto 32px;
 }
 
 .timerForm {
@@ -77,6 +77,8 @@ li.timerForm-list--time {
   left: 50%;
   z-index: 100;
   overflow: hidden;
+
+  border-radius: 8px;
 
   transform: translate(-50%, -50%);
   z-index: 3;

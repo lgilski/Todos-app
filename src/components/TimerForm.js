@@ -27,7 +27,7 @@ function generateUUID() {
 }
 
 function TimerForm({ modal, timerId, timerData }) {
-  const timers = useSelector(state => state.timers.timers);
+  // const timers = useSelector(state => state.timers.timers);
 
   const dispatch = useDispatch();
 
@@ -89,7 +89,6 @@ function TimerForm({ modal, timerId, timerData }) {
                 id='hours'
                 name='hours'
                 onChange={onHoursChange}
-                // value={modal ? timerData.hours : ''}
                 defaultValue={modal ? timerData.hours : ''}
               />
               <label htmlFor='hours'>hours</label>
@@ -103,8 +102,6 @@ function TimerForm({ modal, timerId, timerData }) {
                 id='minutes'
                 name='minutes'
                 onChange={onMinutesChange}
-                onS
-                // value={modal ? timerData.minutes : ''}
                 defaultValue={modal ? timerData.minutes : ''}
               />
               <label htmlFor='minutes'>minutes</label>
@@ -118,7 +115,6 @@ function TimerForm({ modal, timerId, timerData }) {
                 id='seconds'
                 name='seconds'
                 onChange={onSecondsChange}
-                // value={modal ? timerData.hours : ''}
                 defaultValue={modal ? timerData.seconds : ''}
               />
               <label htmlFor='seconds'>seconds</label>
@@ -133,7 +129,7 @@ function TimerForm({ modal, timerId, timerData }) {
               type='text'
               id='timer-name'
               name='timer-name'
-              maxlength='20'
+              maxLength='20'
               autoComplete='off'
               defaultValue={modal ? timerData.timerName : ''}
             />

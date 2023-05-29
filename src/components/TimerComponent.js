@@ -4,21 +4,28 @@ import { createPortal } from 'react-dom';
 import ProgressBar from './ProgressBar';
 
 import classes from './TimerComponent.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { timerActions } from '../store/timer';
 import TimerForm from './TimerForm';
 
 const ModalWindow = function ({ timerId, timerData }) {
-  console.log(timerData);
-
   return <TimerForm modal={true} timerId={timerId} timerData={timerData} />;
 };
 
 const TimerComponent = props => {
   const dispatch = useDispatch();
 
+  const countDownMethod = useSelector(state => state.timers.countDownMethod);
+  // const startAllTimers = useSelector(state => state.timers.startAllTimers);
+  const resetAllTimers = useSelector(state => state.timers.resetAllTimers);
+
+  const startSequence = useSelector(state => state.timers.startSequence);
+  const activeIndex = useSelector(state => state.timers.activeIndex);
+
   const countDownTime = useRef(null);
   const timerData = props.timerData;
+
+  const index = props.index;
 
   const completeTimeInSeconds =
     timerData.hours * 60 * 60 + timerData.minutes * 60 + timerData.seconds * 1;
@@ -37,7 +44,10 @@ const TimerComponent = props => {
     if (timeInSeconds === 0) {
       resetTimer();
     }
+
     setStarted(true);
+
+    if (timeInSeconds !== 0) setTimeInSeconds(prevstate => prevstate - 1);
     countDownTime.current = setInterval(() => {
       setTimeInSeconds(prevstate => prevstate - 1);
     }, 1000);
@@ -49,7 +59,6 @@ const TimerComponent = props => {
   };
 
   const resetTimer = function () {
-    // clearInterval(countDownTime.current);
     setTimeInSeconds(completeTimeInSeconds);
     setStarted(false);
   };
@@ -59,6 +68,10 @@ const TimerComponent = props => {
   };
 
   const editTimerHandler = function () {
+    if (countDownMethod === 'Start in sequence') {
+      dispatch(timerActions.stopTimersInSquence());
+    }
+
     stopTimer();
     setShowModal(true);
   };
@@ -68,12 +81,42 @@ const TimerComponent = props => {
   };
 
   useEffect(() => {
-    if (timeInSeconds === 0) {
+    if (!startSequence) {
       stopTimer();
+    } else if (index === activeIndex) {
+      startTimer();
+    }
+  }, [activeIndex, startSequence]);
+
+  useEffect(() => {
+    if (
+      timeInSeconds === 0 &&
+      countDownMethod === 'Start in sequence' &&
+      index === activeIndex
+    ) {
+      dispatch(timerActions.incrementActiveIndexInSequence());
     }
   }, [timeInSeconds]);
 
   useEffect(() => {
+    if (timeInSeconds === 0) {
+      return stopTimer();
+    }
+  }, [timeInSeconds]);
+
+  useEffect(() => {
+    if (resetAllTimers) {
+      resetTimer();
+      dispatch(timerActions.resetTimers(false));
+    }
+  }, [resetAllTimers]);
+
+  useEffect(() => {
+    // if (countDownMethod === 'Start in sequence') {
+    //   dispatch(timerActions.stopTimersInSquence());
+    //   stopTimer();
+    // }
+
     resetTimer();
   }, [timerData]);
 
@@ -115,7 +158,6 @@ const TimerComponent = props => {
               ? `0${currentSeconds}`
               : currentSeconds}
           </h4>
-          {/* timerData.hours.length === 0 ? */}
           <p className={classes['timer-name']}>
             {timerData.timerName} (
             {timerData.hours.length === 0
@@ -138,32 +180,34 @@ const TimerComponent = props => {
             )
           </p>
         </div>
-        <div className={classes['timer-buttons']}>
-          {!started && (
-            <button
-              className={classes['timer-buttons--start']}
-              onClick={startTimer}
-            >
-              start
-            </button>
-          )}
-          {started && (
-            <button
-              className={classes['timer-buttons--stop']}
-              onClick={stopTimer}
-            >
-              stop
-            </button>
-          )}
-          {!started && (
-            <button
-              className={classes['timer-buttons--reset']}
-              onClick={resetTimer}
-            >
-              reset
-            </button>
-          )}
-        </div>
+        {countDownMethod === 'Manually' && (
+          <div className={classes['timer-buttons']}>
+            {!started && (
+              <button
+                className={classes['timer-buttons--start']}
+                onClick={startTimer}
+              >
+                start
+              </button>
+            )}
+            {started && (
+              <button
+                className={classes['timer-buttons--stop']}
+                onClick={stopTimer}
+              >
+                stop
+              </button>
+            )}
+            {!started && (
+              <button
+                className={classes['timer-buttons--reset']}
+                onClick={resetTimer}
+              >
+                reset
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       <ProgressBar

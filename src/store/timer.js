@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
   timers: [],
+  countDownMethod: 'Manually',
+  startAllTimers: false,
+  resetAllTimers: false,
+  activeIndex: -1,
+  startSequence: false,
 };
 
 const timerSlice = createSlice({
@@ -14,6 +18,7 @@ const timerSlice = createSlice({
 
       return state;
     },
+
     createTimer(state, action) {
       state.timers.push(action.payload);
 
@@ -21,9 +26,8 @@ const timerSlice = createSlice({
 
       return state;
     },
-    editTimer(state, action) {
-      console.log(action.payload);
 
+    editTimer(state, action) {
       state.timers.forEach(timer => {
         if (timer.id !== action.payload.timerId) return timer;
 
@@ -31,19 +35,49 @@ const timerSlice = createSlice({
         timer.minutes = action.payload.minutes;
         timer.seconds = action.payload.seconds;
         timer.timerName = action.payload.timerName;
-        // card.tasks = [action.payload.task, ...card.tasks];
 
         localStorage.setItem('timers', JSON.stringify(state.timers));
-
-        // return { ...card, tasks: [...card.tasks, action.payload.task] };
       });
     },
+
     deleteTimer(state, action) {
       state.timers = state.timers.filter(timer => timer.id !== action.payload);
 
       localStorage.setItem('timers', JSON.stringify(state.timers));
 
       return state;
+    },
+
+    /////////////////////////////////////////
+
+    // Implement counting down timers in sequence, one after another
+
+    setTimerCountDownMethod(state, action) {
+      state.countDownMethod = action.payload;
+    },
+
+    startTimers(state, action) {
+      state.startAllTimers = action.payload;
+    },
+
+    resetTimers(state, action) {
+      state.resetAllTimers = action.payload;
+      state.activeIndex = -1;
+    },
+
+    startTimersInSquence(state, action) {
+      state.startSequence = true;
+      if (state.activeIndex === -1) {
+        state.activeIndex = 0;
+      }
+    },
+
+    stopTimersInSquence(state, action) {
+      state.startSequence = false;
+    },
+
+    incrementActiveIndexInSequence(state, action) {
+      state.activeIndex += 1;
     },
   },
 });

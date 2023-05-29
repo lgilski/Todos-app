@@ -1,0 +1,31 @@
+.wrapper {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper:not(div) .chooseCountDownType {
+  margin: auto;
+}
+
+.chooseCountDownType {
+  max-width: 250px;
+  max-height: 75px;
+  border-radius: 8px;
+  padding: 16px;
+  /* margin: auto; */
+  background-color: #3ab09e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.chooseCountDownType select {
+  border-radius: 9px;
+  background-color: #99e5e1;
+  border: none;
+  font-size: 20px;
+  padding: 8px;
+}

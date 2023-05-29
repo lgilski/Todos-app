@@ -7,8 +7,11 @@ function Timers() {
   const dispatch = useDispatch();
 
   const timers = useSelector(state => state.timers.timers);
+  const activeIndex = useSelector(state => state.timers.activeIndex);
 
   const formatedTimers = JSON.parse(localStorage.getItem('timers'));
+
+  // timers.forEach((timer, thisArg) => console.log(thisArg));
 
   useEffect(() => {
     if (formatedTimers !== null) {
@@ -20,8 +23,8 @@ function Timers() {
 
   return (
     <>
-      {timers.map(timer => (
-        <TimerComponent key={timer.id} timerData={timer} />
+      {timers.map((timer, index) => (
+        <TimerComponent key={timer.id} timerData={timer} index={index} />
       ))}
     </>
   );
