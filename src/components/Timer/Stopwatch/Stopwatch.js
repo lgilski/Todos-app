@@ -17,7 +17,7 @@ function Stopwatch() {
 
     stopwatchRef.current = setInterval(() => {
       setTime(prevState => prevState + 1);
-    }, 100);
+    }, 10);
   };
 
   const stopStopwatch = function () {
@@ -40,13 +40,13 @@ function Stopwatch() {
   // );
 
   useEffect(() => {
-    const currentSeconds = Math.floor(time / 10);
+    const currentSeconds = Math.floor(time / 100);
 
     const currentHours = Math.floor(currentSeconds / (60 * 60));
     const currentMinutes = Math.floor(currentSeconds / 60);
     // let currentMiliseconds = time - currentSeconds * 10;
 
-    setMiliseconds(time - currentSeconds * 10);
+    setMiliseconds(time - currentSeconds * 100);
     setSeconds(
       Math.floor(
         currentSeconds - (currentHours * 60 * 60 + currentMinutes * 60)
@@ -61,7 +61,8 @@ function Stopwatch() {
       <h5 className={classes.time}>
         {hours.toString().length < 2 ? `0${hours}` : hours}:
         {minutes.toString().length < 2 ? `0${minutes}` : minutes}:
-        {seconds.toString().length < 2 ? `0${seconds}` : seconds}:{miliseconds}
+        {seconds.toString().length < 2 ? `0${seconds}` : seconds}:
+        {miliseconds.toString().length < 2 ? `0${miliseconds}` : miliseconds}
       </h5>
       <div className={classes.buttons}>
         {isStoped && (
