@@ -12,7 +12,7 @@ const Button = function (props) {
       onClick={props.onClick}
       className={`${classes.btn} ${classes[`btn-${btnFunctionality}`]} ${
         classes[`btn-${btnType}`]
-      } ${classes[`btn-color-${btnColor}  `]}`}
+      } ${classes[`btn-color-${btnColor}`]}`}
     >
       {props.children}
     </button>
