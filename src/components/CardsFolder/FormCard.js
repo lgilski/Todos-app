@@ -63,7 +63,7 @@ const FormCards = function () {
         onChange={onDataChange}
         required
       />
-      <Button type='submit' btnType='capsule' btnColor='orange'>
+      <Button type='submit' variant='capsule' color='orange'>
         Add card
       </Button>
     </form>

@@ -1,4 +1,4 @@
-function TimerDisplayTime({ time, startingTime }) {
+function DisplayTime({ time, startingTime }) {
   if (startingTime) {
     return time.length === 0
       ? '00'
@@ -10,4 +10,4 @@ function TimerDisplayTime({ time, startingTime }) {
   return time.toString().length === 1 ? `0${time}` : time;
 }
 
-export default TimerDisplayTime;
+export default DisplayTime;

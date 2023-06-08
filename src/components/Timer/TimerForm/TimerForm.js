@@ -139,7 +139,7 @@ function TimerForm({ modal, timerId, timerData }) {
             />
           </li>
         </ul>
-        <Button btnType='capsule' btnColor='orange'>
+        <Button variant='capsule' color='orange'>
           {modal ? 'Edit timer' : 'Add timer'}
         </Button>
       </form>

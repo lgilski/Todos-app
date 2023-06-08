@@ -1,21 +1,26 @@
 import React from 'react';
 
 import classes from './Button.module.css';
+import clsx from '../../utils/clsx';
 
-const Button = function (props) {
-  const btnType = props.btnType;
-  const btnColor = props.btnColor;
-  const btnFunctionality = props.btnFunctionality;
-
+const Button = function ({
+  variant,
+  color,
+  functionality,
+  className,
+  ...otherProps
+}) {
   return (
     <button
-      onClick={props.onClick}
-      className={`${classes.btn} ${classes[`btn-${btnFunctionality}`]} ${
-        classes[`btn-${btnType}`]
-      } ${classes[`btn-color-${btnColor}`]}`}
-    >
-      {props.children}
-    </button>
+      className={clsx(
+        classes.btn,
+        classes[`btn-${functionality}`],
+        classes[`btn-${variant}`],
+        classes[`btn-color-${color}`],
+        className
+      )}
+      {...otherProps}
+    />
   );
 };
 

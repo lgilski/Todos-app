@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import TimerDisplayTime from '../DisplayTime';
+import DisplayTime from '../DisplayTime';
 
 import classes from './TimerContent.module.css';
 import Button from '../../UI/Button';
@@ -11,27 +11,27 @@ function TimerContent({ functions, timerData, isCounting, currentTime }) {
     <div className={classes['timer-wrapper']}>
       <div>
         <h4 onClick={functions.editTimer} className={classes['timer-time']}>
-          <TimerDisplayTime time={currentTime.hours} />
+          <DisplayTime time={currentTime.hours} />
           :
-          <TimerDisplayTime time={currentTime.minutes} />
+          <DisplayTime time={currentTime.minutes} />
           :
-          <TimerDisplayTime time={currentTime.seconds} />
+          <DisplayTime time={currentTime.seconds} />
         </h4>
         <p className={classes['timer-name']}>
           {timerData.timerName} (
-          <TimerDisplayTime time={timerData.hours} startingTime={true} />
+          <DisplayTime time={timerData.hours} startingTime={true} />
           :
-          <TimerDisplayTime time={timerData.minutes} startingTime={true} />
+          <DisplayTime time={timerData.minutes} startingTime={true} />
           :
-          <TimerDisplayTime time={timerData.seconds} startingTime={true} />)
+          <DisplayTime time={timerData.seconds} startingTime={true} />)
         </p>
       </div>
       {countDownMethod === 'Manually' && (
         <div className={classes['timer-buttons']}>
           {!isCounting && (
             <Button
-              btnType='circle'
-              btnFunctionality='start'
+              variant='circle'
+              functionality='start'
               onClick={functions.startTimer}
             >
               start
@@ -39,8 +39,8 @@ function TimerContent({ functions, timerData, isCounting, currentTime }) {
           )}
           {isCounting && (
             <Button
-              btnType='circle'
-              btnFunctionality='stop'
+              variant='circle'
+              functionality='stop'
               onClick={functions.stopTimer}
             >
               stop
@@ -48,8 +48,8 @@ function TimerContent({ functions, timerData, isCounting, currentTime }) {
           )}
           {!isCounting && (
             <Button
-              btnType='circle'
-              btnFunctionality='reset'
+              variant='circle'
+              functionality='reset'
               onClick={functions.resetTimer}
             >
               reset

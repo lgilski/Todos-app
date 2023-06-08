@@ -44,16 +44,11 @@ function AuthForm() {
           {data && data.message && <p>{data.message}</p>}
           <p>
             <label htmlFor='email'>Email</label>
-            <input id='email' type='email' name='email' required></input>
+            <input id='email' type='email' name='email' required />
           </p>
           <p>
             <label htmlFor='password'>Password</label>
-            <input
-              id='password'
-              type='password'
-              name='password'
-              required
-            ></input>
+            <input id='password' type='password' name='password' required />
           </p>
           {!isLogin && (
             <p>
@@ -63,7 +58,7 @@ function AuthForm() {
                 type='password'
                 name='passwordRepeat'
                 required
-              ></input>
+              />
             </p>
           )}
           <div className={classes['auth-form--buttons']}>

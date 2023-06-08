@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import classes from './Stopwatch.module.css';
 import Button from '../../UI/Button';
@@ -8,10 +8,6 @@ function Stopwatch() {
 
   const [time, setTime] = useState(0);
   const [isStoped, setIsStoped] = useState(true);
-  // const [miliseconds, setMiliseconds] = useState(0);
-  // const [seconds, setSeconds] = useState(0);
-  // const [minutes, setMinutes] = useState(0);
-  // const [hours, setHours] = useState(0);
 
   const startStopwatch = function () {
     setIsStoped(false);
@@ -28,31 +24,12 @@ function Stopwatch() {
 
   const resetStopwatch = function () {
     setTime(0);
-    // setMiliseconds(0);
-    // setSeconds(0);
-    // setMinutes(0);
-    // setHours(0);
   };
 
   let currentSeconds = Math.floor(time / 100);
   let currentMiliseconds = time - currentSeconds * 100;
   let currentHours = Math.floor(currentSeconds / (60 * 60));
   let currentMinutes = Math.floor(currentSeconds / 60 - currentHours * 60);
-
-  // useEffect(() => {
-  //   // const currentSeconds = Math.floor(time / 100);
-
-  //   // const currentHours = Math.floor(currentSeconds / (60 * 60));
-  //   // const currentMinutes = Math.floor(currentSeconds / 60);
-
-  //   setMiliseconds(currentMiliseconds);
-  //   setSeconds(
-  //     Math.floor(currentSeconds - (currentHours * 3600 + currentMinutes * 60))
-  //   );
-  //   setMinutes(Math.floor(currentSeconds / 60 - currentHours * 60));
-  //   // Math.floor(currentSeconds / 60 - currentHours * 60)
-  //   setHours(currentHours);
-  // }, [time]);
 
   return (
     <>
@@ -81,8 +58,8 @@ function Stopwatch() {
         <div className={classes.buttons}>
           {isStoped && (
             <Button
-              btnType='circle'
-              btnFunctionality='start'
+              variant='circle'
+              functionality='start'
               onClick={startStopwatch}
             >
               start
@@ -90,8 +67,8 @@ function Stopwatch() {
           )}
           {!isStoped && (
             <Button
-              btnType='circle'
-              btnFunctionality='stop'
+              variant='circle'
+              functionality='stop'
               onClick={stopStopwatch}
             >
               stop
@@ -99,8 +76,8 @@ function Stopwatch() {
           )}
           {isStoped && (
             <Button
-              btnType='circle'
-              btnFunctionality='reset'
+              variant='circle'
+              functionality='reset'
               onClick={resetStopwatch}
             >
               reset

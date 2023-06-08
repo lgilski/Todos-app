@@ -3,7 +3,6 @@ import classes from './HomePage.module.css';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { dataActions } from '../store';
-import Button from '../components/UI/Button';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -32,9 +31,6 @@ function HomePage() {
               We offer a really cool way of planing your to-dos. You will surely
               have a lot of fun.
             </p>
-            {/* <Button btnType='capsule' btnColor='orange'>
-              Get started
-            </Button> */}
             <Link to='/auth?mode=signup' className={classes.mainButton}>
               Get started
             </Link>

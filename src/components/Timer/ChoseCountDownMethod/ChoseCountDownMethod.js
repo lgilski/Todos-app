@@ -49,26 +49,22 @@ function TimerCountDownMethod() {
         <div className={buttonClasses['timer-buttons']}>
           {!startedSequence && (
             <Button
-              btnType='circle'
-              btnFunctionality='start'
+              varaint='circle'
+              functionality='start'
               onClick={startSequence}
             >
               start
             </Button>
           )}
           {startedSequence && (
-            <Button
-              btnType='circle'
-              btnFunctionality='stop'
-              onClick={stopTimers}
-            >
+            <Button varaint='circle' functionality='stop' onClick={stopTimers}>
               stop
             </Button>
           )}
           {!startedSequence && (
             <Button
-              btnType='circle'
-              btnFunctionality='reset'
+              varaint='circle'
+              functionality='reset'
               onClick={resetTimers}
             >
               reset
