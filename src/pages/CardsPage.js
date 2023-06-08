@@ -14,7 +14,6 @@ function CardsPage() {
           <div className={classes.loginToGetAccess}>
             Log in to get access to your cards.
           </div>
-
           <div className={classes.textContainer}>
             <h2 className={classes['cards--h2']}>Don't have an account?</h2>
             <Link to='/auth?mode=signup' className={classes.signup}>
@@ -22,6 +21,12 @@ function CardsPage() {
             </Link>
           </div>
         </section>
+      )}
+      {token && (
+        <div className='pageTitle-center'>
+          <h5 className='subheader'>Cards page</h5>
+          <h4 className='header'>Make your to-dos</h4>
+        </div>
       )}
       {token && <FormCards />}
       {token && <Cards />}

@@ -1,6 +1,6 @@
 .timerNavigation {
-  max-width: 400px;
-  margin: auto;
+  max-width: 350px;
+  margin: 0 auto 64px;
 }
 
 .timerNavigation-list {
@@ -13,16 +13,16 @@
 .timerNavigation-list--element a:link,
 .timerNavigation-list--element a:visited {
   text-decoration: none;
-  color: aliceblue;
+  color: var(--shade-orange-90);
   list-style: none;
-  font-size: 32px;
+  font-size: 28px;
   transition: all 0.3s;
   position: relative;
 }
 
 .timerNavigation-list--element a:hover,
 .timerNavigation-list--element a:active {
-  color: #4fcbc4;
+  color: var(--tint-blue-50);
 }
 
 .active::before {
@@ -31,5 +31,5 @@
   width: 100%;
   height: 3px;
   top: 50px;
-  background-color: rgba(79, 203, 196);
+  background-color: var(--shade-orange-20);
 }

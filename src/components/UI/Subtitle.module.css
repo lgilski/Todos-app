@@ -7,21 +7,20 @@
 }
 
 .subtitle {
-  font-size: 48px;
-  color: #9bd7d2;
+  font-size: var(--heading-XXXL);
+  color: var(--color-orange-first);
   font-weight: 800;
 }
 
 .wrapper p {
-  font-size: 48px;
-  color: #049a8f;
+  font-size: var(--heading-XXXL);
+  color: var(--color-gray-first);
+  font-weight: 600;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
+  .wrapper p,
   .subtitle {
-    font-size: 54px;
-  }
-  .wrapper p {
     font-size: 32px;
   }
 }

@@ -2,7 +2,8 @@
   max-width: 1500px;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   margin: auto;
   margin-top: 64px;
@@ -22,18 +23,25 @@
   transform: translate(-50%);
 
   text-align: center;
-  background-color: #03b5aa;
-  color: #023436;
+  background-color: var(--tint-blue-30);
+  color: var(--shade-blue-90);
   padding: 16px;
-  font-size: 64px;
+  font-size: var(--heading-XXXL);
   border-radius: 9px;
   width: 450px;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1600px) {
+  .plans {
+    max-width: 1200px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {
   .plans {
     max-width: 1000px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   /* 
   .message {
@@ -43,8 +51,8 @@
 
 @media (max-width: 1000px) {
   .plans {
-    max-width: 500px;
-    grid-template-columns: repeat(1, 1fr);
+    max-width: 600px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* .message {
@@ -52,10 +60,15 @@
   } */
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .plans {
+    max-width: 300px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .message {
     width: 320px;
-    font-size: 42px;
+    font-size: var(--heading-XXL);
   }
 }
 

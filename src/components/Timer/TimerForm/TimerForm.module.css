@@ -1,18 +1,23 @@
 .wrapper {
   max-width: 1400px;
-  margin: 64px auto 32px;
+  /* margin: 64px auto 32px; */
+  margin: 0 auto 32px;
 }
 
 .timerForm {
-  font-size: 28px;
+  font-size: var(--heading-L);
   padding: 16px;
   display: flex;
   flex-direction: column;
-  background-color: #3ab09e;
-  max-width: 600px;
+  background-color: var(--tint-orange-20);
+  max-width: 500px;
   margin: auto;
 
   border-radius: 8px;
+}
+
+.timerForm-heading {
+  font-size: var(--heading-XL);
 }
 
 .timerForm-list {
@@ -29,18 +34,19 @@
   width: 200px;
   display: block;
   padding: 8px;
-  border-radius: 9px;
+  border-radius: 4px;
   border: none;
-  background-color: #99e5e1;
-  font-size: 20px;
+  background-color: var(--tint-orange-80);
+  font-size: var(--heading-L);
 }
 
 .timerForm-list label {
-  font-size: 24px;
+  font-size: var(--heading-L);
+  margin: 4px 0;
 }
 
 .timerForm-list input[type='number'] {
-  width: 100px;
+  width: 80px;
 }
 
 .timerForm-list input[type='text'] {
@@ -63,17 +69,17 @@ li.timerForm-list--time {
 }
 
 .border {
-  border-bottom: 3px solid #2e8d7e;
+  border-bottom: 3px solid var(--shade-orange-20);
   margin: 30px 0;
 }
 
 .modal {
   background-color: #00bfb3;
-  color: #023436;
+  /* color: #023436; */
 
   position: fixed;
   top: 30vh;
-  /* width: 80%; */
+  width: 400px;
   left: 50%;
   z-index: 100;
   overflow: hidden;

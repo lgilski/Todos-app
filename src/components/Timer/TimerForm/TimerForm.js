@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import classes from './TimerForm.module.css';
-import Button from '../UI/Button';
+import Button from '../../UI/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { timerActions } from '../../store/timer';
+import { timerActions } from '../../../store/timer';
 
 function generateUUID() {
   var d = new Date().getTime();
@@ -80,7 +80,9 @@ function TimerForm({ modal, timerId, timerData }) {
   return (
     <section className={`${classes.wrapper} ${modal && classes.modal} `}>
       <form className={classes.timerForm} onSubmit={onSubmit}>
-        <h4>{modal ? 'Edit your timer' : 'Create new timer'}</h4>
+        <h4 className={classes['timerForm-heading']}>
+          {modal ? 'Edit your timer' : 'Create new timer'}
+        </h4>
         <ul className={classes['timerForm-list']}>
           <li className={classes['timerForm-list--time']}>
             <div className={classes['timerForm-list--time-element']}>
@@ -93,7 +95,7 @@ function TimerForm({ modal, timerId, timerData }) {
                 onChange={onHoursChange}
                 defaultValue={modal ? timerData.hours : ''}
               />
-              <label htmlFor='hours'>hours</label>
+              <label htmlFor='hours'>Hours</label>
             </div>
             <p>:</p>
             <div className={classes['timerForm-list--time-element']}>
@@ -106,7 +108,7 @@ function TimerForm({ modal, timerId, timerData }) {
                 onChange={onMinutesChange}
                 defaultValue={modal ? timerData.minutes : ''}
               />
-              <label htmlFor='minutes'>minutes</label>
+              <label htmlFor='minutes'>Minutes</label>
             </div>
             <p>:</p>
             <div className={classes['timerForm-list--time-element']}>
@@ -119,12 +121,12 @@ function TimerForm({ modal, timerId, timerData }) {
                 onChange={onSecondsChange}
                 defaultValue={modal ? timerData.seconds : ''}
               />
-              <label htmlFor='seconds'>seconds</label>
+              <label htmlFor='seconds'>Seconds</label>
             </div>
           </li>
           <li className={classes.border}></li>
           <li>
-            <label htmlFor='timer-name'>timer name</label>
+            <label htmlFor='timer-name'>Timer name</label>
             <input
               min='0'
               onChange={onTimerNameChange}
@@ -137,7 +139,9 @@ function TimerForm({ modal, timerId, timerData }) {
             />
           </li>
         </ul>
-        <Button>{modal ? 'Edit timer' : 'Add timer'}</Button>
+        <Button btnType='capsule' btnColor='orange'>
+          {modal ? 'Edit timer' : 'Add timer'}
+        </Button>
       </form>
     </section>
   );

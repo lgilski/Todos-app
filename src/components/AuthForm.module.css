@@ -4,9 +4,9 @@
 }
 
 .authForm {
-  background-color: #355d5e;
-  color: #95e0dc;
-  max-width: 800px;
+  background-color: var(--shade-blue-50);
+  color: var(--tint-blue-50);
+  max-width: 500px;
   margin-top: 86px;
   display: flex;
   border-radius: 4px;
@@ -19,7 +19,11 @@
 }
 
 .authForm label {
-  font-size: 28px;
+  font-size: var(--heading-L);
+}
+
+.authForm p {
+  width: 100%;
 }
 
 .authForm input {
@@ -27,10 +31,10 @@
   display: block;
   padding: 8px;
   margin: 4px 0 16px;
-  border-radius: 9px;
+  border-radius: 4px;
   border: none;
-  background-color: #fff;
-  font-size: 20px;
+  background-color: var(--tint-blue-80);
+  font-size: var(--heading-L);
 }
 
 .authForm h4 {
@@ -39,8 +43,11 @@
 }
 
 .auth-form--buttons {
-  align-self: flex-end;
+  /* align-self: flex-end; */
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 
   margin-top: 12px;
   gap: 12px;
@@ -68,14 +75,16 @@
   padding: 8px;
   font-size: 24px;
   font-weight: 700;
-  border-radius: 18px;
-  background-color: aliceblue;
+  border-radius: 4px;
+  background-color: var(--color-blue-first);
+  color: var(--shade-blue-90);
+
+  width: 100%;
 
   transition: all 0.3s;
 }
 
 .auth-form-submit:hover,
 .auth-form-submit:active {
-  background-color: #4fcbc4;
-  color: aliceblue;
+  background-color: var(--tint-blue-50);
 }

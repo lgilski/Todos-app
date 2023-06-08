@@ -27,7 +27,11 @@
 .list-element {
   position: relative;
   width: 90%;
-  background-color: #00bfb3;
+  /* background-color: #00bfb3; */
+  /* background-color: var(--tint-orange-20); */
+  background-color: var(--tint-orange-80);
+  /* background-color: var(--shade-orange-30); */
+  color: var();
   padding: 30px 8px 4px 8px;
   border-radius: 9px;
   margin-bottom: 8px;
@@ -54,7 +58,7 @@
   transition: all 0.3s ease-in-out;
   padding: 30px 8px 4px 8px;
   width: 90%;
-  font-size: 24px;
+  font-size: var(--heading-L);
   margin-bottom: 8px;
 }
 

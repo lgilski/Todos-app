@@ -1,0 +1,36 @@
+.timer-name {
+  text-align: center;
+  font-size: 24px;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer-time {
+  cursor: pointer;
+  text-align: center;
+  font-size: 64px;
+  transition: all 0.3s;
+}
+
+.timer-time:hover,
+.timer-time:active {
+  color: var(--shade-orange-10);
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* .timer-buttons button {
+  cursor: pointer;
+  font-size: 32px;
+  height: 100px;
+  width: 100px;
+  border: none;
+  border-radius: 100%;
+  transition: all 0.4s;
+} */

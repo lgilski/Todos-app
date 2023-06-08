@@ -1,21 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import classes from './TimerCountDownMethod.module.css';
+import classes from './ChoseCountDownMethod.module.css';
 
-import buttonClasses from './TimerComponent.module.css';
+import buttonClasses from '../TimerContent/TimerContent.module.css';
 
-import { timerActions } from '../../store/timer';
+import { timerActions } from '../../../store/timer';
+import Button from '../../UI/Button';
 
 function TimerCountDownMethod() {
   const dispatch = useDispatch();
 
   const countDownMethod = useSelector(state => state.timers.countDownMethod);
-  // const startAllTimers = useSelector(state => state.timers.startAllTimers);
   const startedSequence = useSelector(state => state.timers.startSequence);
-
-  // const startSequence = function () {
-  //   dispatch(timerActions.startTimersInSquence());
-  // };
 
   const startSequence = function () {
     dispatch(timerActions.startTimersInSquence());
@@ -52,28 +48,31 @@ function TimerCountDownMethod() {
       {countDownMethod === 'Start in sequence' && (
         <div className={buttonClasses['timer-buttons']}>
           {!startedSequence && (
-            <button
-              className={buttonClasses['timer-buttons--start']}
+            <Button
+              btnType='circle'
+              btnFunctionality='start'
               onClick={startSequence}
             >
               start
-            </button>
+            </Button>
           )}
           {startedSequence && (
-            <button
-              className={buttonClasses['timer-buttons--stop']}
+            <Button
+              btnType='circle'
+              btnFunctionality='stop'
               onClick={stopTimers}
             >
               stop
-            </button>
+            </Button>
           )}
           {!startedSequence && (
-            <button
-              className={buttonClasses['timer-buttons--reset']}
+            <Button
+              btnType='circle'
+              btnFunctionality='reset'
               onClick={resetTimers}
             >
               reset
-            </button>
+            </Button>
           )}
         </div>
       )}

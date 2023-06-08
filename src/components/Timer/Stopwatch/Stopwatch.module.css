@@ -2,7 +2,7 @@
   max-width: 550px;
   padding: 20px;
   font-size: 72px;
-  background-color: #95e0dc;
+  background-color: var(--tint-orange-50);
   color: aliceblue;
   margin: 64px auto;
   display: flex;
@@ -10,6 +10,7 @@
   align-items: center;
   border-radius: 6px;
 }
+
 .time {
   font-size: 86px;
   color: #000;
@@ -23,42 +24,5 @@
 }
 
 .buttons button {
-  cursor: pointer;
-  font-size: 36px;
-  height: 128px;
-  width: 128px;
-  border: none;
-  border-radius: 100%;
-  transition: all 0.4s;
   margin-bottom: 24px;
-}
-
-.buttons--start {
-  background-color: #3ab09e;
-}
-
-.buttons--start:hover,
-.buttons--start:active {
-  background-color: #023436;
-  color: aliceblue;
-}
-
-.buttons--stop {
-  background-color: #f0fbfa;
-}
-
-.buttons--stop:hover,
-.buttons--stop:active {
-  background-color: #e09498;
-  color: aliceblue;
-}
-
-.buttons--reset {
-  background-color: #96cbe0;
-}
-
-.buttons--reset:hover,
-.buttons--reset:active {
-  background-color: #b1abdd;
-  color: aliceblue;
 }

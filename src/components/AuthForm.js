@@ -12,20 +12,14 @@ function AuthForm() {
   const data = useActionData();
   const navigation = useNavigation();
 
-  console.log(data);
-
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get('mode') === 'login';
   const isSubmitting = navigation.state === 'submitting';
 
-  // if (data?.user?.email) {
-  //   console.log('suuuuu');
-  // }
-
   return (
     <div className={classes.wrapper}>
       <Form method='post' className={classes.authForm}>
-        <h4>{isLogin ? 'Log in to account' : 'Create a new user'}</h4>
+        <h4>{isLogin ? 'Log in' : 'Create a new user'}</h4>
         {data && data.error && (
           <ul>
             {Object.values(data.errors).map(err => (
@@ -54,15 +48,15 @@ function AuthForm() {
           </p>
         )}
         <div className={classes['auth-form--buttons']}>
+          <button className={classes['auth-form-submit']}>
+            {isSubmitting ? 'Submitting...' : isLogin ? 'Log in' : 'Sign up'}
+          </button>
           <Link
             to={`?mode=${isLogin ? 'signup' : 'login'}`}
             className={classes['auth-form--link']}
           >
             {isLogin ? 'Create account' : 'Log in'}
           </Link>
-          <button className={classes['auth-form-submit']}>
-            {isSubmitting ? 'Submitting...' : isLogin ? 'Log in' : 'Sign up'}
-          </button>
         </div>
       </Form>
     </div>

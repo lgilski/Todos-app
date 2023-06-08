@@ -1,36 +1,48 @@
 .card {
   transition: all 0.5s;
   position: relative;
-  /* background-color: #b3ece8; */
-  background: linear-gradient(
-    135deg,
-    rgba(179, 236, 232, 1) 0%,
-    rgba(161, 212, 209, 1) 100%
-  );
-  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+  background-color: var(--tint-orange-50);
+  box-shadow: var(--shadow-S);
   display: block;
-  width: 450px;
+  /* width: 450px; */
+  /* width: 300px; */
+  width: 270px;
   /* margin: 0 100px; */
-  padding: 24px;
+  padding: 16px;
   border-radius: 9px;
 
-  color: #023436;
-  font-size: 24px;
+  color: var(--shade-orange-80);
+  font-size: var(--heading-L);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 30%);
+  transform: translateY(-6px);
+  /* box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 30%); */
+  box-shadow: var(--shadow-M);
 }
 
 .card-black {
-  /* background-color: #355d5e; */
-  background: linear-gradient(
+  /* background-color: var(--tint-orange-10); */
+  background-color: var(--shade-orange-50);
+  /* background: linear-gradient(
     135deg,
     rgba(53, 93, 94, 1) 0%,
     rgba(93, 125, 126, 1) 100%
-  );
+  ); */
 }
+
+.card-black h3,
+.card-black h4 {
+  color: var(--tint-orange-90);
+}
+
+.card-black .btnClose {
+  background-color: var(--shade-orange-10);
+}
+
+/* .card-black .btnClose:hover,
+.card-black .btnClose :active {
+} */
 
 .card ul {
   list-style: none;
@@ -48,12 +60,14 @@
 }
 
 .date h3 {
-  font-size: 64px;
+  /* font-size: 54px; */
+  font-size: var(--heading-XXXL);
   font-weight: 800;
 }
 
 .date h4 {
-  font-size: 40px;
+  /* font-size: 40px; */
+  font-size: var(--heading-XXL);
 }
 
 .btnClose {
@@ -62,7 +76,8 @@
   height: 36px;
   right: 8px;
   top: 8px;
-  background-color: #00bfb3;
+  background-color: var(--shade-orange-50);
+  color: var(--tint-orange-90);
   text-align: center;
 
   font-size: 20px;
@@ -77,9 +92,9 @@
 .btnClose:hover,
 .btnClose:active {
   cursor: pointer;
-  background-color: #023436;
-  color: #e6f9f7;
-  transition: all 0.2s;
+  background-color: var(--tint-orange-90);
+  color: var(--shade-orange-50);
+  transition: all 0.3s;
 }
 
 .list {
@@ -89,21 +104,22 @@
 }
 
 .withinSevenDays {
-  color: #029188;
+  /* color: #029188; */
+  color: var(--shade-blue-20);
 }
 
 @media (max-width: 500px) {
-  .card {
+  /* .card {
     width: 320px;
-  }
+  } */
 
-  .date h3 {
+  /* .date h3 {
     font-size: 48px;
   }
 
   .date h4 {
     font-size: 32px;
-  }
+  } */
 }
 
 .fade-enter {

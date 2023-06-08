@@ -16,7 +16,7 @@
   border-radius: 8px;
   padding: 16px;
   /* margin: auto; */
-  background-color: #3ab09e;
+  background-color: var(--shade-orange-50);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -24,7 +24,7 @@
 
 .chooseCountDownType select {
   border-radius: 9px;
-  background-color: #99e5e1;
+  background-color: var(--tint-orange-80);
   border: none;
   font-size: 20px;
   padding: 8px;
