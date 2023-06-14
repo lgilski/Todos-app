@@ -25,12 +25,12 @@
   gap: 10px;
 }
 
-/* .timer-buttons button {
-  cursor: pointer;
-  font-size: 32px;
-  height: 100px;
-  width: 100px;
-  border: none;
-  border-radius: 100%;
-  transition: all 0.4s;
-} */
+@media (max-width: 580px) {
+  .timer-time {
+    font-size: 48px;
+  }
+
+  .timer-name {
+    font-size: 18px;
+  }
+}

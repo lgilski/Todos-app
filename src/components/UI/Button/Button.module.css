@@ -89,3 +89,11 @@
   background-color: var(--shade-blue-20);
   color: var(--tint-blue-80);
 }
+
+@media (max-width: 580px) {
+  .btn-circle {
+    height: 92px;
+    width: 92px;
+    font-size: 28px;
+  }
+}

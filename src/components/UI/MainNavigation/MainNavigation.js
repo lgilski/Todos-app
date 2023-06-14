@@ -5,19 +5,63 @@ import Subtitle from '../Subtitle/Subtitle';
 import { useMediaPredicate } from 'react-media-hook';
 import NavButton from '../NavButton/NavButton';
 import Button from '../Button/Button';
+import { useEffect, useState } from 'react';
+import clsx from '../../../utils/clsx';
+import { CSSTransition } from 'react-transition-group';
+import { createPortal } from 'react-dom';
+import CloseButton from '../CloseButton/CloseButton';
+
+function Blur({ showMobileNav }) {
+  return createPortal(
+    <div onClick={showMobileNav} className={classes.blur} />,
+    document.getElementById('overlay-root')
+  );
+}
 
 function MainNavigation() {
   const { token } = useRouteLoaderData('root');
 
   const lessThan1100 = useMediaPredicate('(max-width: 1100px)');
 
+  const [showMobile, setShowMobile] = useState(false);
+
+  const showMobileNav = function () {
+    setShowMobile(prevState => !prevState);
+  };
+
+  useEffect(() => {
+    if (!lessThan1100) {
+      setShowMobile(false);
+    }
+  }, [lessThan1100]);
+
   return (
     <header className={classes.wrapper}>
       <Subtitle />
       <nav>
-        {lessThan1100 && <ion-icon name='menu' />}
-        {!lessThan1100 && (
-          <ul className={classes.navList}>
+        {lessThan1100 && (
+          <ion-icon
+            name={showMobile ? 'close' : 'menu'}
+            onClick={showMobileNav}
+          />
+        )}
+        <CSSTransition
+          classNames={{
+            enterActive: classes['fade-enter-active'],
+            enter: classes['fade-enter'],
+            exitActive: classes['fade-exit-active'],
+            exit: classes['fade-exit'],
+          }}
+          timeout={300}
+          in={showMobile}
+        >
+          <ul
+            className={clsx(
+              classes.navList,
+              lessThan1100 && classes.mobile,
+              showMobile && classes.showMobile
+            )}
+          >
             <NavButton className={classes.navListItem} to='/' end={true}>
               Home
             </NavButton>
@@ -39,17 +83,6 @@ function MainNavigation() {
               >
                 Log In
               </NavButton>
-              // <li>
-              //   <NavLink
-              //     to='/auth?mode=login'
-              //     className={({ isActive }) =>
-              //       isActive ? `${classes.active}` : null
-              //     }
-              //     end
-              //   >
-              //     Log in
-              //   </NavLink>
-              // </li>
             )}
             {token && (
               <li>
@@ -57,31 +90,23 @@ function MainNavigation() {
                   <Button variant='logout' color='logout'>
                     Log out
                   </Button>
-                  {/* <button
-                    className={clsx(
-                      // classes['navItem-auth--button'],
-                      // classes['navItem-auth'],
-                      classes.logout
-                    )}
-                  >
-                    Log out
-                  </button> */}
                 </Form>
               </li>
             )}
-            {/* <li className={classes.navListItem}>
-            <NavLink
-              to='/auth?mode=signup'
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }
-              end
-            >
-              Singup
-            </NavLink>
-          </li> */}
           </ul>
-        )}
+        </CSSTransition>
+        <CSSTransition
+          classNames={{
+            enterActive: classes['fade-enter-active-blur'],
+            enter: classes['fade-enter-blur'],
+            exitActive: classes['fade-exit-active-blur'],
+            exit: classes['fade-exit-blur'],
+          }}
+          timeout={300}
+          in={showMobile}
+        >
+          <div className={clsx(classes.blur, showMobile && classes.showBlur)} />
+        </CSSTransition>
       </nav>
     </header>
   );
