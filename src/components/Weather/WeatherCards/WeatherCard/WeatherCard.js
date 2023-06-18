@@ -20,7 +20,7 @@ function WeatherCard({ city }) {
     {
       refetchOnWindowFocus: false,
       staleTime: 10 * 1000,
-      refetchInterval: 2000 * 60,
+      refetchInterval: 5000 * 60,
     }
   );
 
@@ -44,13 +44,17 @@ function WeatherCard({ city }) {
   return (
     <div className={classes.weatherCard}>
       <div className={classes.info}>
-        <p className={classes.name}>{weatherData.location.name}</p>
+        <p className={classes.name}>
+          {weatherData.location.name}, {weatherData.location.country}
+        </p>
         <p className={classes.date}>{time}</p>
-        <h5 className={classes.temp}>{weatherData.current.temp_c}&deg;C</h5>
       </div>
+      <h5 className={classes.temp}>{weatherData.current.temp_c}&deg;C</h5>
       <div className={classes.iconWrapper}>
         <img src={weatherData.current.condition.icon} alt='icon' />
-        <p>{weatherData.current.condition.text}</p>
+        <p className={classes.currentCondition}>
+          {weatherData.current.condition.text}
+        </p>
       </div>
       <CloseButton
         onClick={deleteWeather}
