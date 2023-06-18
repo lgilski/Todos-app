@@ -1,8 +1,3 @@
-.wrapper {
-  max-width: 1400px;
-  margin: 64px auto 0 auto;
-}
-
 .authForm {
   background-color: var(--shade-blue-50);
   color: var(--tint-blue-50);

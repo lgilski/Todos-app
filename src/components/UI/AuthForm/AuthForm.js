@@ -20,8 +20,10 @@ function AuthForm() {
   const isLogin = searchParams.get('mode') === 'login';
   const isSubmitting = navigation.state === 'submitting';
 
+  // FIX isLogin while transitions
+
   return (
-    <div className={classes.wrapper}>
+    <div className='wrapper'>
       {token && (
         <div className={classes['alreadyLoggedIn-container']}>
           <h3 className={classes.alreadyLoggedIn}>

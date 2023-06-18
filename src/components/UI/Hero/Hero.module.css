@@ -33,7 +33,7 @@
     var(--tint-orange-20)
   );
   background-clip: text;
-  font-size: 64px;
+  font-size: var(--heading-XXXXL);
   /* font-size: var(--heading-XXXL); */
   font-weight: 800;
   /* position: absolute; */
@@ -72,4 +72,13 @@
 .mainButton:active {
   color: var(--tint-orange-90);
   background-color: var(--shade-orange-50);
+}
+
+@media (max-width: 1200px) {
+  .hero-text {
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    padding: 0 12px;
+  }
 }

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import RootLayout from './pages/Roots/Root';
@@ -5,44 +6,51 @@ import HomePage from './pages/HomePage';
 import AuthPage, { action as authAction } from './pages/AuthPage';
 import CardsPage from './pages/CardsPage';
 import TimerPage from './pages/TimerPage';
-import WeatherPage from './pages/WeatherPage';
+import WeatherPage, {
+  loader as weatherLoader,
+  action as weatherAction,
+} from './pages/WeatherPage';
 import { action as logoutAction } from './utils/logout';
 
 import { dataLoader } from './utils/auth';
 import ErrorPage from './pages/Error';
 
 import { loader as cardsLoader } from './components/CardsFolder/Cards/Cards';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { dataActions } from './store';
 import TimerRoot from './pages/Roots/TimerRoot';
 import Stopwatch from './components/Timer/Stopwatch/Stopwatch';
 
+const routes = [
+  { index: true, element: <HomePage /> },
+  { path: 'cards', element: <CardsPage />, loader: cardsLoader },
+  {
+    path: 'timer',
+    element: <TimerRoot />,
+    children: [
+      { index: true, element: <TimerPage /> },
+      { path: 'stopwatch', element: <Stopwatch /> },
+    ],
+  },
+  { path: 'auth', element: <AuthPage />, action: authAction },
+  {
+    path: 'logout',
+    action: logoutAction,
+  },
+  {
+    path: 'weather',
+    element: <WeatherPage />,
+  },
+];
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout />,
+    element: <RootLayout routes={routes} />,
     errorElement: <ErrorPage />,
     id: 'root',
     loader: dataLoader,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: 'cards', element: <CardsPage />, loader: cardsLoader },
-      {
-        path: 'timer',
-        element: <TimerRoot />,
-        children: [
-          { index: true, element: <TimerPage /> },
-          { path: 'stopwatch', element: <Stopwatch /> },
-        ],
-      },
-      { path: 'auth', element: <AuthPage />, action: authAction },
-      {
-        path: 'logout',
-        action: logoutAction,
-      },
-      { path: 'weather', element: <WeatherPage /> /* loader */ },
-    ],
+    children: routes,
   },
 ]);
 

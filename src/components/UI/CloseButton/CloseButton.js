@@ -1,6 +1,14 @@
 import clsx from '../../../utils/clsx';
 import classes from './CloseButton.module.css';
 
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.color
+ * @param {'big' | 'small'} props.size
+ * @param {string} props.className
+ */
+
 function CloseButton({ color, size, className, ...props }) {
   return (
     <button

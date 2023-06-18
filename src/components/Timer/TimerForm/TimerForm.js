@@ -107,7 +107,7 @@ function TimerForm({ modal, timerId, timerData }) {
               />
             </div>
           </li>
-          <li className={classes.border}></li>
+          <li className={classes.border} />
           <li>
             <Input
               color='orange'

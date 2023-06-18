@@ -9,7 +9,7 @@ function CardsPage() {
   const { token } = useRouteLoaderData('root');
 
   return (
-    <>
+    <div>
       {!token && (
         <section className={classes.wrapper}>
           <div className={classes.loginToGetAccess}>
@@ -32,7 +32,7 @@ function CardsPage() {
       )}
       {token && <FormCards />}
       {token && <Cards />}
-    </>
+    </div>
   );
 }
 

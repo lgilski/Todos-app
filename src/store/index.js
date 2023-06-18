@@ -1,5 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import timerReducer from './timer';
+import weatherReducer from './weather';
 
 /**
  * @type {DataState}
@@ -138,7 +139,11 @@ const dataSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: { data: dataSlice.reducer, timers: timerReducer },
+  reducer: {
+    data: dataSlice.reducer,
+    timers: timerReducer,
+    weather: weatherReducer,
+  },
 });
 
 export const dataActions = dataSlice.actions;

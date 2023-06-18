@@ -12,15 +12,14 @@
   font-weight: 800;
 }
 
-.wrapper p {
+.subtitle span {
   font-size: var(--heading-XXXL);
   color: var(--color-gray-first);
   font-weight: 600;
 }
 
-@media (max-width: 800px) {
-  .wrapper p,
+/* @media (max-width: 800px) {
   .subtitle {
     font-size: 32px;
   }
-}
+} */

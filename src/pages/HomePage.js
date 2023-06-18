@@ -19,13 +19,12 @@ function HomePage() {
       dispatch(dataActions.setCards([]));
     }
   }, []);
-  const { email } = useRouteLoaderData('root');
 
   return (
     <>
       {/* {email && <p>Welcome {email}</p>} */}
       <Hero />
-      <section className={classes.wrapper}>
+      <section className='wrapper'>
         <SectionHeader
           subheader='Features'
           header='We have many uwu features'
@@ -44,9 +43,9 @@ function HomePage() {
           <div style={{ color: '#fff' }}>AAAAAAAAAAAA</div>
         </div>
       </section> */}
-      <section>
+      {/* <section>
         <div className='developement'>STILL IN DEVELOPEMENT</div>
-      </section>
+      </section> */}
     </>
   );
 }

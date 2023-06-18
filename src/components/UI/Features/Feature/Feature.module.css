@@ -1,6 +1,6 @@
 .features-element {
   position: relative;
-  /* max-width: 400px; */
+  max-width: 250px;
   /* height: 180px; */
   background-color: var(--tint-orange-20);
 

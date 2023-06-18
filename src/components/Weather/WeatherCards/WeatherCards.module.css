@@ -1,0 +1,9 @@
+.weatherCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  justify-content: center;
+
+  margin: 64px 0;
+}

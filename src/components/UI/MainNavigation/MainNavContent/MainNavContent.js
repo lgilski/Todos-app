@@ -1,0 +1,93 @@
+import { Form, useRouteLoaderData } from 'react-router-dom';
+import clsx from '../../../../utils/clsx';
+import NavButton from '../../NavButton/NavButton';
+
+import classes from './MainNavContent.module.css';
+import Button from '../../Button/Button';
+import { useMediaPredicate } from 'react-media-hook';
+import { CSSTransition } from 'react-transition-group';
+
+function MainNavContent({ showMobile, showMobileNav }) {
+  const { token } = useRouteLoaderData('root');
+
+  const lessThan1100 = useMediaPredicate('(max-width: 1100px)');
+
+  return (
+    <CSSTransition
+      classNames={{
+        enterActive: classes['fade-enter-active'],
+        enter: classes['fade-enter'],
+        exitActive: classes['fade-exit-active'],
+        exit: classes['fade-exit'],
+      }}
+      timeout={300}
+      in={showMobile}
+    >
+      <ul
+        className={clsx(classes.navList, {
+          [classes.mobile]: lessThan1100,
+          [classes.showMobile]: showMobile,
+        })}
+      >
+        <NavButton
+          onClick={lessThan1100 ? showMobileNav : null}
+          className={classes.navListItem}
+          to='/'
+          end={true}
+        >
+          Home
+        </NavButton>
+        <NavButton
+          onClick={lessThan1100 ? showMobileNav : null}
+          className={classes.navListItem}
+          to='/cards'
+          end={true}
+        >
+          Cards
+        </NavButton>
+        <NavButton
+          onClick={lessThan1100 ? showMobileNav : null}
+          className={classes.navListItem}
+          to='/timer'
+          end={false}
+        >
+          Timer
+        </NavButton>
+        <NavButton
+          onClick={lessThan1100 ? showMobileNav : null}
+          className={classes.navListItem}
+          to='/weather'
+          end={true}
+        >
+          Weather
+        </NavButton>
+        {!token && (
+          <NavButton
+            onClick={lessThan1100 ? showMobileNav : null}
+            className={classes.navListItem}
+            to='/auth?mode=login'
+            auth={true}
+            end={true}
+          >
+            Log In
+          </NavButton>
+        )}
+        {token && (
+          <li>
+            <Form action='/logout' method='post'>
+              <Button
+                onClick={lessThan1100 ? showMobileNav : null}
+                variant='logout'
+                color='logout'
+              >
+                Log out
+              </Button>
+            </Form>
+          </li>
+        )}
+      </ul>
+    </CSSTransition>
+  );
+}
+
+export default MainNavContent;

@@ -9,6 +9,11 @@ function ErrorPage() {
   let title = 'An error occurred!';
   let message = 'Something went wrong!';
 
+  // DEV - remember to delete!!!
+  if (error.message) {
+    message = error.message;
+  }
+
   if (error.status === 500) {
     message = error.data.message;
   }

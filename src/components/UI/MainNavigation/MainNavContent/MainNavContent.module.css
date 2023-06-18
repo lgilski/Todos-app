@@ -1,0 +1,60 @@
+.navList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.navListItem {
+  position: relative;
+}
+
+.mobile {
+  position: absolute;
+  right: -150px;
+
+  display: none;
+}
+
+.showMobile {
+  right: 50%;
+  transform: translate(50%, 50%);
+  display: flex;
+  z-index: 4;
+  flex-direction: column;
+  gap: 48px;
+  /* animation: goIn 0.3s ease-in-out; */
+}
+
+.fade-enter {
+  opacity: 0;
+  right: -100px;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  right: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-exit {
+  display: flex;
+  z-index: 4;
+  flex-direction: column;
+  gap: 48px;
+  opacity: 1;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+
+.fade-exit-active {
+  display: flex;
+  z-index: 4;
+  flex-direction: column;
+  gap: 48px;
+  opacity: 0;
+  right: -100px;
+  transform: translate(50%, 50%);
+  transition: all 0.3s ease-in-out;
+}

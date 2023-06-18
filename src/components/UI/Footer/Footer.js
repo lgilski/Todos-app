@@ -1,0 +1,108 @@
+import { Link } from 'react-router-dom';
+import classes from './Footer.module.css';
+
+function Footer() {
+  return (
+    <footer className={classes.footer}>
+      <div className={classes.container}>
+        <div className={classes['logo-col']}>
+          <h5 className={classes.title}>
+            Your To-dos <span>and stuff UwU</span>
+          </h5>
+          <div className={classes.icons}>
+            <Link to='#'>
+              <ion-icon name='logo-instagram'></ion-icon>
+            </Link>
+            <Link to='#'>
+              <ion-icon name='logo-facebook'></ion-icon>
+            </Link>
+            <Link to='#'>
+              <ion-icon name='logo-twitter'></ion-icon>
+            </Link>
+            <Link to='#'>
+              <ion-icon name='logo-youtube'></ion-icon>
+            </Link>
+          </div>
+          {/* <p className={classes.madeBy}>
+            Made by Łukasz Gilski as a cool project
+          </p> */}
+          <p className={classes.copyright}>
+            Copyright &copy; 2023 by Your To-dos and stuff UwU, Inc. All rights
+            reserved.
+          </p>
+        </div>
+        <div className={classes['contact-col']}>
+          <h6>Contact us</h6>
+          <address>
+            <p className={classes.address}>
+              Kasztankowa 2115, 3rd Floor, Warsaw, 42-DK(p)
+            </p>
+            <p>
+              <a href='tel:213-755-8082'>213-755-8082</a>
+              <br />
+              <a href='mailto:hello@yourtodos.com'>hello@yourtodos.com</a>
+            </p>
+          </address>
+        </div>
+        <nav className={classes['nav-col']}>
+          <h6>Account</h6>
+          <ul className={classes['nav-col--links']}>
+            <li>
+              <Link
+                className={classes['nav-col--links-link']}
+                to='/auth?mode=signup'
+              >
+                Create account
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={classes['nav-col--links-link']}
+                to='/auth?mode=login'
+              >
+                Sign in
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <nav className={classes['nav-col']}>
+          <h6>Company</h6>
+          <ul className={classes['nav-col--links']}>
+            <li>
+              <Link className={classes['nav-col--links-link']} to='#'>
+                About Your To-dos
+              </Link>
+            </li>
+            <li>
+              <Link className={classes['nav-col--links-link']} to='#'>
+                For Business
+              </Link>
+            </li>
+            <li>
+              <Link className={classes['nav-col--links-link']} to='#'>
+                Our partners
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <nav className={classes['nav-col']}>
+          <h6>Resources</h6>
+          <ul className={classes['nav-col--links']}>
+            <li>
+              <Link className={classes['nav-col--links-link']} to='#'>
+                Help center
+              </Link>
+            </li>
+            <li>
+              <Link className={classes['nav-col--links-link']} to='#'>
+                Privacy & terms
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;
