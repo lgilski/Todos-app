@@ -21,6 +21,12 @@
   border-radius: 80px;
 }
 
+.btn-roundedSquare {
+  padding: 8px;
+  /* padding: 16px 32px; */
+  border-radius: 8px;
+}
+
 .btn-logout {
   font-size: var(--heading-L);
   padding: 6px;
@@ -47,6 +53,17 @@
 .btn-color-orange:active {
   color: var(--tint-orange-90);
   background-color: var(--shade-orange-50);
+}
+
+.btn-color-orangeLight {
+  background-color: var(--tint-orange-20);
+  color: var(--color-gray-first);
+}
+
+.btn-color-orangeLight:hover,
+.btn-color-orangeLight:active {
+  color: var(--tint-orange-90);
+  background-color: var(--shade-orange-30);
 }
 
 .btn-color-blue {

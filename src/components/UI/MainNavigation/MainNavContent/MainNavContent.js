@@ -57,7 +57,7 @@ function MainNavContent({ showMobile, showMobileNav }) {
           onClick={lessThan1100 ? showMobileNav : null}
           className={classes.navListItem}
           to='/weather'
-          end={true}
+          end={false}
         >
           Weather
         </NavButton>

@@ -4,6 +4,8 @@ import { fetchWeather } from '../../../../api';
 import CloseButton from '../../../UI/CloseButton/CloseButton';
 import { useDispatch } from 'react-redux';
 import { weatherActions } from '../../../../store/weather';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 /**
  *
@@ -19,16 +21,25 @@ function WeatherCard({ city }) {
     () => fetchWeather({ city }),
     {
       refetchOnWindowFocus: false,
-      staleTime: 10 * 1000,
+      staleTime: 4000 * 60,
       refetchInterval: 5000 * 60,
     }
   );
+
+  console.log(weatherData);
+
+  useEffect(() => {
+    if (weatherData?.message) {
+      dispatch(weatherActions.deleteWeather(city));
+      dispatch(weatherActions.setError(weatherData.message));
+    }
+  }, [weatherData, dispatch, city]);
 
   if (!weatherData) {
     return <>Loading...</>;
   }
 
-  const date = new Date(weatherData.current.last_updated_epoch * 1000);
+  const date = new Date(weatherData.current?.last_updated_epoch * 1000);
 
   const time = date.toLocaleTimeString('eng-UK', {
     weekday: 'short',
@@ -42,27 +53,43 @@ function WeatherCard({ city }) {
   };
 
   return (
-    <div className={classes.weatherCard}>
-      <div className={classes.info}>
-        <p className={classes.name}>
-          {weatherData.location.name}, {weatherData.location.country}
-        </p>
-        <p className={classes.date}>{time}</p>
-      </div>
-      <h5 className={classes.temp}>{weatherData.current.temp_c}&deg;C</h5>
-      <div className={classes.iconWrapper}>
-        <img src={weatherData.current.condition.icon} alt='icon' />
-        <p className={classes.currentCondition}>
-          {weatherData.current.condition.text}
-        </p>
-      </div>
-      <CloseButton
-        onClick={deleteWeather}
-        className={classes.btn}
-        color='orange'
-        size='big'
-      />
-    </div>
+    <>
+      {!weatherData?.message && (
+        <div className={classes.weatherCard}>
+          <div className={classes.info}>
+            <Link className={classes.name} to={city}>
+              {weatherData.location.name}
+            </Link>
+            <p className={classes.date}>{time}</p>
+            <div className={classes.otherInfo}>
+              <div className={classes.humidity}>
+                <ion-icon name='water' />
+                <p>{weatherData.current.humidity}%</p>
+              </div>
+              <div className={classes.wind}>
+                <ion-icon name='flag' />
+                <p>{weatherData.current.wind_kph}km/h</p>
+              </div>
+            </div>
+          </div>
+          <h5 className={classes.temp}>{weatherData.current.temp_c}&deg;C</h5>
+          <div className={classes.iconWrapper}>
+            <img src={weatherData.current.condition.icon} alt='icon' />
+            <p className={classes.currentCondition}>
+              {weatherData.current.condition.text}
+            </p>
+          </div>
+          <CloseButton
+            onClick={deleteWeather}
+            className={classes.btn}
+            color='orange'
+            size='big'
+          />
+          {/* <ion-icon name="heart-outline"></ion-icon> */}
+          {/* <ion-icon name="heart"></ion-icon> */}
+        </div>
+      )}
+    </>
   );
 }
 

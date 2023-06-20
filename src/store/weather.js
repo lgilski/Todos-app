@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   data: [],
+  error: null,
 };
 
 const weatherSlice = createSlice({
@@ -22,6 +23,10 @@ const weatherSlice = createSlice({
       state.data = state.data.filter(weather => weather !== action.payload);
 
       localStorage.setItem('weather', JSON.stringify(state.data));
+    },
+
+    setError(state, action) {
+      state.error = action.payload;
     },
   },
 });

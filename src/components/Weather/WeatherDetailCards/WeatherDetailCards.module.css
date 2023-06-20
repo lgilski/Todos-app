@@ -1,0 +1,27 @@
+.detailWrapper {
+  max-width: 1000px;
+  margin: 64px auto 86px auto;
+}
+
+.city {
+  font-size: var(--heading-XXXL);
+  text-align: center;
+}
+
+.headerWrapper {
+  position: relative;
+}
+
+.headerWrapper button {
+  position: absolute;
+  font-size: var(--heading-L);
+  font-weight: 500;
+
+  top: 50%;
+  /* left: 20%; */
+  transform: translateY(-50%);
+}
+
+.headerWrapper button ion-icon {
+  vertical-align: middle;
+}

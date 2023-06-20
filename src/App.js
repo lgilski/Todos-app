@@ -6,10 +6,7 @@ import HomePage from './pages/HomePage';
 import AuthPage, { action as authAction } from './pages/AuthPage';
 import CardsPage from './pages/CardsPage';
 import TimerPage from './pages/TimerPage';
-import WeatherPage, {
-  loader as weatherLoader,
-  action as weatherAction,
-} from './pages/WeatherPage';
+import WeatherPage from './pages/WeatherPage';
 import { action as logoutAction } from './utils/logout';
 
 import { dataLoader } from './utils/auth';
@@ -20,6 +17,10 @@ import { useDispatch } from 'react-redux';
 import { dataActions } from './store';
 import TimerRoot from './pages/Roots/TimerRoot';
 import Stopwatch from './components/Timer/Stopwatch/Stopwatch';
+import WeatherRoot from './pages/Roots/WeatherRoot';
+import WeatherDetailPage, {
+  loader as weatherLoader,
+} from './pages/WeatherDetailPage';
 
 const routes = [
   { index: true, element: <HomePage /> },
@@ -39,7 +40,19 @@ const routes = [
   },
   {
     path: 'weather',
-    element: <WeatherPage />,
+    element: <WeatherRoot />,
+    children: [
+      {
+        index: true,
+        element: <WeatherPage />,
+      },
+      {
+        path: ':city',
+        id: 'weather-detail',
+        // loader: weatherLoader,
+        element: <WeatherDetailPage />,
+      },
+    ],
   },
 ];
 

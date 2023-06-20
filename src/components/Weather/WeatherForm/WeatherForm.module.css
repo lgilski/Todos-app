@@ -8,6 +8,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  box-shadow: var(--shadow-M);
 }
 
 .heading {

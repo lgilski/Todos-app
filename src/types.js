@@ -23,6 +23,18 @@
  */
 
 /**
+ * @typedef {Object} ForecastData
+ * @property {WeatherLocation} location
+ * @property {Current} current
+ * @property {Forecast} forecast
+ */
+
+/**
+ * @typedef {Object} Forecast
+ * @property {Forecastday} forecastday
+ */
+
+/**
  * @typedef {Object} WeatherLocation
  * @property {string} name
  * @property {string} region

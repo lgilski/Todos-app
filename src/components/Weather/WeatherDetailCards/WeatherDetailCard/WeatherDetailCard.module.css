@@ -1,0 +1,71 @@
+.detailCard {
+  width: 100%;
+  background-color: var(--tint-orange-50);
+  padding: 16px;
+  border-radius: 8px;
+
+  margin-top: 32px;
+}
+
+.date {
+  font-size: var(--heading-XXL);
+  text-decoration: underline;
+}
+
+.contentWrapper {
+  margin-top: 8px;
+  display: grid;
+  /* gap: 16px; */
+  grid-template-columns: repeat(4, 1fr);
+  font-size: var(--heading-L);
+}
+.contentWrapper span {
+  font-weight: 600;
+}
+
+.contentWrapper h6 {
+  font-size: var(--heading-L);
+  color: var(--shade-orange-50);
+}
+
+.contentWrapper img {
+  width: 80px;
+  height: 80px;
+  align-self: center;
+
+  background-color: var(--tint-blue-80);
+
+  border-radius: 100%;
+
+  margin-bottom: auto;
+
+  box-shadow: var(--shadow-S);
+}
+
+.content-col-withIcon {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.content-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  gap: 12px;
+  padding: 16px;
+}
+
+.content-col ion-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.border {
+  position: absolute;
+  border-right: 2px solid var(--tint-orange-30);
+  height: 100%;
+  right: 0;
+  top: 0;
+}

@@ -1,9 +1,9 @@
 .weatherCard {
   background-color: var(--tint-orange-60);
-  padding: 24px;
+  padding: 20px;
   border-radius: 8px;
   width: 100%;
-  height: 200px;
+  height: 225px;
 
   position: relative;
 
@@ -19,9 +19,51 @@
   flex-direction: column;
 }
 
-.name {
+.name,
+.name:link,
+.name:visited {
   font-size: var(--heading-XL);
-  font-weight: 500;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--shade-orange-90);
+  transition: all 0.3s;
+
+  margin-right: auto;
+}
+
+.name:hover,
+.name:active {
+  color: var(--shade-orange-10);
+}
+
+.otherInfo {
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+}
+
+.humidity {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.humidity ion-icon {
+  color: var(--color-blue-first);
+  height: 24px;
+  width: 24px;
+}
+
+.wind {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wind ion-icon {
+  color: var(--shade-orange-20);
+  height: 24px;
+  width: 24px;
 }
 
 .temp {
@@ -57,6 +99,8 @@
 
 .currentCondition {
   align-self: center;
+  font-size: var(--heading-L);
+  font-weight: 500;
 }
 
 .btn {
