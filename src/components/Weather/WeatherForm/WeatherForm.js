@@ -1,4 +1,3 @@
-// import { Form } from 'react-router-dom';
 import Input from '../../UI/Input/Input';
 
 import classes from './WeatherForm.module.css';

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { weatherActions } from '../../../../store/weather';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 
 /**
  *
@@ -36,7 +37,18 @@ function WeatherCard({ city }) {
   }, [weatherData, dispatch, city]);
 
   if (!weatherData) {
-    return <>Loading...</>;
+    return (
+      <TailSpin
+        height='100'
+        width='100'
+        color='#d87620'
+        ariaLabel='tail-spin-loading'
+        radius='0'
+        wrapperStyle={{}}
+        wrapperClass=''
+        visible={true}
+      />
+    );
   }
 
   const date = new Date(weatherData.current?.last_updated_epoch * 1000);
@@ -85,8 +97,10 @@ function WeatherCard({ city }) {
             color='orange'
             size='big'
           />
-          {/* <ion-icon name="heart-outline"></ion-icon> */}
-          {/* <ion-icon name="heart"></ion-icon> */}
+          {/* <div className={classes.follow}>
+            <ion-icon name='heart-outline' />
+            <ion-icon name='heart' />
+          </div> */}
         </div>
       )}
     </>

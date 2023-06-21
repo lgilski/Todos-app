@@ -5,6 +5,7 @@ import { fetchForecast } from '../../../api';
 import classes from './WeatherDetailCards.module.css';
 import Button from '../../UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { TailSpin } from 'react-loader-spinner';
 
 /**
  *
@@ -27,7 +28,18 @@ function WeatherDetailCards({ city }) {
   );
 
   if (!forecastData) {
-    return <p>Loading...</p>;
+    return (
+      <TailSpin
+        height='100'
+        width='100'
+        color='#d87620'
+        ariaLabel='tail-spin-loading'
+        radius='0'
+        wrapperStyle={{}}
+        wrapperClass='spinner'
+        visible={true}
+      />
+    );
   }
 
   const goBack = function () {
