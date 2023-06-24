@@ -30,7 +30,7 @@ function HomePage() {
         />
         <Features />
       </section>
-      <section className='dark-section'>
+      {/* <section className='dark-section'>
         <div className={classes.wrapperSecond}>
           <h4 className='subheader'>What we offer</h4>
           <h3
@@ -41,7 +41,7 @@ function HomePage() {
           </h3>
           <div style={{ color: '#fff' }}>AAAAAAAAAAAA</div>
         </div>
-      </section>
+      </section> */}
       {/* <section>
         <div className='developement'>STILL IN DEVELOPEMENT</div>
       </section> */}
