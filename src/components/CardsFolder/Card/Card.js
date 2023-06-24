@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 /**
  * @param {Object} props
  * @param {Card} props.card
- * @param {forecastData} props.forecast
+ * @param {ForecastDay} props.forecastDay
  */
 const Card = function ({ card, forecastDay }) {
   console.log(forecastDay);

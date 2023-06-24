@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { dataActions } from '../../../store';
 import { useQuery } from '@tanstack/react-query';
 import { fetchForecast } from '../../../api/api';
+import { weatherActions } from '../../../store/weather';
 
 const Cards = function () {
   const dispatch = useDispatch();
@@ -23,7 +24,11 @@ const Cards = function () {
 
   const { data: forecastData } = useQuery(
     ['forecastCards', favorite],
-    () => fetchForecast({ city: favorite }),
+    () => {
+      if (!favorite) return;
+
+      return fetchForecast({ city: favorite });
+    },
     {
       refetchOnWindowFocus: false,
       staleTime: 1000 * 60 * 60 * 12,

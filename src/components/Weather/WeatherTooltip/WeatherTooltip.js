@@ -26,14 +26,14 @@ function WeatherTooltip({
       >
         <div className={classes.buttonsWrapper}>
           <button onClick={deleteWeather} className={classes.tooltipButton}>
-            Delete <ion-icon name='trash' />
+            <p>Delete</p> <ion-icon name='trash' />
           </button>
           <Link className={classes.tooltipButton} to={city}>
-            Details <ion-icon name='stats-chart' />
+            <p>Details</p> <ion-icon name='stats-chart' />
           </Link>
           {favorite !== city && (
             <button onClick={showOnCards} className={classes.tooltipButton}>
-              Show on cards <ion-icon name='heart' />
+              <p>Show on cards</p> <ion-icon name='heart' />
             </button>
           )}
           {favorite === city && (
@@ -41,7 +41,8 @@ function WeatherTooltip({
               onClick={stopShowingOnCards}
               className={classes.tooltipButton}
             >
-              Stop showing on cards
+              <p> Stop showing on cards</p>
+              <ion-icon name='heart-dislike' />
             </button>
           )}
         </div>

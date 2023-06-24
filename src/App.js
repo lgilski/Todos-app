@@ -19,6 +19,7 @@ import TimerRoot from './pages/Roots/TimerRoot';
 import Stopwatch from './components/Timer/Stopwatch/Stopwatch';
 import WeatherRoot from './pages/Roots/WeatherRoot';
 import WeatherDetailPage from './pages/WeatherDetailPage';
+import { weatherActions } from './store/weather';
 
 const routes = [
   { index: true, element: <HomePage /> },
@@ -70,6 +71,10 @@ function App() {
 
   useEffect(() => {
     const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
+
+    const favorite = JSON.parse(localStorage.getItem('favorite'));
+
+    dispatch(weatherActions.showOnCards(favorite));
 
     if (cardsFromLocalStorage === null) return;
 

@@ -50,11 +50,15 @@
 .tooltipButton,
 .tooltipButton:link,
 .tooltipButton:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
   cursor: pointer;
   background-color: var(--tint-orange-70);
   color: var(--shade-orange-90);
   font-size: var(--heading-M);
-  text-align: center;
 
   border: none;
   text-decoration: none;
@@ -64,6 +68,15 @@
 
 .tooltipButton:hover,
 .tooltipButton:active {
-  color: var(--tint-blue-70);
+  color: var(--tint-orange-90);
   background-color: var(--shade-orange-50);
+}
+
+.tooltipButton ion-icon {
+  transition: color 0.3s;
+}
+
+.tooltipButton:hover ion-icon,
+.tooltipButton:active ion-icon {
+  color: crimson;
 }

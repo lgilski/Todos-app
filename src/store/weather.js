@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   data: [],
   error: null,
-  showOnCards: '',
+  showOnCards: null,
 };
 
 const weatherSlice = createSlice({
@@ -32,10 +32,14 @@ const weatherSlice = createSlice({
 
     showOnCards(state, action) {
       state.showOnCards = action.payload;
+
+      localStorage.setItem('favorite', JSON.stringify(state.showOnCards));
     },
 
     stopShowingOnCards(state, action) {
-      state.showOnCards = '';
+      state.showOnCards = null;
+
+      localStorage.setItem('favorite', JSON.stringify(state.showOnCards));
     },
   },
 });
