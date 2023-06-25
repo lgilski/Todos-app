@@ -14,8 +14,6 @@ import { useEffect, useState } from 'react';
  * @param {ForecastDay} props.forecastDay
  */
 const Card = function ({ card, forecastDay }) {
-  console.log(forecastDay);
-
   const dispatch = useDispatch();
 
   const onCardDelete = function () {
@@ -44,8 +42,6 @@ const Card = function ({ card, forecastDay }) {
       );
     }
   }, [forecastDay, card.date]);
-
-  console.log(currentWeather);
 
   return (
     <div

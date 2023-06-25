@@ -6,24 +6,24 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cardClasses from '../Card/Card.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { dataActions } from '../../../store';
 import { useQuery } from '@tanstack/react-query';
 import { fetchForecast } from '../../../api/api';
-import { weatherActions } from '../../../store/weather';
 
 const Cards = function () {
   const dispatch = useDispatch();
 
   const cards = useSelector(state => state.data.cards);
+  const favorite = useSelector(state => state.weather.showOnCards);
+  const searched = useSelector(state => state.data.searched);
   const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
 
-  const favorite = useSelector(state => state.weather.showOnCards);
-
-  console.log(favorite);
+  const [cardsWchichContainsSearched, setCardsWchichContainsSearched] =
+    useState([]);
 
   const { data: forecastData } = useQuery(
-    ['forecastCards', favorite],
+    ['forecast', favorite],
     () => {
       if (!favorite) return;
 
@@ -35,8 +35,6 @@ const Cards = function () {
     }
   );
 
-  console.log(forecastData);
-
   useEffect(() => {
     if (cardsFromLocalStorage !== null) {
       dispatch(dataActions.setCards(cardsFromLocalStorage));
@@ -44,6 +42,21 @@ const Cards = function () {
       dispatch(dataActions.setCards([]));
     }
   }, []);
+
+  useEffect(() => {
+    const foundCards = [];
+    cards.forEach(card => {
+      // card.tasks.content.includes(searched) ? bbbb.push(card) : null
+      const foundCardThatMatchesSearched = card.tasks.find(task =>
+        task.content.toLowerCase().includes(searched?.toLowerCase())
+      );
+
+      if (foundCardThatMatchesSearched) {
+        foundCards.push(card);
+      }
+      setCardsWchichContainsSearched(foundCards);
+    });
+  }, [searched]);
 
   const hasCards = cards.length > 0;
 
@@ -65,26 +78,48 @@ const Cards = function () {
         )}
       </TransitionGroup>
       <TransitionGroup component='div' className={classes.plans}>
-        {cards.map(card => (
-          <CSSTransition
-            key={card.id}
-            classNames={{
-              enterActive: cardClasses['fade-enter-active'],
-              enter: cardClasses['fade-enter'],
-              exitActive: cardClasses['fade-exit-active'],
-              exit: cardClasses['fade-exit'],
-            }}
-            timeout={300}
-          >
-            <Card
+        {searched &&
+          cardsWchichContainsSearched.map(card => (
+            <CSSTransition
               key={card.id}
-              card={card}
-              forecastDay={
-                !forecastData?.message && forecastData?.forecast.forecastday
-              }
-            />
-          </CSSTransition>
-        ))}
+              classNames={{
+                enterActive: cardClasses['fade-enter-active'],
+                enter: cardClasses['fade-enter'],
+                exitActive: cardClasses['fade-exit-active'],
+                exit: cardClasses['fade-exit'],
+              }}
+              timeout={300}
+            >
+              <Card
+                key={card.id}
+                card={card}
+                forecastDay={
+                  !forecastData?.message && forecastData?.forecast.forecastday
+                }
+              />
+            </CSSTransition>
+          ))}
+        {!searched &&
+          cards.map(card => (
+            <CSSTransition
+              key={card.id}
+              classNames={{
+                enterActive: cardClasses['fade-enter-active'],
+                enter: cardClasses['fade-enter'],
+                exitActive: cardClasses['fade-exit-active'],
+                exit: cardClasses['fade-exit'],
+              }}
+              timeout={300}
+            >
+              <Card
+                key={card.id}
+                card={card}
+                forecastDay={
+                  !forecastData?.message && forecastData?.forecast.forecastday
+                }
+              />
+            </CSSTransition>
+          ))}
       </TransitionGroup>
     </div>
   );

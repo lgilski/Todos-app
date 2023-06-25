@@ -7,6 +7,7 @@ import weatherReducer from './weather';
  */
 const initialState = {
   cards: [],
+  searched: null,
 };
 
 const dataSlice = createSlice({
@@ -133,6 +134,16 @@ const dataSlice = createSlice({
       );
 
       localStorage.setItem('cards', JSON.stringify(state.cards));
+      return state;
+    },
+
+    searchTask(state, action) {
+      if (action.payload.length < 1) {
+        state.searched = null;
+        return state;
+      }
+
+      state.searched = action.payload;
       return state;
     },
   },
