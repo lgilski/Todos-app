@@ -7,14 +7,55 @@
 }
 
 .list-element {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+
   position: relative;
-  width: 90%;
+  width: 95%;
   word-wrap: break-word;
   background-color: var(--tint-orange-80);
-  /* color: var(); */
   padding: 30px 8px 4px 8px;
   border-radius: 9px;
   margin-bottom: 8px;
+  font-size: var(--heading-L);
+}
+
+.list-element li {
+  min-width: 40%;
+}
+
+.list-element ion-icon,
+.checkBox {
+  width: 20px;
+  height: 20px;
+}
+
+.checkBox {
+  /* background-color: var(--color-orange-first); */
+  background-color: var(--tint-orange-90);
+  border-radius: 4px;
+  border: 2px solid black;
+  transition: background-color 0.3s;
+}
+
+.done.checkBox {
+  background-color: var(--color-orange-first);
+  border: none;
+}
+
+.done.checkBox ion-icon {
+  opacity: 1;
+}
+
+.list-element ion-icon {
+  color: #fff;
+  opacity: 0;
+}
+
+.doneText {
+  text-decoration: line-through;
+  color: var(--tint-gray-50);
 }
 
 .fade-small-enter {
@@ -29,7 +70,7 @@
   opacity: 1;
   transition: all 0.3s ease-in-out;
   padding: 30px 8px 4px 8px;
-  width: 90%;
+  width: 95%;
   font-size: var(--heading-L);
   margin-bottom: 8px;
 }
@@ -37,7 +78,7 @@
 .fade-small-exit {
   opacity: 1;
   padding: 30px 8px 4px 8px;
-  width: 90%;
+  width: 95%;
   font-size: var(--heading-L);
   margin-bottom: 8px;
 }

@@ -137,6 +137,44 @@ const dataSlice = createSlice({
       return state;
     },
 
+    markTaskAsDone(state, action) {
+      state.cards = state.cards.map(card => {
+        if (card.id !== action.payload.cardId) return card;
+
+        const task = card.tasks.find(
+          task => task.id === action.payload.taskId
+        ).done;
+
+        if (task) {
+          card.tasks.find(
+            task => task.id === action.payload.taskId
+          ).done = false;
+        } else {
+          card.tasks.find(
+            task => task.id === action.payload.taskId
+          ).done = true;
+        }
+
+        return card;
+      });
+
+      fetch(
+        process.env.REACT_APP_FIREBASE_LINK +
+          localStorage.getItem('email').split('.').join('-') +
+          '/cards.json',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state.cards),
+        }
+      );
+
+      localStorage.setItem('cards', JSON.stringify(state.cards));
+      return state;
+    },
+
     searchTask(state, action) {
       if (action.payload.length < 1) {
         state.searched = null;
