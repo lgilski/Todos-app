@@ -1,6 +1,6 @@
 import TimerCountDownMethod from '../components/Timer/ChoseCountDownMethod/ChoseCountDownMethod';
 import TimerForm from '../components/Timer/TimerForm/TimerForm';
-import Timers from '../components/Timer/Timers';
+import Timers from '../components/Timer/Timers/Timers';
 import SectionHeader from '../components/common/SectionHeader/SectionHeader';
 
 function TimerPage() {

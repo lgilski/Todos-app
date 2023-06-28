@@ -1,6 +1,6 @@
 .timer {
-  margin: 32px auto;
-  max-width: 700px;
+  margin-bottom: 32px;
+  width: 100%;
   background-color: var(--tint-orange-50);
   padding: 30px;
   position: relative;

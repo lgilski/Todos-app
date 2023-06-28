@@ -7,6 +7,7 @@ import Modal from '../Modal/ModalWindow';
 import TimerContent from '../TimerContent/TimerContent';
 import { useTimer } from '../../../hooks/useTimer';
 import CloseButton from '../../common/CloseButton/CloseButton';
+import { Draggable } from 'react-beautiful-dnd';
 
 const TimerComponent = React.forwardRef((props, ref) => {
   const timerData = props.timerData;
@@ -27,43 +28,51 @@ const TimerComponent = React.forwardRef((props, ref) => {
     timeInSeconds - (currentHours * 60 * 60 + currentMinutes * 60)
   );
 
-  const opacity = props.opacity;
-
   return (
-    <div ref={ref} className={classes.timer} style={{ opacity }}>
-      <CloseButton
-        className={classes['timer-close--btn']}
-        onClick={functions.deleteTimer}
-        color='orange'
-        size='big'
-      />
-      {showModal && (
-        <Modal
-          timerId={timerData.id}
-          timerData={{
-            hours: timerData.hours,
-            minutes: timerData.minutes,
-            seconds: timerData.seconds,
-            timerName: timerData.timerName,
-            closeModal: functions.closeModal,
-          }}
-        />
+    <Draggable key={timerData.id} draggableId={timerData.id} index={index}>
+      {(provided, snapshot) => (
+        <div
+          className={classes.timer}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+          isdragging={snapshot.isDragging.toString()}
+        >
+          <CloseButton
+            className={classes['timer-close--btn']}
+            onClick={functions.deleteTimer}
+            color='orange'
+            size='big'
+          />
+          {showModal && (
+            <Modal
+              timerId={timerData.id}
+              timerData={{
+                hours: timerData.hours,
+                minutes: timerData.minutes,
+                seconds: timerData.seconds,
+                timerName: timerData.timerName,
+                closeModal: functions.closeModal,
+              }}
+            />
+          )}
+          <TimerContent
+            functions={functions}
+            timerData={timerData}
+            isCounting={isCounting}
+            currentTime={{
+              hours: currentHours,
+              minutes: currentMinutes,
+              seconds: currentSeconds,
+            }}
+          />
+          <ProgressBar
+            bgcolor={'#6c3b10'}
+            completed={(timeInSeconds / completeTimeInSeconds) * 100}
+          />
+        </div>
       )}
-      <TimerContent
-        functions={functions}
-        timerData={timerData}
-        isCounting={isCounting}
-        currentTime={{
-          hours: currentHours,
-          minutes: currentMinutes,
-          seconds: currentSeconds,
-        }}
-      />
-      <ProgressBar
-        bgcolor={'#6c3b10'}
-        completed={(timeInSeconds / completeTimeInSeconds) * 100}
-      />
-    </div>
+    </Draggable>
   );
 });
 
