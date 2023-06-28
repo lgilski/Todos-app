@@ -11,11 +11,13 @@ import { dataActions } from '../../../store';
 import { useQuery } from '@tanstack/react-query';
 import { fetchForecast } from '../../../api/api';
 
+import { DragDropContext } from 'react-beautiful-dnd';
+
 const Cards = function () {
   const dispatch = useDispatch();
 
   const cards = useSelector(state => state.data.cards);
-  const favorite = useSelector(state => state.weather.showOnCards);
+  let favorite = useSelector(state => state.weather.showOnCards);
   const searched = useSelector(state => state.data.searched);
   const cardsFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
 
@@ -25,7 +27,7 @@ const Cards = function () {
   const { data: forecastData } = useQuery(
     ['forecast', favorite],
     () => {
-      if (!favorite) return;
+      if (!favorite) return null;
 
       return fetchForecast({ city: favorite });
     },
@@ -44,84 +46,113 @@ const Cards = function () {
   }, []);
 
   useEffect(() => {
-    const foundCards = [];
-    cards.forEach(card => {
-      // card.tasks.content.includes(searched) ? bbbb.push(card) : null
-      const foundCardThatMatchesSearched = card.tasks.find(task =>
-        task.content.toLowerCase().includes(searched?.toLowerCase())
-      );
+    // Fix the jumps while dropping on other card
 
-      if (foundCardThatMatchesSearched) {
-        foundCards.push(card);
-      }
-      setCardsWchichContainsSearched(foundCards);
-    });
-  }, [searched]);
+    const foundCards = cards.filter(card =>
+      card.tasks.find(task => {
+        return task.content.toLowerCase().includes(searched?.toLowerCase());
+      })
+    );
+
+    setCardsWchichContainsSearched(foundCards);
+  }, [searched, cards]);
 
   const hasCards = cards.length > 0;
 
+  // const resultDrop = {
+  //   draggableId: task.id,
+  //   type: 'TYPE',
+  //   reason: 'DROP',
+  //   source: {
+  //     droppableId: card.id,
+  //     index: 0,
+  //   },
+  //   destination: {
+  //     droppableId: card.id,
+  //     index: 1,
+  //   },
+  // };
+
+  const onDragEnd = function (result) {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) return;
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+
+    dispatch(
+      dataActions.moveTaskBetweenCards({ destination, source, draggableId })
+    );
+  };
+
   return (
-    <div className={classes.plansContainer}>
-      <TransitionGroup>
-        {!hasCards && (
-          <CSSTransition
-            classNames={{
-              enterActive: classes['message-enter-active'],
-              enter: classes['message-enter'],
-              exitActive: classes['message-exit-active'],
-              exit: classes['message-exit'],
-            }}
-            timeout={300}
-          >
-            <h4 className={classes.message}>There are no plans yet</h4>
-          </CSSTransition>
-        )}
-      </TransitionGroup>
-      <TransitionGroup component='div' className={classes.plans}>
-        {searched &&
-          cardsWchichContainsSearched.map(card => (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className={classes.plansContainer}>
+        <TransitionGroup>
+          {!hasCards && (
             <CSSTransition
-              key={card.id}
               classNames={{
-                enterActive: cardClasses['fade-enter-active'],
-                enter: cardClasses['fade-enter'],
-                exitActive: cardClasses['fade-exit-active'],
-                exit: cardClasses['fade-exit'],
+                enterActive: classes['message-enter-active'],
+                enter: classes['message-enter'],
+                exitActive: classes['message-exit-active'],
+                exit: classes['message-exit'],
               }}
               timeout={300}
             >
-              <Card
-                key={card.id}
-                card={card}
-                forecastDay={
-                  !forecastData?.message && forecastData?.forecast.forecastday
-                }
-              />
+              <h4 className={classes.message}>There are no plans yet</h4>
             </CSSTransition>
-          ))}
-        {!searched &&
-          cards.map(card => (
-            <CSSTransition
-              key={card.id}
-              classNames={{
-                enterActive: cardClasses['fade-enter-active'],
-                enter: cardClasses['fade-enter'],
-                exitActive: cardClasses['fade-exit-active'],
-                exit: cardClasses['fade-exit'],
-              }}
-              timeout={300}
-            >
-              <Card
+          )}
+        </TransitionGroup>
+        <TransitionGroup component='div' className={classes.plans}>
+          {searched &&
+            cardsWchichContainsSearched.map(card => (
+              <CSSTransition
                 key={card.id}
-                card={card}
-                forecastDay={
-                  !forecastData?.message && forecastData?.forecast.forecastday
-                }
-              />
-            </CSSTransition>
-          ))}
-      </TransitionGroup>
-    </div>
+                classNames={{
+                  enterActive: cardClasses['fade-enter-active'],
+                  enter: cardClasses['fade-enter'],
+                  exitActive: cardClasses['fade-exit-active'],
+                  exit: cardClasses['fade-exit'],
+                }}
+                timeout={300}
+              >
+                <Card
+                  key={card.id}
+                  card={card}
+                  forecastDay={
+                    !forecastData?.message && forecastData?.forecast.forecastday
+                  }
+                />
+              </CSSTransition>
+            ))}
+          {!searched &&
+            cards.map(card => (
+              <CSSTransition
+                key={card.id}
+                classNames={{
+                  enterActive: cardClasses['fade-enter-active'],
+                  enter: cardClasses['fade-enter'],
+                  exitActive: cardClasses['fade-exit-active'],
+                  exit: cardClasses['fade-exit'],
+                }}
+                timeout={300}
+              >
+                <Card
+                  key={card.id}
+                  card={card}
+                  forecastDay={
+                    !forecastData?.message && forecastData?.forecast.forecastday
+                  }
+                />
+              </CSSTransition>
+            ))}
+        </TransitionGroup>
+      </div>
+    </DragDropContext>
   );
 };
 

@@ -184,6 +184,51 @@ const dataSlice = createSlice({
       state.searched = action.payload;
       return state;
     },
+
+    moveTaskBetweenCards(state, action) {
+      // TODO: Make it better one day!!!
+
+      const { destination, source, draggableId } = action.payload;
+
+      const cardDraggedFrom = state.cards.find(
+        card => card.id === source.droppableId
+      );
+      const taskToMove = cardDraggedFrom.tasks.find(
+        task => task.id === draggableId
+      );
+
+      const tasksWithoutDragged = Array.from(cardDraggedFrom.tasks);
+      tasksWithoutDragged.splice(source.index, 1);
+
+      state.cards.find(card => card.id === source.droppableId).tasks =
+        tasksWithoutDragged;
+
+      const cardWithDragged = state.cards.find(
+        card => card.id === destination.droppableId
+      );
+      const tasksWithDragged = Array.from(cardWithDragged.tasks);
+      tasksWithDragged.splice(destination.index, 0, taskToMove);
+
+      state.cards.find(card => card.id === destination.droppableId).tasks =
+        tasksWithDragged;
+
+      fetch(
+        process.env.REACT_APP_FIREBASE_LINK +
+          localStorage.getItem('email').split('.').join('-') +
+          '/cards.json',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state.cards),
+        }
+      );
+
+      localStorage.setItem('cards', JSON.stringify(state.cards));
+
+      return state;
+    },
   },
 });
 

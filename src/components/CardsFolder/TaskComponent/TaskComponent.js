@@ -5,11 +5,13 @@ import classes from './TaskComponent.module.css';
 
 import { useDispatch } from 'react-redux';
 
+import { Draggable } from 'react-beautiful-dnd';
+
 /**
- * @param {{ task: Task, cardId: string }} props
+ * @param {{ task: Task, cardId: string, index: number }} props
  */
 const CardElement = function (props) {
-  const { task, cardId } = props;
+  const { task, cardId, index } = props;
   const dispatch = useDispatch();
 
   const onDeleteTask = function () {
@@ -21,23 +23,33 @@ const CardElement = function (props) {
   };
 
   return (
-    <>
-      <div className={classes['list-element']}>
-        <button
-          onClick={markAsDone}
-          className={clsx(classes.checkBox, task.done && classes.done)}
+    <Draggable key={task.id} draggableId={task.id} index={index}>
+      {(provided, snapshot) => (
+        <div
+          className={classes['list-element']}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+          isdragging={snapshot.isDragging.toString()}
         >
-          <ion-icon name='checkmark-outline' />
-        </button>
-        <li className={clsx(task.done && classes.doneText)}>{task.content}</li>
-        <CloseButton
-          onClick={onDeleteTask}
-          color={'darkBlue'}
-          size={'small'}
-          className={classes['btnClose-small']}
-        />
-      </div>
-    </>
+          <button
+            onClick={markAsDone}
+            className={clsx(classes.checkBox, task.done && classes.done)}
+          >
+            <ion-icon name='checkmark-outline' />
+          </button>
+          <li className={clsx(task.done && classes.doneText)}>
+            {task.content}
+          </li>
+          <CloseButton
+            onClick={onDeleteTask}
+            color={'darkBlue'}
+            size={'small'}
+            className={classes['btnClose-small']}
+          />
+        </div>
+      )}
+    </Draggable>
   );
 };
 

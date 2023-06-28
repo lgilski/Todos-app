@@ -7,6 +7,7 @@ import { dataActions } from '../../../store';
 import { useDispatch } from 'react-redux';
 import CloseButton from '../../common/CloseButton/CloseButton';
 import { useEffect, useState } from 'react';
+import { Droppable } from 'react-beautiful-dnd';
 
 /**
  * @param {Object} props
@@ -77,22 +78,38 @@ const Card = function ({ card, forecastDay }) {
         {/* ID here is a date */}
         <h4>{card.id}</h4>
       </div>
-      <TransitionGroup component='ul' className={classes.list}>
-        {card.tasks.map(task => (
-          <CSSTransition
-            key={task.id}
-            classNames={{
-              enterActive: TaskComponentClasses['fade-small-enter-active'],
-              enter: TaskComponentClasses['fade-small-enter'],
-              exitActive: TaskComponentClasses['fade-small-exit-active'],
-              exit: TaskComponentClasses['fade-small-exit'],
-            }}
-            timeout={300}
+      <Droppable droppableId={card.id}>
+        {(provided, snapshot) => (
+          <ul
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className={classes.list}
           >
-            <CardElement task={task} cardId={card.id} />
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
+            {/* <TransitionGroup component={null} className={classes.list}> */}
+            {card.tasks?.map((task, index) => (
+              // <CSSTransition
+              //   key={task.id}
+              //   classNames={{
+              //     enterActive: TaskComponentClasses['fade-small-enter-active'],
+              //     enter: TaskComponentClasses['fade-small-enter'],
+              //     exitActive: TaskComponentClasses['fade-small-exit-active'],
+              //     exit: TaskComponentClasses['fade-small-exit'],
+              //   }}
+              //   timeout={300}
+              // >
+              <CardElement
+                key={task.id}
+                task={task}
+                cardId={card.id}
+                index={index}
+              />
+              // </CSSTransition>
+            ))}
+            {provided.placeholder}
+            {/* </TransitionGroup> */}
+          </ul>
+        )}
+      </Droppable>
     </div>
   );
 };

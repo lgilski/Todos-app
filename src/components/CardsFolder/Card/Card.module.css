@@ -15,11 +15,10 @@
   font-size: var(--heading-L);
 }
 
-.card:hover {
+/* .card:hover {
   transform: translateY(-6px);
-  /* box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 30%); */
   box-shadow: var(--shadow-M);
-}
+} */
 
 .card-black {
   /* background-color: var(--tint-orange-10); */
