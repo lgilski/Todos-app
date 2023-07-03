@@ -20,6 +20,11 @@
   background-color: var(--tint-orange-80);
 }
 
+.input-green {
+  background-color: var(--lime-green-100);
+  border: 1px solid var(--lime-green-900);
+}
+
 .noMargin {
   margin: 0 !important ;
 }

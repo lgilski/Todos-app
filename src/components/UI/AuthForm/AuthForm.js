@@ -62,14 +62,14 @@ function AuthForm({ mode }) {
           {data && data.message && <p>{data.message}</p>}
           <div className={classes.inputsWrapper}>
             <Input
-              color={'orange'}
+              color={'green'}
               name='email'
               type='email'
               required={true}
               text={'Email'}
             />
             <Input
-              color={'orange'}
+              color={'green'}
               name='password'
               type='password'
               required={true}
@@ -77,7 +77,7 @@ function AuthForm({ mode }) {
             />
             {!isLogin && (
               <Input
-                color={'orange'}
+                color={'green'}
                 name={'passwordRepeat'}
                 type={'password'}
                 required={true}
