@@ -4,16 +4,16 @@
   position: relative;
   text-decoration: none;
   display: block;
-  color: var(--grey-900);
+  color: var(--grey-700);
   font-weight: 500;
   padding: 8px 16px;
   transition: all 0.3s;
-  font-size: var(--text-big);
+  /* font-size: var(--text-big); */
 }
 
 .btn:hover,
 .btn:active {
-  background-color: var(--orange-200);
+  background-color: var(--orange-100);
 }
 
 .content {
@@ -36,10 +36,10 @@
 }
 
 .btn.active {
-  background-color: var(--orange-200);
+  background-color: var(--orange-100);
 }
 
 .btn.active:hover,
 .btn.active:active {
-  background-color: var(--orange-300);
+  background-color: var(--orange-200);
 }

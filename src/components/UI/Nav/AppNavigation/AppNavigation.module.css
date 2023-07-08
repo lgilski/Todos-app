@@ -2,10 +2,13 @@
   height: 100%;
   width: 200px;
   position: fixed;
+  font-size: var(--text-medium);
+
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: var(--orange-100);
+  background-color: #fff;
+  box-shadow: var(--shadow-S);
   overflow-x: hidden;
   /* padding: 16px; */
   padding-top: 68px;
@@ -61,14 +64,6 @@
   transform: translateX(50%);
 }
 
-/* .sidenavHidden ion-icon[name='chevron-forward'] {
-  display: inline-block;
-}
-
-.hideBtn ion-icon[name='chevron-forward'] {
-  display: none;
-} */
-
 .showHideBtn {
   opacity: 1;
 }
@@ -98,12 +93,15 @@
   border: none;
   background-color: inherit;
 
+  color: var(--grey-700);
+
   /* display: block; */
   width: 100%;
 
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: var(--text-big);
+  font-size: var(--text-medium);
+
   padding: 8px 16px;
 
   transition: all 0.3s;
@@ -111,14 +109,14 @@
 
 .logoutBtn:hover,
 .logoutBtn:active {
-  background-color: var(--orange-200);
+  background-color: var(--orange-100);
 }
 
 .logoutBtn span {
   display: flex;
-  gap: 8px;
+  align-items: center;
 
-  word-wrap: none;
+  gap: 8px;
 }
 
 .logoutBtn span p {
