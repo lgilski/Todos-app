@@ -1,135 +1,175 @@
-/**
- * @typedef {Object} Task
- * @property {string} content
- * @property {string} id
- */
-
-/**
- * @typedef {Object} Card
- * @property {string} date '2023-05-13T00:00:00.000Z'
- * @property {string} id '23.05.2023'
- * @property {Task[]} tasks
- */
-
-/**
- * @typedef {Object} DataState
- * @property {Card[]} cards
- */
-
-interface CardState {
+type CardState = {
   cards: Card[];
   searched: string | null;
-}
+};
 
-interface Card {
+type Card = {
   date: string;
   id: string;
   tasks: Task[];
-}
+};
 
-interface Task {
+type Task = {
   content: string;
   id: string;
   done?: boolean;
-}
+};
 
-/**
- * @typedef {Object} WeatherData
- * @property {WeatherLocation} location
- * @property {Current} current
- */
+type TimerState = {
+  timers: Timer[];
+  countDownMethod: string;
+  startAllTimers: boolean;
+  resetAllTimers: boolean;
+  activeIndex: number;
+  startSequence: boolean;
+};
 
-/**
- * @typedef {Object} ForecastData
- * @property {WeatherLocation} location
- * @property {Current} current
- * @property {Forecast} forecast
- */
+type Timer = {
+  hours: number | string;
+  minutes: number | string;
+  seconds: number | string;
+  id: string;
+  timerName: string;
+};
 
-/**
- * @typedef {Object} Forecast
- * @property {Forecastday} forecastday
- */
+type WeatherState = {
+  data: string[];
+  error: string | null;
+  showOnCards: string | null;
+};
 
-/**
- * @typedef {Object} WeatherLocation
- * @property {string} name
- * @property {string} region
- * @property {string} country
- * @property {number} lat
- * @property {number} lon
- * @property {string} tz_id
- * @property {number} localtime_epoch
- * @property {string} localtime
- */
+type WeatherData = {
+  location: WeatherLocation;
+  current: Current;
+};
 
-/**
- * @typedef {Object} Current
- * @property {number} last_updated_epoch
- * @property {string} last_updated
- * @property {number} temp_c
- * @property {number} temp_f
- * @property {number} is_day
- * @property {Condition} condition
- * @property {number} wind_mph
- * @property {number} wind_kph
- * @property {number} wind_degree
- * @property {string} wind_dir
- * @property {number} pressure_mb
- * @property {number} pressure_in
- * @property {number} precip_mm
- * @property {number} precip_in
- * @property {number} humidity
- * @property {number} cloud
- * @property {number} feelslike_c
- * @property {number} feelslike_f
- * @property {number} vis_km
- * @property {number} vis_miles
- * @property {number} uv
- * @property {number} gust_mph
- * @property {number} gust_kph
- */
+type ForecastData = {
+  location: WeatherLocation;
+  current: Current;
+  forecast: Forecast;
+};
 
-/**
- * @typedef {Object} Condition
- * @property {string} text
- * @property {string} icon
- * @property {number} code
- */
+type Forecast = {
+  forecastday: Forecastday;
+};
 
-/**
- * @typedef {Object} Hour
- * @property {number} time_epoch
- * @property {string} time
- * @property {number} temp_c
- * @property {number} temp_f
- * @property {number} is_day
- * @property {Condition} condition
- * @property {number} wind_mph
- * @property {number} wind_kph
- * @property {number} wind_degree
- * @property {string} wind_dir
- * @property {number} pressure_mb
- * @property {number} pressure_in
- * @property {number} precip_mm
- * @property {number} precip_in
- * @property {number} humidity
- * @property {number} cloud
- * @property {number} feelslike_c
- * @property {number} feelslike_f
- * @property {number} windchill_c
- * @property {number} windchill_f
- * @property {number} heatindex_c
- * @property {number} heatindex_f
- * @property {number} dewpoint_c
- * @property {number} dewpoint_f
- * @property {number} will_it_rain
- * @property {number} chance_of_rain
- * @property {number} will_it_snow
- * @property {number} chance_of_snow
- * @property {number} vis_km
- * @property {number} vis_miles
- * @property {number} gust_mph
- * @property {number} gust_kph
- * @property {number} uv
- */
+type Forecastday = {
+  date: string;
+  data_epoch: number;
+  day: Day;
+  astro: Astro;
+  hour: Hour;
+}[];
+
+type Day = {
+  avghumidity: number;
+  avgtemp_c: number;
+  avgtemp_f: number;
+  avgvis_km: number;
+  avgvis_miles: number;
+  condition: Condition;
+  daily_chance_of_rain: number;
+  daily_chance_of_snow: number;
+  daily_will_it_rain: number;
+  daily_will_it_snow: number;
+  maxtemp_c: number;
+  maxtemp_f: number;
+  maxwind_kph: number;
+  maxwind_mph: number;
+  mintemp_c: number;
+  mintemp_f: number;
+  totalprecip_in: number;
+  totalprecip_mm: number;
+  totalsnow_cm: number;
+  uv: number;
+};
+
+type Astro = {
+  is_moon_up: number;
+  is_sun_up: number;
+  moon_illumination: string;
+  moon_phase: string;
+  moonrise: string;
+  moonset: string;
+  sunrise: string;
+  sunset: string;
+};
+
+type WeatherLocation = {
+  name: string;
+  region: string;
+  country: string;
+  lat: number;
+  lon: number;
+  tz_id: string;
+  localtime_epoch: number;
+  localtime: string;
+};
+
+type Current = {
+  last_updated_epoch: number;
+  last_updated: string;
+  temp_c: number;
+  temp_f: number;
+  is_day: number;
+  condition: Condition;
+  wind_mph: number;
+  wind_kph: number;
+  wind_degree: number;
+  wind_dir: string;
+  pressure_mb: number;
+  pressure_in: number;
+  precip_mm: number;
+  precip_in: number;
+  humidity: number;
+  cloud: number;
+  feelslike_c: number;
+  feelslike_f: number;
+  vis_km: number;
+  vis_miles: number;
+  uv: number;
+  gust_mph: number;
+  gust_kph: number;
+};
+
+type Condition = {
+  test: string;
+  icon: string;
+  code: number;
+};
+
+type Hour = {
+  time_epoch: number;
+  time: string;
+  temp_c: number;
+  temp_f: number;
+  is_day: number;
+  condition: Condition;
+  wind_mph: number;
+  wind_kph: number;
+  wind_degree: number;
+  wind_dir: string;
+  pressure_mb: number;
+  pressure_in: number;
+  precip_mm: number;
+  precip_in: number;
+  humidity: number;
+  cloud: number;
+  feelslike_c: number;
+  feelslike_f: number;
+  windchill_c: number;
+  windchill_f: number;
+  heatindex_c: number;
+  heatindex_f: number;
+  dewpoint_c: number;
+  dewpoint_f: number;
+  will_it_rain: number;
+  chance_of_rain: number;
+  will_it_snow: number;
+  chance_of_snow: number;
+  vis_km: number;
+  vis_miles: number;
+  gust_mph: number;
+  gust_kph: number;
+  uv: number;
+};

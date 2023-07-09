@@ -1,9 +1,6 @@
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classes from './Card.module.css';
 import CardElement from '../TaskComponent/TaskComponent';
 
-import TaskComponentClasses from '../TaskComponent/TaskComponent.module.css';
-import { dataActions } from '../../../store';
 import { useDispatch } from 'react-redux';
 import CloseButton from '../../common/CloseButton/CloseButton';
 import { useEffect, useState } from 'react';
@@ -11,26 +8,30 @@ import { Droppable } from 'react-beautiful-dnd';
 import clsx from '../../../utils/clsx';
 import { cardActions } from '../../../store/card';
 
-/**
- * @param {Object} props
- * @param {Card} props.card
- * @param {ForecastDay} props.forecastDay
- */
-const Card = function ({ card, forecastDay }) {
+const Card = function ({
+  card,
+  forecastDay,
+}: {
+  card: Card;
+  forecastDay: Forecastday;
+}): JSX.Element {
   const dispatch = useDispatch();
 
   const onCardDelete = function () {
     dispatch(cardActions.deleteCard({ id: card.id }));
   };
 
-  const [isBig, setIsBig] = useState(false);
+  // const [isBig, setIsBig] = useState(false);
 
-  const [currentWeather, setCurrentWeather] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState<
+    | { date: string; data_epoch: number; day: Day; astro: Astro; hour: Hour }
+    | undefined
+  >(undefined);
 
   const date = new Date(card.date);
   const now = new Date();
 
-  const diffTime = date - now;
+  const diffTime = date.getTime() - now.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
@@ -42,18 +43,14 @@ const Card = function ({ card, forecastDay }) {
 
   useEffect(() => {
     if (forecastDay) {
+      console.log(
+        forecastDay.find(day => day.date === card.date.split('T')[0])
+      );
+
       setCurrentWeather(
         forecastDay.find(day => day.date === card.date.split('T')[0])
       );
     }
-
-    // if (card.tasks.length > 10) {
-    //   setIsBig('very big');
-    // } else if (card.tasks.length > 4) {
-    //   setIsBig(true);
-    // } else {
-    //   setIsBig(false);
-    // }
   }, [forecastDay, card.date]);
 
   return (
@@ -62,9 +59,7 @@ const Card = function ({ card, forecastDay }) {
         classes.card,
         happened === 'true' && classes['card-black'],
         today === 'true' && classes.withinThreeDays,
-        withinThreeDays === 'true' && classes.withinThreeDays,
-        isBig === true && classes.isBig,
-        isBig === 'very big' && classes.isVeryBig
+        withinThreeDays === 'true' && classes.withinThreeDays
       )}
     >
       <CloseButton
@@ -73,6 +68,8 @@ const Card = function ({ card, forecastDay }) {
         color={'orange'}
         size={'big'}
       />
+      {/* Type '{ className: any; onClick: () => void; color: string; size: "big"; }' is not assignable to type 'IntrinsicAttributes & { color: string; size: "big" | "small"; className: string; }'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & { color: string; size: "big" | "small"; className: string; }'. */}
       {currentWeather && (
         <img
           className={classes.weatherIcon}
@@ -86,7 +83,7 @@ const Card = function ({ card, forecastDay }) {
         <h4>{card.id}</h4>
       </div>
       <Droppable droppableId={card.id}>
-        {(provided, snapshot) => (
+        {(provided: any, snapshot: any) => (
           <ul
             ref={provided.innerRef}
             {...provided.droppableProps}

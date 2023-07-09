@@ -1,8 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import update from 'immutability-helper';
-
-const initialState = {
+const initialState: TimerState = {
   timers: [],
   countDownMethod: 'Manually',
   startAllTimers: false,
@@ -15,13 +13,13 @@ const timerSlice = createSlice({
   name: 'timer',
   initialState,
   reducers: {
-    setTimers(state, action) {
+    setTimers(state, action: PayloadAction<Timer[]>) {
       state.timers = action.payload;
 
       return state;
     },
 
-    createTimer(state, action) {
+    createTimer(state, action: PayloadAction<Timer>) {
       state.timers.push(action.payload);
 
       localStorage.setItem('timers', JSON.stringify(state.timers));
@@ -29,7 +27,16 @@ const timerSlice = createSlice({
       return state;
     },
 
-    editTimer(state, action) {
+    editTimer(
+      state,
+      action: PayloadAction<{
+        timerId: string;
+        hours: number | string;
+        minutes: number | string;
+        seconds: number | string;
+        timerName: string;
+      }>
+    ) {
       state.timers.forEach(timer => {
         if (timer.id !== action.payload.timerId) return timer;
 
@@ -42,7 +49,7 @@ const timerSlice = createSlice({
       });
     },
 
-    deleteTimer(state, action) {
+    deleteTimer(state, action: PayloadAction<string>) {
       state.timers = state.timers.filter(timer => timer.id !== action.payload);
 
       localStorage.setItem('timers', JSON.stringify(state.timers));
@@ -54,7 +61,7 @@ const timerSlice = createSlice({
 
     // Implement counting down timers in sequence, one after another
 
-    setTimerCountDownMethod(state, action) {
+    setTimerCountDownMethod(state, action: PayloadAction<string>) {
       state.countDownMethod = action.payload;
     },
 
@@ -62,7 +69,7 @@ const timerSlice = createSlice({
       state.startAllTimers = action.payload;
     },
 
-    resetTimers(state, action) {
+    resetTimers(state, action: PayloadAction<boolean>) {
       state.resetAllTimers = action.payload;
       state.activeIndex = -1;
     },
