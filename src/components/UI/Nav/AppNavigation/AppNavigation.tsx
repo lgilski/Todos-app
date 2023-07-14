@@ -11,14 +11,16 @@ import { Form } from 'react-router-dom';
 function AppNavigation() {
   const dispatch = useDispatch();
 
-  const isSidenavOpen = useSelector(state => state.data.isSidenavOpen);
+  const isSidenavOpen = useSelector(
+    (state: WholeState) => state.data.isSidenavOpen
+  );
 
   // const lessThan1100 = useMediaPredicate('(max-width: 1100px)');
 
   const [showHideOption, setShowHideOption] = useState(false);
 
   const hideSidenav = function () {
-    dispatch(dataActions.isSidenavOpen());
+    dispatch(dataActions.isSidenavOpen(null));
   };
 
   return (

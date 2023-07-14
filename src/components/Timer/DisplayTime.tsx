@@ -1,6 +1,12 @@
-function DisplayTime({ time, startingTime }) {
+function DisplayTime({
+  time,
+  startingTime,
+}: {
+  time: string | number;
+  startingTime?: boolean;
+}) {
   if (startingTime) {
-    return time.length === 0
+    return time.toString().length === 0
       ? '00'
       : time.toString().length <= 1
       ? `0${time}`

@@ -8,7 +8,13 @@ import { useMediaPredicate } from 'react-media-hook';
 import { CSSTransition } from 'react-transition-group';
 import { auth } from '../../../../../config/firebase';
 
-function MainNavContent({ showMobile, showMobileNav }) {
+function MainNavContent({
+  showMobile,
+  showMobileNav,
+}: {
+  showMobile: boolean;
+  showMobileNav: () => void;
+}) {
   const user = auth.currentUser;
 
   const lessThan1100 = useMediaPredicate('(max-width: 1100px)');
@@ -64,7 +70,7 @@ function MainNavContent({ showMobile, showMobileNav }) {
         </NavButton> */}
         {!user && (
           <NavButton
-            onClick={lessThan1100 ? showMobileNav : null}
+            onClick={lessThan1100 ? showMobileNav : undefined}
             className={classes.navListItem}
             // to='/auth?mode=login'
             to='/auth/login'
@@ -75,7 +81,7 @@ function MainNavContent({ showMobile, showMobileNav }) {
         )}
         {!user && (
           <NavButton
-            onClick={lessThan1100 ? showMobileNav : null}
+            onClick={lessThan1100 ? showMobileNav : undefined}
             className={classes.navListItem}
             // to='/auth?mode=login'
             to='/auth/signup'
@@ -89,7 +95,7 @@ function MainNavContent({ showMobile, showMobileNav }) {
           <li>
             <Form action='/logout' method='post'>
               <Button
-                onClick={lessThan1100 ? showMobileNav : null}
+                onClick={lessThan1100 ? showMobileNav : undefined}
                 variant='logout'
                 color='logout'
               >

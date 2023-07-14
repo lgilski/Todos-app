@@ -3,7 +3,12 @@ import { NavLink } from 'react-router-dom';
 import classes from './AppNavButton.module.css';
 import clsx from '../../../../utils/clsx';
 
-function AppNavButton({ to, children, end, ...props }) {
+function AppNavButton({
+  to,
+  children,
+  end,
+  ...props
+}: { to: string; end: boolean } & React.LinkHTMLAttributes<HTMLAnchorElement>) {
   return (
     <li>
       <NavLink

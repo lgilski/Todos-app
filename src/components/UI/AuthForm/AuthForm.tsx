@@ -4,28 +4,20 @@ import {
   useNavigate,
   useActionData,
   useNavigation,
-  useRouteLoaderData,
 } from 'react-router-dom';
 
 import classes from './AuthForm.module.css';
-import { getAuthToken, getCurrentUser } from '../../../utils/auth';
 import Input from '../../common/Input/Input';
 import { useEffect } from 'react';
 import { auth } from '../../../config/firebase';
 import Button from '../../common/Button/Button';
 
-function AuthForm({ mode }) {
-  const data = useActionData();
+function AuthForm({ mode }: { mode: string }) {
+  const data = useActionData() as { errors?: string; message?: string };
   const navigation = useNavigation();
 
   const navigate = useNavigate();
 
-  // const token = getAuthToken();
-
-  // const user = getCurrentUser();
-
-  // const { user } = useRouteLoaderData('root');
-  // const user = useSelector(state => state.data.user);
   const user = auth.currentUser;
 
   const isSubmitting = navigation.state === 'submitting';
@@ -52,7 +44,7 @@ function AuthForm({ mode }) {
       {!user && (
         <Form method='post' className={classes.authForm}>
           <h4>{isLogin ? 'Welcome back!' : 'Start your new journey!'}</h4>
-          {data && data.error && (
+          {data && data.errors && (
             <ul>
               {Object.values(data.errors).map(err => (
                 <li key={err}>{err}</li>

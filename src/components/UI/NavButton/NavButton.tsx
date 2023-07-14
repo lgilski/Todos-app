@@ -11,7 +11,18 @@ import clsx from '../../../utils/clsx';
  * @param {boolean} props.auth
  */
 
-function NavButton({ to, end, className, auth, logout, ...props }) {
+function NavButton({
+  to,
+  end,
+  className,
+  auth,
+  children,
+  ...props
+}: {
+  to: string;
+  end: boolean;
+  auth?: boolean;
+} & React.LinkHTMLAttributes<HTMLAnchorElement>) {
   const authBtn = auth && classes.authBtn;
 
   return (
@@ -26,7 +37,9 @@ function NavButton({ to, end, className, auth, logout, ...props }) {
           }
           end={end}
           {...props}
-        />
+        >
+          {children}
+        </NavLink>
       </li>
     </>
   );

@@ -9,6 +9,7 @@ interface Button extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     | 'orange'
     | 'orangeLight'
     | 'orangeDark'
+    | 'orangeLite'
     | 'green'
     | 'blue'
     | 'start'

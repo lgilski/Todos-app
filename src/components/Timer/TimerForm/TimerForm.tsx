@@ -15,9 +15,9 @@ function TimerForm({
   closeModal,
 }: {
   modal: boolean;
-  timerData: Timer;
-  showFormHandler: () => void;
-  closeModal: () => void;
+  timerData?: Timer;
+  showFormHandler?: () => void;
+  closeModal?: () => void;
 }) {
   const dispatch = useDispatch();
 
@@ -48,7 +48,7 @@ function TimerForm({
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (modal) {
+    if (modal && closeModal && timerId) {
       dispatch(
         timerActions.editTimer({
           hours,
@@ -96,7 +96,7 @@ function TimerForm({
                     min='0'
                     max='99'
                     onChange={onHoursChange}
-                    defaultValue={modal ? timerData.hours : ''}
+                    defaultValue={modal ? timerData!.hours : ''}
                     text='Hours'
                     noMargin={true}
                   />
@@ -111,7 +111,7 @@ function TimerForm({
                     min='0'
                     max='59'
                     onChange={onMinutesChange}
-                    defaultValue={modal ? timerData.minutes : ''}
+                    defaultValue={modal ? timerData!.minutes : ''}
                     text='Minutes'
                     noMargin={true}
                   />
@@ -126,7 +126,7 @@ function TimerForm({
                     min='0'
                     max='59'
                     onChange={onSecondsChange}
-                    defaultValue={modal ? timerData.seconds : ''}
+                    defaultValue={modal ? timerData!.seconds : ''}
                     text='Seconds'
                     noMargin={true}
                   />
@@ -143,7 +143,7 @@ function TimerForm({
                   noMargin={true}
                   maxLength={20}
                   autoComplete='off'
-                  defaultValue={modal ? timerData.timerName : ''}
+                  defaultValue={modal ? timerData!.timerName : ''}
                 />
               </li>
             </ul>

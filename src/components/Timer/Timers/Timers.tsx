@@ -15,10 +15,12 @@ import TimerForm from '../TimerForm/TimerForm';
 function Timers() {
   const dispatch = useDispatch();
 
-  const formatedTimers = JSON.parse(localStorage.getItem('timers'));
+  const formatedTimers = JSON.parse(localStorage.getItem('timers')!);
 
-  const timers = useSelector(state => state.timers.timers);
-  const countDownMethod = useSelector(state => state.timers.countDownMethod);
+  const timers = useSelector((state: WholeState) => state.timers.timers);
+  const countDownMethod = useSelector(
+    (state: WholeState) => state.timers.countDownMethod
+  );
 
   const [showForm, setShowForm] = useState(false);
 
@@ -40,7 +42,7 @@ function Timers() {
   //   },
   // };
 
-  const onDragEnd = function (result) {
+  const onDragEnd = function (result: any) {
     const { destination, source, draggableId } = result;
 
     if (!destination) return;
@@ -57,9 +59,9 @@ function Timers() {
     });
   };
 
-  const onDragStart = function (result) {
+  const onDragStart = function (result: any) {
     if (countDownMethod === 'Start in sequence') {
-      dispatch(timerActions.stopTimersInSquence());
+      dispatch(timerActions.stopTimersInSquence(null));
     }
   };
 
@@ -74,7 +76,9 @@ function Timers() {
   return (
     <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
       <div className={classes.contentWrapper}>
-        {showForm && <TimerForm showFormHandler={showFormHandler} />}
+        {showForm && (
+          <TimerForm modal={false} showFormHandler={showFormHandler} />
+        )}
         <div className={classes.timerToolbar}>
           <TimerCountDownMethod />
           <Button
