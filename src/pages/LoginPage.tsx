@@ -11,7 +11,7 @@ function LoginPage() {
 
 export default LoginPage;
 
-export async function action({ request }) {
+export async function action({ request }: { request: Request }) {
   const data = await request.formData();
   const authData = {
     email: data.get('email'),
@@ -19,26 +19,26 @@ export async function action({ request }) {
     passwordRepeat: data.get('passwordRepeat'),
   };
 
-  if (authData.password.length < 6) {
+  if (authData.password!.length < 6) {
     return { message: 'Password must be at least 6 characters long' };
   }
 
   try {
     const response = await signInWithEmailAndPassword(
       auth,
-      authData.email,
-      authData.password
+      authData!.email!.toString(),
+      authData.password!.toString()
     );
 
-    if (
-      response.status === 422 ||
-      response.status === 401 ||
-      response.status === 400
-    ) {
-      return response;
-    }
+    // if (
+    //   response.status === 422 ||
+    //   response.status === 401 ||
+    //   response.status === 400
+    // ) {
+    //   return response;
+    // }
 
-    if (!auth.currentUser.emailVerified) {
+    if (!auth.currentUser?.emailVerified) {
       return { message: 'Email must be verified.' };
     }
 
@@ -72,13 +72,15 @@ export async function action({ request }) {
 
     return redirect('/app/cards');
   } catch (err) {
-    if (
-      err.message === 'Firebase: Error (auth/wrong-password).' ||
-      err.message === 'Firebase: Error (auth/user-not-found).'
-    ) {
-      return { message: 'Incorrect email or password' };
+    if (err instanceof Error) {
+      if (
+        err.message === 'Firebase: Error (auth/wrong-password).' ||
+        err.message === 'Firebase: Error (auth/user-not-found).'
+      ) {
+        return { message: 'Incorrect email or password' };
+      }
+      return { message: err.message };
     }
-    return { message: err.message };
     // throw json({ message: err.message });
   }
 }

@@ -75,7 +75,6 @@ const routes = [
       },
     ],
   },
-  // { path: 'auth', element: <AuthPage />, action: authAction },
   { path: 'auth/login', element: <LoginPage />, action: loginAction },
   { path: 'auth/signup', element: <SignupPage />, action: signupAction },
   {

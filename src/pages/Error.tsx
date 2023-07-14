@@ -1,4 +1,4 @@
-import { useRouteError } from 'react-router-dom';
+import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 import MainNavigation from '../components/UI/Nav/MainNavigation/MainNavigation';
 
 import PageContent from '../components/Error/PageContent';
@@ -14,18 +14,20 @@ function ErrorPage() {
   let title = 'An error occurred!';
   let message = 'Something went wrong!';
 
-  // DEV - remember to delete!!!
-  if (error.message) {
-    message = error.message;
-  }
+  if (isRouteErrorResponse(error)) {
+    // DEV - remember to delete!!!
+    if (error.data.message) {
+      message = error.data.message;
+    }
 
-  if (error.status === 500) {
-    message = error.data.message;
-  }
+    if (error.status === 500) {
+      message = error.data.message;
+    }
 
-  if (error.status === 404) {
-    title = 'Not found!';
-    message = 'Could not find resource or page.';
+    if (error.status === 404) {
+      title = 'Not found!';
+      message = 'Could not find resource or page.';
+    }
   }
 
   return (

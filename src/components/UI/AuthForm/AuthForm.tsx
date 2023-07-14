@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 import { auth } from '../../../config/firebase';
 import Button from '../../common/Button/Button';
 
-function AuthForm({ mode }: { mode: string }) {
+function AuthForm({ mode }: { mode?: string }) {
   const data = useActionData() as { errors?: string; message?: string };
   const navigation = useNavigation();
 

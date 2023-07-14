@@ -190,3 +190,14 @@ type Hour = {
   gust_kph: number;
   uv: number;
 };
+
+// type Routes = Route[];
+
+// type Route = {
+//   index?: boolean;
+//   element: HTMLElement;
+//   path: string;
+//   children: Route[];
+//   loader: () => any;
+//   action: () => any;
+// };

@@ -13,7 +13,7 @@ function SignupPage() {
 
 export default SignupPage;
 
-export async function action({ request }) {
+export async function action({ request }: { request: Request }) {
   const data = await request.formData();
   const authData = {
     email: data.get('email'),
@@ -21,7 +21,7 @@ export async function action({ request }) {
     passwordRepeat: data.get('passwordRepeat'),
   };
 
-  if (authData.password.length < 6) {
+  if (authData.password!.length < 6) {
     return { message: 'Password must be at least 6 characters long' };
   } else if (authData.passwordRepeat !== authData.password) {
     return { message: 'Passwords are incorrect' };
@@ -30,15 +30,15 @@ export async function action({ request }) {
   try {
     const response = await createUserWithEmailAndPassword(
       auth,
-      authData.email.trim(),
-      authData.password
+      authData.email!.toString().trim(),
+      authData.password!.toString()
     );
 
-    if (response.status === 422 || response.status === 401) {
-      return response;
-    }
+    // if (response.status === 422 || response.status === 401) {
+    //   return response;
+    // }
 
-    await sendEmailVerification(auth.currentUser);
+    await sendEmailVerification(auth.currentUser!);
 
     toast.success('Verification email has been sent.', {
       position: 'top-center',
@@ -53,8 +53,8 @@ export async function action({ request }) {
 
     return redirect('/');
   } catch (err) {
-    console.log(err);
-
-    return { message: err.message };
+    if (err instanceof Error) {
+      return { message: err.message };
+    }
   }
 }

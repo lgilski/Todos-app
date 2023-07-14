@@ -1,7 +1,6 @@
-import { useLocation, useNavigate, useOutlet } from 'react-router-dom';
+import { useLocation, useOutlet } from 'react-router-dom';
 
 import MainNavigation from '../../components/UI/Nav/MainNavigation/MainNavigation';
-import { useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import Footer from '../../components/UI/Footer/Footer';
 import { useSelector } from 'react-redux';
@@ -14,15 +13,16 @@ import clsx from '../../utils/clsx';
 import classes from './Root.module.css';
 import AppNavigationHorizontal from '../../components/UI/Nav/AppNavigationHorizontal/AppNavigationHorizontal';
 
-function RootLayout({ routes }) {
-  const navigate = useNavigate();
+function RootLayout({ routes }: { routes: any }) {
   const location = useLocation();
   const currentOutlet = useOutlet();
   const { nodeRef } =
-    routes.find(route => route.path === location.pathname) ?? {};
+    routes.find((route: any) => route.path === location.pathname) ?? {};
 
-  const isLoading = useSelector(state => state.data.loading);
-  const isSidenavOpen = useSelector(state => state.data.isSidenavOpen);
+  const isLoading = useSelector((state: WholeState) => state.data.loading);
+  const isSidenavOpen = useSelector(
+    (state: WholeState) => state.data.isSidenavOpen
+  );
 
   const user = auth.currentUser;
 

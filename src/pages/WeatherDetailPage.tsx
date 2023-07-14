@@ -6,12 +6,12 @@ function WeatherDetailPage() {
   // const weatherForecast = useLoaderData();
   const { city } = useParams();
 
-  return <WeatherDetailCards city={city} />;
+  return <WeatherDetailCards city={city!} />;
 }
 
 export default WeatherDetailPage;
 
-export async function loader({ params }) {
+export async function loader({ params }: { params: any }) {
   const city = params.weatherId;
 
   const data = await fetchForecast({ city });
