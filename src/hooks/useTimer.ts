@@ -3,15 +3,32 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { timerActions } from '../store/timer';
 
-export function useTimer({ completeTimeInSeconds, timerData, index }) {
-  const countDownTime = useRef(null);
+export function useTimer({
+  completeTimeInSeconds,
+  timerData,
+  index,
+}: {
+  completeTimeInSeconds: number;
+  timerData: Timer;
+  index: number;
+}) {
+  const countDownTime: { current: NodeJS.Timeout | undefined } =
+    useRef(undefined);
 
   const dispatch = useDispatch();
 
-  const startSequence = useSelector(state => state.timers.startSequence);
-  const activeIndex = useSelector(state => state.timers.activeIndex);
-  const resetAllTimers = useSelector(state => state.timers.resetAllTimers);
-  const countDownMethod = useSelector(state => state.timers.countDownMethod);
+  const startSequence = useSelector(
+    (state: WholeState) => state.timers.startSequence
+  );
+  const activeIndex = useSelector(
+    (state: WholeState) => state.timers.activeIndex
+  );
+  const resetAllTimers = useSelector(
+    (state: WholeState) => state.timers.resetAllTimers
+  );
+  const countDownMethod = useSelector(
+    (state: WholeState) => state.timers.countDownMethod
+  );
 
   const [isCounting, setIsCounting] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -45,7 +62,7 @@ export function useTimer({ completeTimeInSeconds, timerData, index }) {
 
   const editTimer = function () {
     if (countDownMethod === 'Start in sequence') {
-      dispatch(timerActions.stopTimersInSquence());
+      dispatch(timerActions.stopTimersInSquence(null));
     }
 
     stopTimer();
@@ -83,7 +100,7 @@ export function useTimer({ completeTimeInSeconds, timerData, index }) {
       countDownMethod === 'Start in sequence' &&
       index === activeIndex
     ) {
-      dispatch(timerActions.incrementActiveIndexInSequence());
+      dispatch(timerActions.incrementActiveIndexInSequence(null));
     }
   }, [
     timeInSeconds,
