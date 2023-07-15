@@ -82,14 +82,14 @@ function TimerForm({
               color='orange'
               size='big'
             />
-            <h4 className={classes['timerForm-heading']}>
+            <h4 className={classes.timerFormHeading}>
               {modal ? 'Edit your timer' : 'Create new timer'}
             </h4>
-            <ul className={classes['timerFormList']}>
-              <li className={classes['timerFormListTime']}>
-                <div className={classes['timerFormListTimeElement']}>
+            <ul className={classes.timerFormList}>
+              <li className={classes.timerFormListTime}>
+                <div className={classes.timerFormListTimeElement}>
                   <Input
-                    color='orange'
+                    color='Orange'
                     down={true}
                     name='hours'
                     type='number'
@@ -102,9 +102,9 @@ function TimerForm({
                   />
                 </div>
                 <p>:</p>
-                <div className={classes['timerFormListTimeElement']}>
+                <div className={classes.timerFormListTimeElement}>
                   <Input
-                    color='orange'
+                    color='Orange'
                     down={true}
                     name='minutes'
                     type='number'
@@ -117,9 +117,9 @@ function TimerForm({
                   />
                 </div>
                 <p>:</p>
-                <div className={classes['timerFormListTimeElement']}>
+                <div className={classes.timerFormListTimeElement}>
                   <Input
-                    color='orange'
+                    color='Orange'
                     down={true}
                     name='seconds'
                     type='number'
@@ -135,7 +135,7 @@ function TimerForm({
               <li className={classes.border} />
               <li>
                 <Input
-                  color='orange'
+                  color='Orange'
                   name='name'
                   type='text'
                   onChange={onTimerNameChange}
@@ -147,7 +147,7 @@ function TimerForm({
                 />
               </li>
             </ul>
-            <Button variant='capsule' color='orange'>
+            <Button variant='Capsule' color='Orange'>
               {modal ? 'Edit timer' : 'Add timer'}
             </Button>
           </form>

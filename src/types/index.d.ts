@@ -1,26 +1,26 @@
 declare module '*.module.css';
 
-declare module 'clsx' {
-  type ClassValue =
-    | string
-    | number
-    | ClassDictionary
-    | ClassArray
-    | undefined
-    | null
-    | boolean;
+// declare module 'clsx' {
+//   type ClassValue =
+//     | string
+//     | number
+//     | ClassDictionary
+//     | ClassArray
+//     | undefined
+//     | null
+//     | boolean;
 
-  interface ClassDictionary {
-    [id: string]: any;
-  }
+//   interface ClassDictionary {
+//     [id: string]: any;
+//   }
 
-  interface ClassArray extends Array<ClassValue> {}
+//   interface ClassArray extends Array<ClassValue> {}
 
-  type ClassNamesFn = (...classes: ClassValue[]) => string;
+//   type ClassNamesFn = (...classes: ClassValue[]) => string;
 
-  type ClassNamesExport = ClassNamesFn & { default: ClassNamesFn };
+//   type ClassNamesExport = ClassNamesFn & { default: ClassNamesFn };
 
-  const classNames: ClassNamesExport;
+//   const classNames: ClassNamesExport;
 
-  export = classNames;
-}
+//   export = classNames;
+// }

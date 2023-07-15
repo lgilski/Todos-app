@@ -84,8 +84,8 @@ function Timers() {
           <Button
             onClick={showFormHandler}
             className={classes.timerAddBtn}
-            color='green'
-            variant='roundedSquare'
+            color='Green'
+            variant='RoundedSquare'
           >
             Add
           </Button>

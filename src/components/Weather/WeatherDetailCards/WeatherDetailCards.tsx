@@ -45,7 +45,7 @@ function WeatherDetailCards({ city }: { city: string }) {
           <h4 className={classes.city}>
             {forecastData.location.name}, {forecastData.location.country}
           </h4>
-          <Button onClick={goBack} color='orangeLight' variant='roundedSquare'>
+          <Button onClick={goBack} color='OrangeLight' variant='RoundedSquare'>
             <ion-icon name='arrow-back-outline' /> Back
           </Button>
         </div>

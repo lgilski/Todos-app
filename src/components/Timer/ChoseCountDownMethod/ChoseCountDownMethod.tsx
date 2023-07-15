@@ -52,17 +52,17 @@ function TimerCountDownMethod() {
       {countDownMethod === 'Start in sequence' && (
         <div className={classes.btns}>
           {!startedSequence && (
-            <Button variant='circle' color='start' onClick={startSequence}>
+            <Button variant='Circle' color='Start' onClick={startSequence}>
               <ion-icon name='play' />
             </Button>
           )}
           {startedSequence && (
-            <Button variant='circle' color='stop' onClick={stopTimers}>
+            <Button variant='Circle' color='Stop' onClick={stopTimers}>
               <ion-icon name='pause' />
             </Button>
           )}
           {!startedSequence && (
-            <Button variant='circle' color='reset' onClick={resetTimers}>
+            <Button variant='Circle' color='Reset' onClick={resetTimers}>
               <ion-icon name='refresh' />
             </Button>
           )}

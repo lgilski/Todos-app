@@ -21,25 +21,25 @@ function WeatherDetailCard({
     <div className={classes.detailCard}>
       <h5 className={classes.date}>{weatherForecastDay.date} </h5>
       <div className={classes.contentWrapper}>
-        <div className={classes['content-col']}>
+        <div className={classes.contentCol}>
           <h6>Temperature</h6>
-          <p className={classes['content-col-withIcon']}>
+          <p className={classes.contentColWithIcon}>
             <ion-icon name='flame' /> max:{' '}
             <span>
               {weatherForecastDay.day.maxtemp_c}
               &deg;C
             </span>
           </p>
-          <p className={classes['content-col-withIcon']}>
+          <p className={classes.contentColWithIcon}>
             <ion-icon name='thermometer-outline' /> avg:{' '}
             <span>{weatherForecastDay.day.avgtemp_c}&deg;C</span>
           </p>
-          <p className={classes['content-col-withIcon']}>
+          <p className={classes.contentColWithIcon}>
             <ion-icon name='trending-down' /> min:{' '}
             <span>{weatherForecastDay.day.mintemp_c}&deg;C</span>
           </p>
         </div>
-        <div className={classes['content-col']}>
+        <div className={classes.contentCol}>
           <h6>Sun</h6>
           <p>
             Sunrise at <span>{weatherForecastDay.astro.sunrise}</span>
@@ -58,18 +58,18 @@ function WeatherDetailCard({
             </span>
           </p>
         </div>
-        <div className={classes['content-col']}>
+        <div className={classes.contentCol}>
           <h6>Precipitation</h6>
-          <p className={classes['content-col-withIcon']}>
+          <p className={classes.contentColWithIcon}>
             <ion-icon name='rainy' /> Chance of rain:{' '}
             <span>{weatherForecastDay.day.daily_chance_of_rain}%</span>
           </p>
-          <p className={classes['content-col-withIcon']}>
+          <p className={classes.contentColWithIcon}>
             <ion-icon name='snow' /> Chance of snow:{' '}
             <span>{weatherForecastDay.day.daily_chance_of_snow}%</span>
           </p>
         </div>
-        <div className={classes['content-col']}>
+        <div className={classes.contentCol}>
           <img src={weatherForecastDay.day.condition.icon} alt='' />
           <p>{weatherForecastDay.day.condition.text}</p>
         </div>

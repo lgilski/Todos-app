@@ -63,7 +63,12 @@ function RootLayout({ routes }: { routes: any }) {
             key={location.pathname}
             nodeRef={nodeRef}
             timeout={200}
-            classNames='page'
+            classNames={{
+              enterActive: 'pageEnterActive',
+              enter: 'pageEnter',
+              exitActive: 'pageExitActive',
+              exit: 'pageExit',
+            }}
             unmountOnExit
           >
             {state => (

@@ -36,13 +36,13 @@ function WeatherForm() {
         autoComplete='off'
         type={'text'}
         name={'city'}
-        color={'orange'}
+        color={'Orange'}
         text={'Type city or place'}
         ref={ref}
         // value={ref.current.value}
         required={true}
       />
-      <Button variant='capsule' color='orange'>
+      <Button variant='Capsule' color='Orange'>
         Find city
       </Button>
     </form>

@@ -30,19 +30,17 @@ function TimerContent({
     (state: WholeState) => state.timers.countDownMethod
   );
 
-  console.log(currentTime);
-
   return (
-    <div className={classes['timer-wrapper']}>
+    <div className={classes.timerWrapper}>
       <div>
-        <h4 onClick={functions.editTimer} className={classes['timer-time']}>
+        <h4 onClick={functions.editTimer} className={classes.timerTime}>
           <DisplayTime time={currentTime.hours} />
           :
           <DisplayTime time={currentTime.minutes} />
           :
           <DisplayTime time={currentTime.seconds} />
         </h4>
-        <p className={classes['timer-name']}>
+        <p className={classes.timerName}>
           {timerData.timerName} (
           <DisplayTime time={timerData.hours.toString()} startingTime={true} />
           :
@@ -52,33 +50,33 @@ function TimerContent({
         </p>
       </div>
       {countDownMethod === 'Manually' && (
-        <div className={classes['timer-buttons']}>
+        <div className={classes.timerButtons}>
           {!isCounting && (
             <Button
-              variant='circle'
-              color='start'
+              variant='Circle'
+              color='Start'
               onClick={functions.startTimer}
-              className={classes['timer-button']}
+              className={classes.timerButton}
             >
               <ion-icon name='play' />
             </Button>
           )}
           {isCounting && (
             <Button
-              variant='circle'
-              color='stop'
+              variant='Circle'
+              color='Stop'
               onClick={functions.stopTimer}
-              className={classes['timer-button']}
+              className={classes.timerButton}
             >
               <ion-icon name='pause' />
             </Button>
           )}
           {!isCounting && (
             <Button
-              variant='circle'
-              color='reset'
+              variant='Circle'
+              color='Reset'
               onClick={functions.resetTimer}
-              className={classes['timer-button']}
+              className={classes.timerButton}
             >
               <ion-icon name='refresh' />
             </Button>
