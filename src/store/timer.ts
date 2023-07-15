@@ -90,7 +90,7 @@ const timerSlice = createSlice({
     },
 
     moveTimers(state, action) {
-      const { destination, source, draggableId } = action.payload;
+      const { destination, source } = action.payload;
 
       const timerToMove = state.timers[source.index];
 

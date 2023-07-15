@@ -121,10 +121,10 @@ const Cards = function () {
             {!hasCards && (
               <CSSTransition
                 classNames={{
-                  enterActive: classes['message-enter-active'],
-                  enter: classes['message-enter'],
-                  exitActive: classes['message-exit-active'],
-                  exit: classes['message-exit'],
+                  enterActive: classes['messageEnterActive'],
+                  enter: classes['messageEnter'],
+                  exitActive: classes['messageExitActive'],
+                  exit: classes['messageExit'],
                 }}
                 timeout={300}
               >
@@ -140,10 +140,10 @@ const Cards = function () {
                 <CSSTransition
                   key={card.id}
                   classNames={{
-                    enterActive: cardClasses['fade-enter-active'],
-                    enter: cardClasses['fade-enter'],
-                    exitActive: cardClasses['fade-exit-active'],
-                    exit: cardClasses['fade-exit'],
+                    enterActive: cardClasses['fadeEnterActive'],
+                    enter: cardClasses['fadeEnter'],
+                    exitActive: cardClasses['fadeExitActive'],
+                    exit: cardClasses['fadeExit'],
                   }}
                   timeout={300}
                 >

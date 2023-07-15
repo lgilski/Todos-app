@@ -1,28 +1,28 @@
 .features {
-  text-align: center;
   display: grid;
-  gap: 48px 32px;
   grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
+  gap: 48px 32px;
   align-content: center;
+  justify-items: center;
   max-width: 1100px;
   margin: auto;
+  text-align: center;
 }
 
 .iconWrapper {
-  border-radius: 50px;
   width: 52px;
   height: 52px;
   margin: auto;
+  border-radius: 50px;
 }
 
 .features ion-icon {
-  /* color: #fff; */
-  padding: 8px;
   width: 36px;
   height: 36px;
-  background-color: var(--lime-green-100);
+  /* color: #fff; */
+  padding: 8px;
   color: var(--lime-green-400);
+  background-color: var(--lime-green-100);
   border-radius: 100%;
 }
 

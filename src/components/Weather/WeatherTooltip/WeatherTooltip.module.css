@@ -5,11 +5,11 @@
 }
 
 .container .tooltip {
+  z-index: 3;
+  padding: 8px;
   color: #222;
   background-color: var(--tint-orange-10);
-  padding: 8px;
-  z-index: 3;
-  box-shadow: var(--shadow-S);
+  box-shadow: var(--shadow-s);
 
   /* transition: all 0.3s; */
   /* background-color: rgb(255, 153, 0); */
@@ -18,16 +18,14 @@
 .triggerButton,
 .triggerButton:link,
 .triggerButton:visited {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
   cursor: pointer;
   background-color: var(--tint-orange-80);
-  display: inline-block;
-  padding: 4px;
-  height: 32px;
-  width: 32px;
-
   border: none;
   border-radius: 100%;
-
   transition: all 0.3s;
 }
 
@@ -37,8 +35,8 @@
 }
 
 .triggerButton ion-icon {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .buttonsWrapper {
@@ -51,18 +49,16 @@
 .tooltipButton:link,
 .tooltipButton:visited {
   display: flex;
+  gap: 4px;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-
+  padding: 2px;
+  font-size: var(--text-medium);
+  color: var(--shade-orange-90);
+  text-decoration: none;
   cursor: pointer;
   background-color: var(--tint-orange-70);
-  color: var(--shade-orange-90);
-  font-size: var(--text-medium);
-
   border: none;
-  text-decoration: none;
-  padding: 2px;
   transition: color 0.3s, background-color 0.3s;
 }
 

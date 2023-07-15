@@ -42,7 +42,7 @@ const TimerComponent = function ({
           data-isdragging={snapshot.isDragging.toString()}
         >
           <CloseButton
-            className={classes['timer-close--btn']}
+            className={classes['timerCloseBtn']}
             onClick={functions.deleteTimer}
             color='orange'
             size='big'

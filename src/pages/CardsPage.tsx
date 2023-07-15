@@ -8,11 +8,11 @@ function CardsPage() {
   const user = auth.currentUser;
 
   return (
-    <section className='grey-bg padding-bottom'>
+    <section className='greyBg paddingBottom'>
       {!user && <LoginToGetAccess />}
       {user && (
         <SectionHeader
-          className='pageTitle-center padding-top'
+          className='pageTitleCenter paddingTop'
           subheader='Cards page'
           header='Start planning your days'
           type='medium'

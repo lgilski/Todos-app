@@ -2,7 +2,7 @@
  * @return {string} daeb7d0c-03f4-4324-af33-22f8f2098968
  */
 
-export function generateUUID() {
+export function generateUUID(): string {
   var d = new Date().getTime();
   var d2 =
     (typeof performance !== 'undefined' &&

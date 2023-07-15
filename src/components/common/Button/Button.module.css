@@ -1,156 +1,156 @@
 .btn,
 .btn:link,
 .btn:visited {
+  font-family: Roboto, sans-serif;
+  font-size: var(--heading-s);
+  text-decoration: none;
   cursor: pointer;
   border: none;
   transition: all 0.3s;
-  text-decoration: none;
-  font-size: var(--heading-S);
-  font-family: 'Roboto';
 }
 
-.btn-circle {
-  height: 100px;
+.btnCircle {
   width: 100px;
-  border-radius: 100%;
+  height: 100px;
   font-size: 32px; /* ??? */
+  border-radius: 100%;
 }
 
-.btn-capsule {
+.btnCapsule {
   padding: 8px 16px;
   /* padding: 16px 32px; */
   border-radius: 80px;
 }
 
-.btn-roundedSquare {
+.btnRoundedSquare {
   padding: 8px 16px;
   font-weight: 500;
   /* padding: 16px 32px; */
   border-radius: 8px;
 }
 
-.btn-logout {
-  font-size: var(--text-huge);
+.btnLogout {
   padding: 8px 16px;
+  font-size: var(--text-huge);
   border-radius: 6px;
   /* border-radius: 8px; */
 }
 
-.btn-color-logout {
+.btnColorLogout {
+  font-weight: 500;
+  color: var(--lime-green-900);
   /* border: 2px var(--shade-blue-20) solid;
   background-color: var(--tint-blue-80); */
   /* border: 2px var(--shade-blue-20) solid; */
   background-color: var(--lime-green-200);
-  color: var(--lime-green-900);
-  font-weight: 500;
 }
 
-.btn-color-logout:hover,
-.btn-color-logout:active {
-  background-color: var(--lime-green-600);
+.btnColorLogout:hover,
+.btnColorLogout:active {
   color: var(--lime-green-050);
+  background-color: var(--lime-green-600);
 }
 
-.btn-color-orange {
-  background-color: var(--tint-orange-80);
+.btnColorOrange {
   color: var(--color-gray-first);
+  background-color: var(--tint-orange-80);
 }
 
-.btn-color-orange:hover,
-.btn-color-orange:active {
+.btnColorOrange:hover,
+.btnColorOrange:active {
   color: var(--tint-orange-90);
   background-color: var(--shade-orange-50);
 }
 
-.btn-color-green {
-  background-color: var(--lime-green-600);
+.btnColorGreen {
   color: var(--lime-green-050);
+  background-color: var(--lime-green-600);
 }
 
-.btn-color-green:hover,
-.btn-color-green:active {
+.btnColorGreen:hover,
+.btnColorGreen:active {
   color: var(--lime-green-050);
   background-color: var(--lime-green-500);
 }
 
-.btn-color-orangeLight {
-  background-color: var(--tint-orange-20);
+.btnColorOrangeLight {
   color: var(--color-gray-first);
+  background-color: var(--tint-orange-20);
 }
 
-.btn-color-orangeLight:hover,
-.btn-color-orangeLight:active {
+.btnColorOrangeLight:hover,
+.btnColorOrangeLight:active {
   color: var(--tint-orange-90);
   background-color: var(--shade-orange-30);
 }
 
-.btn-color-orangeDark {
-  background-color: var(--orange-600);
+.btnColorOrangeDark {
   color: var(--orange-050);
+  background-color: var(--orange-600);
 }
 
-.btn-color-orangeDark:hover,
-.btn-color-orangeDark:active {
+.btnColorOrangeDark:hover,
+.btnColorOrangeDark:active {
   color: var(--tint-orange-90);
   background-color: var(--orange-700);
 }
 
-.btn-color-blue {
+.btnColorBlue {
   color: var(--color-gray-first);
   background-color: var(--tint-blue-80);
 }
 
-.btn-color-blue:hover,
-.btn-color-blue:active {
+.btnColorBlue:hover,
+.btnColorBlue:active {
   color: var(--tint-blue-80);
   background-color: var(--shade-blue-50);
 }
 
-.btn-color-orangeLite {
+.btnColorOrangeLite {
   color: var(--orange-900);
   background-color: var(--orange-200);
 }
 
-.btn-color-orangeLite:hover,
-.btn-color-orangeLite:active {
+.btnColorOrangeLite:hover,
+.btnColorOrangeLite:active {
   color: var(--orange-050);
   background-color: var(--orange-400);
 }
 
-.btn-color-start {
+.btnColorStart {
   background-color: var(--color-orange-first);
 }
 
-.btn-color-start:hover,
-.btn-color-start:active {
-  background-color: var(--shade-orange-30);
+.btnColorStart:hover,
+.btnColorStart:active {
   color: var(--tint-orange-90);
+  background-color: var(--shade-orange-30);
 }
 
-.btn-color-stop {
+.btnColorStop {
   background-color: #e09498;
 }
 
-.btn-color-stop:hover,
-.btn-color-stop:active {
-  background-color: #9d686a;
+.btnColorStop:hover,
+.btnColorStop:active {
   color: aliceblue;
+  background-color: #9d686a;
 }
 
-.btn-color-reset {
+.btnColorReset {
   background-color: var(--tint-blue-30);
 }
 
-.btn-color-reset:hover,
-.btn-color-reset:active {
-  background-color: var(--shade-blue-20);
+.btnColorReset:hover,
+.btnColorReset:active {
   color: var(--tint-blue-80);
+  background-color: var(--shade-blue-20);
 }
 
 @media (max-width: 580px) {
-  .btn-circle {
-    height: 92px;
+  .btnCircle {
     width: 92px;
+    height: 92px;
     font-size: 28px;
   }
 }

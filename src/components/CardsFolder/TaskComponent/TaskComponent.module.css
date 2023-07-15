@@ -1,37 +1,36 @@
-.btnClose-small {
+.btnCloseSmall {
   position: absolute;
-  right: 4px;
   top: 4px;
+  right: 4px;
   color: #e6f9f7;
   text-align: center;
 }
 
-.list-element {
+.listElement {
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 4px;
-
-  position: relative;
   width: 95%;
-  word-wrap: break-word;
-  /* background-color: var(--orange-050); */
-  background-color: #fff;
-  padding: 30px 8px 4px 8px;
-  border-radius: 9px;
+  padding: 30px 8px 4px;
   margin-bottom: 8px;
   font-size: var(--text-big);
   color: var(--grey-900);
+  word-wrap: break-word;
+  /* background-color: var(--orange-050); */
+  background-color: #fff;
 
   /* border: 1px solid var(--orange-200); */
   border: 1px solid var(--grey-200);
-  box-shadow: var(--shadow-S);
+  border-radius: 9px;
+  box-shadow: var(--shadow-s);
 }
 
-.list-element li {
+.listElement li {
   min-width: 40%;
 }
 
-.list-element ion-icon,
+.listElement ion-icon,
 .checkBox {
   width: 20px;
   height: 20px;
@@ -42,8 +41,8 @@
   cursor: pointer;
   /* background-color: var(--orange-050); */
   background-color: #fff;
-  border-radius: 4px;
   border: 2px solid black;
+  border-radius: 4px;
   transition: background-color 0.3s;
 }
 
@@ -57,70 +56,70 @@
   opacity: 1;
 }
 
-.list-element ion-icon {
+.listElement ion-icon {
   color: #fff;
   opacity: 0;
 }
 
 .doneText {
-  text-decoration: line-through;
   color: var(--tint-gray-50);
+  text-decoration: line-through;
 }
 
-.fade-small-enter {
-  opacity: 0;
-  padding: 0;
+.fadeSmallEnter {
   width: 0;
-  font-size: 0;
+  padding: 0;
   margin: 0;
+  font-size: 0;
+  opacity: 0;
 }
 
-.fade-small-enter-active {
+.fadeSmallEnterActive {
+  width: 95%;
+  padding: 30px 8px 4px;
+  margin-bottom: 8px;
+  font-size: var(--text-big);
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  padding: 30px 8px 4px 8px;
-  width: 95%;
-  font-size: var(--text-big);
-  margin-bottom: 8px;
 }
 
-.fade-small-exit {
+.fadeSmallExit {
+  width: 95%;
+  padding: 30px 8px 4px;
+  margin-bottom: 8px;
+  font-size: var(--text-big);
   opacity: 1;
-  padding: 30px 8px 4px 8px;
-  width: 95%;
-  font-size: var(--text-big);
-  margin-bottom: 8px;
 }
 
-.fade-small-exit-active {
+.fadeSmallExitActive {
+  width: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
   opacity: 0;
   transition: all 0.3s ease-in-out;
-  padding: 0;
-  width: 0;
-  font-size: 0;
-  margin: 0;
 }
 
-.fade-small-enter .checkBox {
+.fadeSmallEnter .checkBox {
   width: 0;
   height: 0;
   border: none;
 }
 
-.fade-small-enter-active .checkBox {
+.fadeSmallEnterActive .checkBox {
   width: 20px;
   height: 20px;
   border: 2px solid black;
   transition: all 0.3s;
 }
 
-.fade-small-exit .checkBox {
+.fadeSmallExit .checkBox {
   width: 20px;
   height: 20px;
   border: 2px solid black;
 }
 
-.fade-small-exit-active .checkBox {
+.fadeSmallExitActive .checkBox {
   width: 0;
   height: 0;
   border: none;

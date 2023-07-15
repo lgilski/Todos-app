@@ -1,30 +1,27 @@
 .detailCard {
   width: 100%;
-  background-color: var(--tint-orange-60);
   padding: 16px 20px;
-  border-radius: 8px;
-
   margin-top: 32px;
-
-  box-shadow: var(--shadow-M);
+  background-color: var(--tint-orange-60);
+  border-radius: 8px;
+  box-shadow: var(--shadow-m);
 }
 
 .date {
-  font-size: var(--heading-M);
+  font-size: var(--heading-m);
 }
 
 .contentWrapper {
-  margin-top: 8px;
   display: grid;
   /* gap: 16px; */
   grid-template-columns: repeat(4, 1fr);
+  /* background-color: var(--tint-blue-80); */
+  padding: 12px 0;
+  margin-top: 8px;
   font-size: var(--text-big);
 
   /* background-color: antiquewhite; */
   background-color: var(--tint-orange-80);
-  /* background-color: var(--tint-blue-80); */
-  padding: 12px 0;
-
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -38,28 +35,25 @@
 }
 
 .contentWrapper img {
+  align-self: center;
   width: 80px;
   height: 80px;
-  align-self: center;
+  margin-bottom: auto;
 
   /* background-color: var(--tint-blue-80); */
   /* background-color: var(--tint-blue-90); */
   background-color: #fff;
-
   border-radius: 100%;
-
-  margin-bottom: auto;
-
-  box-shadow: var(--shadow-S);
+  box-shadow: var(--shadow-s);
 }
 
-.content-col-withIcon {
-  align-items: center;
+.contentColWithIcon {
   display: flex;
   gap: 4px;
+  align-items: center;
 }
 
-.content-col {
+.contentCol {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -69,29 +63,28 @@
   border-right: 2px solid var(--tint-orange-30);
 }
 
-.content-col:last-child {
+.contentCol:last-child {
   border: none;
 }
 
-.content-col ion-icon {
-  height: 20px;
+.contentCol ion-icon {
   width: 20px;
+  height: 20px;
 }
 
 .border {
   position: absolute;
-  border-right: 2px solid var(--tint-orange-30);
-  height: 100%;
-  right: 0;
   top: 0;
+  right: 0;
+  height: 100%;
+  border-right: 2px solid var(--tint-orange-30);
 }
 
 .hours {
-  padding: 24px;
-  background-color: var(--tint-orange-90);
   display: grid;
-  gap: 12px;
-  overflow-x: scroll;
-
   grid-template-columns: repeat(24, 150px);
+  gap: 12px;
+  padding: 24px;
+  overflow-x: scroll;
+  background-color: var(--tint-orange-90);
 }

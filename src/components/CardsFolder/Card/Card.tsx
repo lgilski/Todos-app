@@ -57,7 +57,7 @@ const Card = function ({
     <div
       className={clsx(
         classes.card,
-        happened === 'true' && classes['card-black'],
+        happened === 'true' && classes.cardBlack,
         today === 'true' && classes.withinThreeDays,
         withinThreeDays === 'true' && classes.withinThreeDays
       )}
@@ -68,8 +68,6 @@ const Card = function ({
         color={'orange'}
         size={'big'}
       />
-      {/* Type '{ className: any; onClick: () => void; color: string; size: "big"; }' is not assignable to type 'IntrinsicAttributes & { color: string; size: "big" | "small"; className: string; }'.
-  Property 'onClick' does not exist on type 'IntrinsicAttributes & { color: string; size: "big" | "small"; className: string; }'. */}
       {currentWeather && (
         <img
           className={classes.weatherIcon}

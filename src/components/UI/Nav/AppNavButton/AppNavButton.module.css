@@ -2,11 +2,11 @@
 .btn:link,
 .btn:visited {
   position: relative;
-  text-decoration: none;
   display: block;
-  color: var(--grey-700);
-  font-weight: 500;
   padding: 8px 16px;
+  font-weight: 500;
+  color: var(--grey-700);
+  text-decoration: none;
   transition: all 0.3s;
   /* font-size: var(--text-big); */
 }
@@ -18,19 +18,19 @@
 
 .content {
   display: flex;
+  gap: 8px;
   align-items: center;
   list-style: none;
-  gap: 8px;
 }
 
 .active::after {
   position: absolute;
-  content: '';
-  width: 4px;
-  height: 100%;
   /* top: 50%; */
   top: 0;
   right: 0;
+  width: 4px;
+  height: 100%;
+  content: '';
   /* transform: translateY(-50%); */
   background-color: var(--orange-600);
 }

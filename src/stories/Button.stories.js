@@ -26,14 +26,14 @@ export const Secondary = {
 
 export const Large = {
   args: {
-    size: 'large',
+    size: 'Large',
     label: 'Button',
   },
 };
 
 export const Small = {
   args: {
-    size: 'small',
+    size: 'Small',
     label: 'Button',
   },
 };

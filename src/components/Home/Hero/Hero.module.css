@@ -1,5 +1,11 @@
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  /* object-fit: cover; */
+  /* aspect-ratio: 1/1; */
+  /* height: 75vh; */
+  height: 700px;
   /* background-image: linear-gradient(
       to right bottom,
       rgba(216, 118, 32, 0.7) 0%,
@@ -7,22 +13,15 @@
     ), */
   background-image: linear-gradient(
       to right top,
-      rgba(22, 12, 3, 0.7) 0%,
-      /* rgba(151, 82, 22, 0.7) 100% */ rgba(151, 82, 22, 0.7) 100%
+      rgb(22 12 3 / 70%) 0%,
+      /* rgba(151, 82, 22, 0.7) 100% */ rgb(151 82 22 / 70%) 100%
     ),
-    url(../../../assets/images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg);
+    url('../../../assets/images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
   background-position: center;
   background-size: cover;
-  /* object-fit: cover; */
-  /* aspect-ratio: 1/1; */
-  /* height: 75vh; */
-  height: 700px;
-
-  display: flex;
-  align-items: center;
 }
 
-.hero-text {
+.heroText {
   /* margin-left: 15%; */
   max-width: 700px;
 }
@@ -32,45 +31,42 @@
   margin: auto;
 }
 
-.hero-text-heading {
+.heroTextHeading {
+  font-size: var(--heading-xxxl);
+  font-weight: 800;
+  line-height: 1.1;
+  color: transparent;
+  letter-spacing: -1px;
   background-image: linear-gradient(
     45deg,
     var(--orange-500),
     var(--orange-300)
   );
-
   background-clip: text;
-  -webkit-background-clip: text;
-  font-size: var(--heading-XXXL);
-  line-height: 1.1;
-  letter-spacing: -1px;
-  font-weight: 800;
-  color: transparent;
 }
 
-.hero-text-p {
-  color: var(--tint-orange-90);
-  font-size: var(--heading-S);
+.heroTextP {
   max-width: 540px;
+  margin: 16px 0;
+  font-size: var(--heading-s);
   font-weight: 400;
   line-height: 160%;
-  margin: 16px 0;
+  color: var(--tint-orange-90);
 }
 
 .mainButton,
 .mainButton:link,
 .mainButton:visited {
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s;
-  text-decoration: none;
+  padding: 16px 32px;
   font-size: var(--text-huge);
   font-weight: 500;
-  padding: 16px 32px;
-  border-radius: 80px;
-
-  background-color: var(--lime-green-300);
   color: var(--color-gray-first);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--lime-green-300);
+  border: none;
+  border-radius: 80px;
+  transition: all 0.3s;
 }
 
 .mainButton:hover,
@@ -82,17 +78,16 @@
 .secondaryButton,
 .secondaryButton:link,
 .secondaryButton:visited {
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s;
-  text-decoration: none;
+  padding: 16px 32px;
   font-size: var(--text-huge);
   font-weight: 500;
-  padding: 16px 32px;
-  border-radius: 80px;
-
-  background-color: var(--tint-orange-80);
   color: var(--color-gray-first);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--tint-orange-80);
+  border: none;
+  border-radius: 80px;
+  transition: all 0.3s;
 }
 
 .secondaryButton:hover,
@@ -108,15 +103,15 @@
 }
 
 @media (max-width: 1200px) {
-  .hero-text {
+  .heroText {
     width: 350px;
-    text-align: center;
-    margin: auto;
     padding: 0 12px;
+    margin: auto;
+    text-align: center;
   }
   .buttonsContainer {
-    max-width: 200px;
     flex-direction: column;
+    max-width: 200px;
     margin: auto;
     /* gap: 16px; */
     margin-top: 32px;
@@ -124,10 +119,10 @@
 }
 
 @media (max-width: 300px) {
-  .hero-text {
+  .heroText {
     width: 280px;
-    text-align: center;
-    margin: auto;
     padding: 0 12px;
+    margin: auto;
+    text-align: center;
   }
 }

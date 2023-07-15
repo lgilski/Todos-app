@@ -1,9 +1,9 @@
 .navList {
-  list-style: none;
   display: flex;
+  gap: 32px;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  list-style: none;
 }
 
 .navContainer {
@@ -18,48 +18,47 @@
 .mobile {
   position: absolute;
   right: -150px;
-
   display: none;
 }
 
 .showMobile {
   right: 50%;
-  transform: translate(50%, 50%);
-  display: flex;
   z-index: 4;
+  display: flex;
   flex-direction: column;
   gap: 48px;
+  transform: translate(50%, 50%);
   /* animation: goIn 0.3s ease-in-out; */
 }
 
-.fade-enter {
-  opacity: 0;
+.fadeEnter {
   right: -100px;
+  opacity: 0;
 }
 
-.fade-enter-active {
-  opacity: 1;
+.fadeEnterActive {
   right: 50%;
+  opacity: 1;
   transition: all 0.3s ease-in-out;
 }
 
-.fade-exit {
-  display: flex;
+.fadeExit {
+  right: 50%;
   z-index: 4;
+  display: flex;
   flex-direction: column;
   gap: 48px;
   opacity: 1;
-  right: 50%;
   transform: translate(50%, 50%);
 }
 
-.fade-exit-active {
-  display: flex;
+.fadeExitActive {
+  right: -100px;
   z-index: 4;
+  display: flex;
   flex-direction: column;
   gap: 48px;
   opacity: 0;
-  right: -100px;
-  transform: translate(50%, 50%);
   transition: all 0.3s ease-in-out;
+  transform: translate(50%, 50%);
 }

@@ -32,7 +32,7 @@ function AuthForm({ mode }: { mode?: string }) {
   return (
     <div className='wrapper'>
       {/* {token && (
-        <div className={classes['alreadyLoggedIn-container']}>
+        <div className={classes.alreadyLoggedInContainer}>
           <h3 className={classes.alreadyLoggedIn}>
             You are already logged in.
           </h3>
@@ -54,14 +54,14 @@ function AuthForm({ mode }: { mode?: string }) {
           {data && data.message && <p>{data.message}</p>}
           <div className={classes.inputsWrapper}>
             <Input
-              color={'green'}
+              color={'Green'}
               name='email'
               type='email'
               required={true}
               text={'Email'}
             />
             <Input
-              color={'green'}
+              color={'Green'}
               name='password'
               type='password'
               required={true}
@@ -69,7 +69,7 @@ function AuthForm({ mode }: { mode?: string }) {
             />
             {!isLogin && (
               <Input
-                color={'green'}
+                color={'Green'}
                 name={'passwordRepeat'}
                 type={'password'}
                 required={true}
@@ -96,18 +96,18 @@ function AuthForm({ mode }: { mode?: string }) {
               </div>
             )}
           </div>
-          <div className={classes['auth-form--buttons']}>
+          <div className={classes.authFormButtons}>
             <Button
-              color='orangeLite'
-              variant='roundedSquare'
-              className={classes['auth-form-submit']}
+              color='OrangeLight'
+              variant='RoundedSquare'
+              className={classes['authFormSubmit']}
             >
               {isSubmitting ? 'Submitting...' : isLogin ? 'LOGIN' : 'SIGN UP'}
             </Button>
             <Link
               // to={`?mode=${isLogin ? 'signup' : 'login'}`}
               to={`/auth/${isLogin ? 'signup' : 'login'}`}
-              className={classes['auth-form--link']}
+              className={classes['authFormLink']}
             >
               {isLogin ? 'Create account' : 'Already have an account?'}
             </Link>

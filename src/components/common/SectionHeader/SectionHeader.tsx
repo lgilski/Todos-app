@@ -1,12 +1,4 @@
-/**
- *
- * @param {Object} props
- * @param {'large' | 'medium'} props.type
- */
-
 import clsx from '../../../utils/clsx';
-
-import classes from './SectionHeader.module.css';
 
 function SectionHeader({
   subheader,
@@ -17,7 +9,7 @@ function SectionHeader({
 }: {
   subheader: string;
   header: string;
-  type: string;
+  type: 'large' | 'medium';
 } & React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
     <div className={className}>
@@ -25,7 +17,7 @@ function SectionHeader({
       <h3
         className={clsx(
           type === 'large' && 'header',
-          type === 'medium' && 'header-large'
+          type === 'medium' && 'headerLarge'
         )}
       >
         {header}

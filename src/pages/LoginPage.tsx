@@ -44,7 +44,7 @@ export async function action({ request }: { request: Request }) {
 
     // const responseToken = await response.user.getIdToken();
 
-    const user = auth.currentUser;
+    // const user = auth.currentUser;
 
     const uid = response.user.uid;
 

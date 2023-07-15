@@ -11,11 +11,11 @@ function Feature({
   text: string;
 } & React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={classes['features-element']}>
+    <div className={classes['featuresElement']}>
       <ion-icon name={icon} />
       {/* {children} */}
-      <h5 className={classes['features-element-header']}>{header}</h5>
-      <p className={classes['features-element-text']}>{text}</p>
+      <h5 className={classes['featuresElementHeader']}>{header}</h5>
+      <p className={classes['featuresElementText']}>{text}</p>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import SectionHeader from '../components/common/SectionHeader/SectionHeader';
 
 function TimerPage() {
   return (
-    <section className='grey-bg padding-bottom'>
-      <div className='pageTitle-center-partly padding-top'>
+    <section className='greyBg paddingBttom'>
+      <div className='pageTitleCenterPartly paddingTop'>
         <SectionHeader
           subheader='Timers page'
           header='Measure time as you like'

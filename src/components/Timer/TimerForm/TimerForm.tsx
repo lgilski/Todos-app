@@ -85,9 +85,9 @@ function TimerForm({
             <h4 className={classes['timerForm-heading']}>
               {modal ? 'Edit your timer' : 'Create new timer'}
             </h4>
-            <ul className={classes['timerForm-list']}>
-              <li className={classes['timerForm-list--time']}>
-                <div className={classes['timerForm-list--time-element']}>
+            <ul className={classes['timerFormList']}>
+              <li className={classes['timerFormListTime']}>
+                <div className={classes['timerFormListTimeElement']}>
                   <Input
                     color='orange'
                     down={true}
@@ -102,7 +102,7 @@ function TimerForm({
                   />
                 </div>
                 <p>:</p>
-                <div className={classes['timerForm-list--time-element']}>
+                <div className={classes['timerFormListTimeElement']}>
                   <Input
                     color='orange'
                     down={true}
@@ -117,7 +117,7 @@ function TimerForm({
                   />
                 </div>
                 <p>:</p>
-                <div className={classes['timerForm-list--time-element']}>
+                <div className={classes['timerFormListTimeElement']}>
                   <Input
                     color='orange'
                     down={true}

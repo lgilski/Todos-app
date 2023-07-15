@@ -7,19 +7,17 @@
 }
 
 .input {
-  border: none;
-  font-size: var(--text-medium);
+  max-width: 200px;
+  height: 100%;
   padding: 6px;
+  font-size: var(--text-medium);
+  background-color: var(--orange-050);
+  border: none;
   /* border-radius: 4px; */
   border-radius: 20px;
-  height: 100%;
-  transition: all 0.4s;
-  max-width: 200px;
-
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-
-  background-color: var(--orange-050);
+  transition: all 0.4s;
 }
 
 @media (max-width: 640px) {

@@ -37,7 +37,7 @@ function Stopwatch() {
   return (
     <>
       <SectionHeader
-        className='pageTitle-center'
+        className='pageTitleCenter'
         subheader='Stopwatch page'
         header='Start counting down'
         type='medium'

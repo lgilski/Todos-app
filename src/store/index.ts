@@ -2,7 +2,6 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import timerReducer from './timer';
 import weatherReducer from './weather';
 import cardReducer from './card';
-import { auth } from '../config/firebase';
 
 const initialState = {
   loading: true,

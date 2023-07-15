@@ -1,47 +1,47 @@
-.timer-name {
-  text-align: center;
+.timerName {
   font-size: 24px;
+  text-align: center;
 }
 
-.timer-wrapper {
+.timerWrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.timer-time {
-  cursor: pointer;
-  text-align: center;
+.timerTime {
   font-size: 64px;
+  text-align: center;
+  cursor: pointer;
   transition: all 0.3s;
 }
 
-.timer-time:hover,
-.timer-time:active {
+.timerTime:hover,
+.timerTime:active {
   color: var(--shade-orange-10);
 }
 
-.timer-buttons {
+.timerButtons {
   display: flex;
   gap: 10px;
 }
 
-.timer-buttons ion-icon {
+.timerButtons ion-icon {
   width: 48px;
   height: 48px;
 }
 
-.timer-button {
+.timerButton {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 @media (max-width: 580px) {
-  .timer-time {
+  .timerTime {
     font-size: 48px;
   }
 
-  .timer-name {
+  .timerName {
     font-size: 18px;
   }
 }

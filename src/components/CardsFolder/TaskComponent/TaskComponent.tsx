@@ -34,7 +34,7 @@ const CardElement = function ({
     <Draggable key={task.id} draggableId={task.id} index={index}>
       {(provided, snapshot) => (
         <div
-          className={classes['list-element']}
+          className={classes.listElement}
           {...provided.dragHandleProps}
           {...provided.draggableProps}
           ref={provided.innerRef}
@@ -59,7 +59,7 @@ const CardElement = function ({
             onClick={onDeleteTask}
             color={'darkBlue'}
             size={'small'}
-            className={classes['btnClose-small']}
+            className={classes.btnCloseSmall}
           />
         </div>
       )}

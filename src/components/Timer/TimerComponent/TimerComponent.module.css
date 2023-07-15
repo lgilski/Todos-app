@@ -1,38 +1,38 @@
 .timer {
-  margin-bottom: 32px;
+  position: relative;
   width: 100%;
+  padding: 30px;
+  margin-bottom: 32px;
+  cursor: grab;
   /* background-color: var(--tint-orange-50); */
   background-color: var(--orange-200);
-  padding: 30px;
-  position: relative;
-  cursor: grab;
   border-radius: 8px;
 
-  /* box-shadow: var(--shadow-S);  */
+  /* box-shadow: var(--shadow-s);  */
 }
 
-.timer-close--btn {
+.timerCloseBtn {
   position: absolute;
-  left: 5px;
   top: 5px;
+  left: 5px;
 }
 
-.timer-buttons {
+.timerButtons {
   display: flex;
   gap: 10px;
 }
 
-.timer-buttons button {
-  cursor: pointer;
-  font-size: 32px;
-  height: 100px;
+.timerButtons button {
   width: 100px;
+  height: 100px;
+  font-size: 32px;
+  cursor: pointer;
   border: none;
   border-radius: 100%;
   transition: all 0.4s;
 }
 
-/* .timer--modal {
+/* .timer-modal {
   background-color: #00bfb3;
   color: #023436;
 
@@ -46,7 +46,7 @@
   z-index: 3;
 } */
 
-/* .timer--modal {
+/* .timer-modal {
   font-size: 28px;
   padding: 16px;
   display: flex;

@@ -3,24 +3,24 @@
 }
 
 .input {
-  width: 100%;
   display: block;
+  width: 100%;
   padding: 8px;
   margin: 4px 0 16px;
-  border-radius: 4px;
-  border: none;
   font-size: var(--text-big);
+  border: none;
+  border-radius: 4px;
 }
 
-.input-blue {
+.inputBlue {
   background-color: var(--tint-blue-80);
 }
 
-.input-orange {
+.inputOrange {
   background-color: var(--tint-orange-80);
 }
 
-.input-green {
+.inputGreen {
   background-color: var(--lime-green-100);
   border: 1px solid var(--lime-green-900);
 }

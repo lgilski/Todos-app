@@ -10,11 +10,11 @@ function Hero() {
     <section>
       <div className={classes.hero}>
         <div className={classes.contentContainer}>
-          <div className={classes['hero-text']}>
-            <h2 className={classes['hero-text-heading']}>
+          <div className={classes['heroText']}>
+            <h2 className={classes['heroTextHeading']}>
               Here you can keep all your todos and more!
             </h2>
-            <p className={classes['hero-text-p']}>
+            <p className={classes['heroTextP']}>
               We offer a really cool way of planing your to-dos. You will surely
               have a lot of fun.
             </p>

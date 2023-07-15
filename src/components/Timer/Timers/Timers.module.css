@@ -8,21 +8,20 @@
 }
 
 .timersWrapper {
-  max-width: 700px;
-  margin: auto;
-
   display: flex;
   flex-direction: column;
+  max-width: 700px;
   padding-top: 16px;
+  margin: auto;
   /* gap: 32px; */
 }
 
 .timerToolbar {
-  margin: auto;
   /* width: 90%; */
   display: flex;
-  padding: 0 8px 8px;
   justify-content: space-between;
+  padding: 0 8px 8px;
+  margin: auto;
   border-bottom: 1px solid var(--grey-200);
 }
 
@@ -31,6 +30,6 @@
 }
 
 .buttonsContainer {
-  margin-top: 12px;
   justify-content: center;
+  margin-top: 12px;
 }

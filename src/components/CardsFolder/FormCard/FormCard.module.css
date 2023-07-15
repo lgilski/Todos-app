@@ -1,39 +1,34 @@
 .form {
-  /* background-color: var(--tint-orange-20); */
-  background-color: #fff;
-  /* border: 1px solid var(--lime-green-900); */
-
-  box-shadow: var(--shadow-M);
-  padding: 16px;
-  margin: auto;
-  border-radius: 8px;
-  max-width: 500px;
-  margin-top: 32px;
-
+  position: fixed;
+  top: 40vh;
+  left: 50%;
+  z-index: 100;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  position: fixed;
-  top: 40vh;
   width: 400px;
-  left: 50%;
-  z-index: 100;
+  max-width: 500px;
+  padding: 16px;
+  margin: auto;
+  margin-top: 32px;
   overflow: hidden;
-
+  /* background-color: var(--tint-orange-20); */
+  background-color: #fff;
   border-radius: 8px;
+  /* border: 1px solid var(--lime-green-900); */
 
+  box-shadow: var(--shadow-m);
   transform: translate(-50%, -50%);
-  z-index: 5;
 
   /* gap: 16px; */
 }
 
-.formCard-heading {
-  font-size: var(--heading-M);
+.formCardHeading {
   display: flex;
   align-self: center;
   margin-bottom: 20px;
+  font-size: var(--heading-m);
 }
 
 .form input[type='date'] {
@@ -41,9 +36,9 @@
 }
 
 .form .addBtn {
-  margin-top: 12px;
   /* align-self: flex-end; */
   width: 100%;
+  margin-top: 12px;
 }
 
 .closeButton {

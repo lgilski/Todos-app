@@ -80,7 +80,7 @@ const FormCards = function ({
             color='orange'
             size='big'
           />
-          <h4 className={classes['formCard-heading']}>Create card</h4>
+          <h4 className={classes.formCardHeading}>Create card</h4>
           <Input
             autoComplete='off'
             name={'your task'}
@@ -102,8 +102,8 @@ const FormCards = function ({
           <Button
             className={classes.addBtn}
             type='submit'
-            variant='roundedSquare'
-            color='orangeLight'
+            variant='RoundedSquare'
+            color='OrangeLight'
           >
             Add card
           </Button>

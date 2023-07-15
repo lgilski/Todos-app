@@ -1,17 +1,14 @@
 .weatherCard {
-  background-color: var(--tint-orange-60);
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  height: 225px;
-
   position: relative;
-
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 8px;
-
-  box-shadow: var(--shadow-M);
+  width: 100%;
+  height: 225px;
+  padding: 20px;
+  background-color: var(--tint-orange-60);
+  border-radius: 8px;
+  box-shadow: var(--shadow-m);
 }
 
 .info {
@@ -22,17 +19,16 @@
 .name,
 .name:link,
 .name:visited {
-  font-size: var(--heading-S);
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--shade-orange-90);
-  transition: all 0.3s;
-
   /* background-color: var(--tint-orange-20); */
   /* padding: 2px;
   border-radius: 4px; */
 
   margin-right: auto;
+  font-size: var(--heading-s);
+  font-weight: 600;
+  color: var(--shade-orange-90);
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
 .name:hover,
@@ -41,64 +37,56 @@
 }
 
 .otherInfo {
-  margin-top: 8px;
   display: flex;
   gap: 16px;
+  margin-top: 8px;
 }
 
 .humidity {
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
 }
 
 .humidity ion-icon {
-  color: var(--color-blue-first);
-  height: 24px;
   width: 24px;
+  height: 24px;
+  color: var(--color-blue-first);
 }
 
 .wind {
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
 }
 
 .wind ion-icon {
-  color: var(--shade-orange-20);
-  height: 24px;
   width: 24px;
+  height: 24px;
+  color: var(--shade-orange-20);
 }
 
 .temp {
-  font-size: var(--heading-XL);
-
-  margin-top: auto;
-
-  font-weight: 800;
-
   grid-row: 2;
+  margin-top: auto;
+  font-size: var(--heading-xl);
+  font-weight: 800;
 }
 
 .iconWrapper {
   display: flex;
   flex-direction: column;
-
   grid-row: 1/3;
 }
 
 .iconWrapper img {
+  align-self: center;
   width: 72px;
   height: 72px;
-  align-self: center;
-
-  background-color: #fff;
-
-  border-radius: 100%;
-
   margin-bottom: auto;
-
-  box-shadow: var(--shadow-S);
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: var(--shadow-s);
 }
 
 .currentCondition {
@@ -109,12 +97,12 @@
 
 .favorite {
   position: absolute;
-  color: crimson;
   top: 40px;
   right: 4px;
+  color: crimson;
 }
 
 .favorite ion-icon {
-  height: 32px;
   width: 32px;
+  height: 32px;
 }

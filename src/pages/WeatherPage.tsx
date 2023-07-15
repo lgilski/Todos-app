@@ -14,13 +14,13 @@ function WeatherPage() {
     if (data) {
       dispatch(weatherActions.loadWeather(JSON.parse(data)));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
-    <section className='grey-bg'>
+    <section className='greyBg'>
       <div className='wrapper2'>
         <SectionHeader
-          className='pageTitle-center'
+          className='pageTitleCenter'
           subheader='Weather page'
           header='Look up the weather'
           type='medium'

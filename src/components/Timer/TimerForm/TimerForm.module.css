@@ -1,62 +1,57 @@
 .wrapper {
+  position: fixed;
+  top: 30vh;
+  left: 50%;
+  z-index: 100;
+  z-index: 5;
+  width: 400px;
   max-width: 1400px;
   /* margin: 64px auto 32px; */
   margin: 0 auto 32px;
-
-  position: fixed;
-  top: 30vh;
-  width: 400px;
-  left: 50%;
-  z-index: 100;
   overflow: hidden;
-
   border-radius: 8px;
-
   transform: translate(-50%, -50%);
-  z-index: 5;
 }
 
 .timerForm {
-  font-size: var(--text-big);
-  padding: 16px;
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+  padding: 16px;
+  margin: auto;
+  font-size: var(--text-big);
   /* background-color: var(--tint-orange-20); */
   background-color: var(--orange-300);
-  max-width: 500px;
-  margin: auto;
-
   border-radius: 8px;
-
-  box-shadow: var(--shadow-M);
+  box-shadow: var(--shadow-m);
 }
 
-.timerForm-heading {
-  font-size: var(--heading-S);
+.timerFormHeading {
+  font-size: var(--heading-s);
 }
 
-.timerForm-list {
+.timerFormList {
   list-style: none;
 }
 
-.timerForm-list li {
+.timerFormList li {
   display: flex;
   flex-direction: column;
 }
 
-.timerForm-list input {
+.timerFormList input {
   width: 200px;
 }
 
-.timerForm-list label {
+.timerFormList label {
   margin: 4px 0;
 }
 
-.timerForm-list input[type='number'] {
+.timerFormList input[type='number'] {
   width: 80px;
 }
 
-.timerForm-list input[type='text'] {
+.timerFormList input[type='text'] {
   margin-bottom: 20px;
 }
 
@@ -70,25 +65,25 @@
   right: 8px;
 }
 
-li.timerForm-list--time {
+li.timerFormListTime {
   flex-direction: row;
-  margin-top: 20px;
   gap: 10px;
+  margin-top: 20px;
 }
 
-.timerForm-list--time > p {
+.timerFormListTime > p {
   font-size: var(--text-huge);
   transform: translateY(5px);
 }
 
-.timerForm-list--time label {
+.timerFormListTime label {
   display: flex;
   justify-content: center;
 }
 
 .border {
-  border-bottom: 3px solid var(--shade-orange-20);
   margin: 30px 0;
+  border-bottom: 3px solid var(--shade-orange-20);
 }
 
 .modal {

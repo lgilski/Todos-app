@@ -5,8 +5,8 @@ import classes from './TimerNavigation.module.css';
 function TimerNavigation() {
   return (
     <nav className={classes.timerNavigation}>
-      <ul className={classes['timerNavigation-list']}>
-        <li className={classes['timerNavigation-list--element']}>
+      <ul className={classes['timerNavigationList']}>
+        <li className={classes['timerNavigationListElement']}>
           <NavLink
             to='/app/timer'
             className={({ isActive }) =>
@@ -17,7 +17,7 @@ function TimerNavigation() {
             All timers
           </NavLink>
         </li>
-        <li className={classes['timerNavigation-list--element']}>
+        <li className={classes['timerNavigationListElement']}>
           <NavLink
             to='/app/timer/stopwatch'
             className={({ isActive }) =>

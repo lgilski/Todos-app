@@ -1,4 +1,3 @@
-import { useMediaPredicate } from 'react-media-hook';
 import classes from './AppNavigation.module.css';
 import AppNavButton from '../AppNavButton/AppNavButton';
 import { useState } from 'react';

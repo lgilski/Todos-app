@@ -3,33 +3,33 @@
   margin: 0 auto 64px;
 }
 
-.timerNavigation-list {
+.timerNavigationList {
   display: flex;
   justify-content: space-between;
 }
 
-.timerNavigation-list--element,
-.timerNavigation-list--element a,
-.timerNavigation-list--element a:link,
-.timerNavigation-list--element a:visited {
-  text-decoration: none;
-  color: var(--shade-orange-90);
-  list-style: none;
-  font-size: 28px;
-  transition: all 0.3s;
+.timerNavigationListElement,
+.timerNavigationListElement a,
+.timerNavigationListElement a:link,
+.timerNavigationListElement a:visited {
   position: relative;
+  font-size: 28px;
+  color: var(--shade-orange-90);
+  text-decoration: none;
+  list-style: none;
+  transition: all 0.3s;
 }
 
-.timerNavigation-list--element a:hover,
-.timerNavigation-list--element a:active {
+.timerNavigationListElement a:hover,
+.timerNavigationListElement a:active {
   color: var(--tint-orange-20);
 }
 
 .active::before {
   position: absolute;
-  content: '';
+  top: 50px;
   width: 100%;
   height: 3px;
-  top: 50px;
+  content: '';
   background-color: var(--shade-orange-20);
 }

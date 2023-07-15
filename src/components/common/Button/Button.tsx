@@ -4,18 +4,18 @@ import classes from './Button.module.css';
 import clsx from '../../../utils/clsx';
 
 interface Button extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: 'circle' | 'capsule' | 'roundedSquare' | 'logout';
+  variant: 'Circle' | 'Capsule' | 'RoundedSquare' | 'Logout';
   color:
-    | 'orange'
-    | 'orangeLight'
-    | 'orangeDark'
-    | 'orangeLite'
-    | 'green'
-    | 'blue'
-    | 'start'
-    | 'stop'
-    | 'reset'
-    | 'logout';
+    | 'Orange'
+    | 'OrangeLight'
+    | 'OrangeDark'
+    | 'OrangeLite'
+    | 'Green'
+    | 'Blue'
+    | 'Start'
+    | 'Stop'
+    | 'Reset'
+    | 'Logout';
 }
 
 const Button = function ({ variant, color, className, ...otherProps }: Button) {
@@ -23,8 +23,8 @@ const Button = function ({ variant, color, className, ...otherProps }: Button) {
     <button
       className={clsx(
         classes.btn,
-        classes[`btn-${variant}`],
-        classes[`btn-color-${color}`],
+        classes[`btn${variant}`],
+        classes[`btnColor${color}`],
         className
       )}
       {...otherProps}

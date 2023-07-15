@@ -54,7 +54,7 @@ function RootLayout({ routes }: { routes: any }) {
           user && 'pushContent',
           !isSidenavOpen && user && 'dontPushContent',
           classes.main,
-          user && 'grey-bg',
+          user && 'greyBg',
           user && classes.allHeight
         )}
       >

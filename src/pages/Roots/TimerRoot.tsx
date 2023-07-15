@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 function TimerRoot() {
   return (
-    <div className='grey-bg'>
+    <div className='greyBg'>
       <Outlet />
     </div>
   );

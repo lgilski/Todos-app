@@ -44,12 +44,12 @@ function Footer() {
             </p>
           </address>
         </div>
-        <nav className={classes['nav-col']}>
+        <nav className={classes['navCol']}>
           <h6>Account</h6>
-          <ul className={classes['nav-col--links']}>
+          <ul className={classes['navColLinks']}>
             <li>
               <Link
-                className={classes['nav-col--links-link']}
+                className={classes['navCoLinksLink']}
                 to='/auth?mode=signup'
               >
                 Create account
@@ -57,7 +57,7 @@ function Footer() {
             </li>
             <li>
               <Link
-                className={classes['nav-col--links-link']}
+                className={classes['navColLinksLink']}
                 to='/auth?mode=login'
               >
                 Sign in
@@ -65,36 +65,36 @@ function Footer() {
             </li>
           </ul>
         </nav>
-        <nav className={classes['nav-col']}>
+        <nav className={classes['navCol']}>
           <h6>Company</h6>
-          <ul className={classes['nav-col--links']}>
+          <ul className={classes['navColLinks']}>
             <li>
-              <Link className={classes['nav-col--links-link']} to='#'>
+              <Link className={classes['navColLinksLink']} to='#'>
                 About Your To-dos
               </Link>
             </li>
             <li>
-              <Link className={classes['nav-col--links-link']} to='#'>
+              <Link className={classes['navColLinksLink']} to='#'>
                 For Business
               </Link>
             </li>
             <li>
-              <Link className={classes['nav-col--links-link']} to='#'>
+              <Link className={classes['navColLinksLink']} to='#'>
                 Our partners
               </Link>
             </li>
           </ul>
         </nav>
-        <nav className={classes['nav-col']}>
+        <nav className={classes['navCol']}>
           <h6>Resources</h6>
-          <ul className={classes['nav-col--links']}>
+          <ul className={classes['navColLinks']}>
             <li>
-              <Link className={classes['nav-col--links-link']} to='#'>
+              <Link className={classes['navColLinksLink']} to='#'>
                 Help center
               </Link>
             </li>
             <li>
-              <Link className={classes['nav-col--links-link']} to='#'>
+              <Link className={classes['navColLinksLink']} to='#'>
                 Privacy & terms
               </Link>
             </li>
