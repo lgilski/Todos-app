@@ -35,17 +35,12 @@
 .hero-text-heading {
   background-image: linear-gradient(
     45deg,
-    /* var(--shade-orange-10),
-    var(--tint-orange-20)  */ var(--orange-500),
+    var(--orange-500),
     var(--orange-300)
   );
-  /* background-image: linear-gradient(
-    45deg,
-    var(--lime-green-400),
-    var(--orange-400)
-  ); */
 
   background-clip: text;
+  -webkit-background-clip: text;
   font-size: var(--heading-XXXL);
   line-height: 1.1;
   letter-spacing: -1px;

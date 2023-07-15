@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: 'todos-app-72428.firebaseapp.com',
   databaseURL:
     'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app',
