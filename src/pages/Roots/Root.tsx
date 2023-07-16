@@ -12,6 +12,7 @@ import clsx from '../../utils/clsx';
 
 import classes from './Root.module.css';
 import AppNavigationHorizontal from '../../components/UI/Nav/AppNavigationHorizontal/AppNavigationHorizontal';
+import { WholeState } from '@/types';
 
 function RootLayout({ routes }: { routes: any }) {
   const location = useLocation();

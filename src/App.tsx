@@ -28,17 +28,6 @@ import { cardActions } from './store/card';
 
 import { getDatabase, ref, get, child } from 'firebase/database';
 
-// declare global {
-//   namespace JSX {
-//     interface IntrinsicElements {
-//       'ion-icon': { name: string } & React.DetailedHTMLProps<
-//         React.HTMLAttributes<HTMLElement>,
-//         HTMLElement
-//       >;
-//     }
-//   }
-// }
-
 const routes = [
   { index: true, element: <HomePage /> },
   {
