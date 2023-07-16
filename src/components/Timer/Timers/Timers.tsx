@@ -24,7 +24,6 @@ function Timers() {
   );
 
   const [showForm, setShowForm] = useState(false);
-  const [checkFirst, setCheckFirst] = useState(1);
 
   const showFormHandler = function () {
     setShowForm((prevState) => !prevState);
@@ -68,13 +67,12 @@ function Timers() {
   };
 
   useEffect(() => {
-    if (formatedTimers !== null && checkFirst === 1) {
+    if (formatedTimers !== null) {
       dispatch(timerActions.setTimers(formatedTimers));
-      setCheckFirst((preavState) => preavState++);
     } else {
       dispatch(timerActions.setTimers([]));
     }
-  }, [dispatch, formatedTimers, checkFirst]);
+  }, [dispatch]);
 
   return (
     <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>

@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { timerActions } from '../store/timer';
-
-import { Timer } from '@/types';
-import { WholeState } from '@/types';
+import { Timer, WholeState } from '@/types';
 
 export function useTimer({
   completeTimeInSeconds,
@@ -82,7 +80,7 @@ export function useTimer({
     } else if (index === activeIndex) {
       startTimer();
     }
-  }, [activeIndex, startSequence, index, startTimer]);
+  }, [activeIndex, startSequence]);
 
   useEffect(() => {
     if (isCounting) {
@@ -112,12 +110,11 @@ export function useTimer({
     activeIndex,
     dispatch,
     resetAllTimers,
-    resetTimer,
   ]);
 
   useEffect(() => {
     resetTimer();
-  }, [timerData, resetTimer]);
+  }, [timerData]);
 
   return {
     functions: {
