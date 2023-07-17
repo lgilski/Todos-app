@@ -46,6 +46,8 @@ const Cards = function () {
     }
   );
 
+  console.log(forecastData);
+
   // useEffect(() => {
   //   console.log(cardsFromLocalStorage);
 
@@ -155,10 +157,7 @@ const Cards = function () {
                   <CardComponent
                     key={card.id}
                     card={card}
-                    forecastDay={
-                      forecastData?.message &&
-                      forecastData?.forecast.forecastday
-                    }
+                    forecastDay={forecastData!.forecast.forecastday}
                   />
                 </CSSTransition>
               );
