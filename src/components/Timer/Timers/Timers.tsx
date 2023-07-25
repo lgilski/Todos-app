@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { timerActions } from '../../../store/timer';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { Droppable } from 'react-beautiful-dnd';
 import TimerComponent from '../TimerComponent/TimerComponent';

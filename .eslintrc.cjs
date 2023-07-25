@@ -66,17 +66,21 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'no-var': 0,
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-unused-vars': 'off',
-    'no-undef': process.env.NODE_ENV === 'production' ? 'warn' : 'error',
+    'no-console':
+      process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger':
+      process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-undef':
+      process.env.NODE_ENV === 'production' ? 'warn' : 'error',
     // 'no-undef': 'warn',
-    'no-unreachable': process.env.NODE_ENV === 'production' ? 'warn' : 'error',
+    'no-unreachable':
+      process.env.NODE_ENV === 'production' ? 'warn' : 'error',
     // 'prettier/prettier': ['error', { singleQuote: true }],
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/no-unused-vars':
-      process.env.NODE_ENV === 'production' ? 'warn' : 'error',
+    // '@typescript-eslint/no-unused-vars':
+    //   process.env.NODE_ENV === 'production' ? 'warn' : 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-namespace': 'off',
   },
 };

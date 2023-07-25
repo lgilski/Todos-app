@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { timerActions } from '../store/timer';
@@ -37,7 +37,16 @@ export function useTimer({
     completeTimeInSeconds
   );
 
-  // const counter = new Worker();
+  const counter: Worker = useMemo(
+    () =>
+      new Worker(
+        new URL(
+          '../components/Timer/countDownWorker.ts',
+          import.meta.url
+        )
+      ),
+    []
+  );
 
   const startTimer = () => {
     if (timeInSeconds === 0) {
@@ -46,13 +55,20 @@ export function useTimer({
 
     setIsCounting(true);
 
-    countDownTime.current = setInterval(() => {
-      setTimeInSeconds((prevstate) => prevstate - 1);
-    }, 1000);
+    counter.postMessage(timeInSeconds);
+
+    // countDownTime.current = setInterval(() => {
+    //   setTimeInSeconds((prevstate) => prevstate - 1);
+    // }, 1000);
+
+    counter.onmessage = (e: any) => {
+      setTimeInSeconds(e.data);
+    };
   };
 
   const stopTimer = function () {
-    clearInterval(countDownTime.current);
+    // clearInterval(countDownTime.current);
+    counter.postMessage('stop');
     setIsCounting(false);
   };
 
