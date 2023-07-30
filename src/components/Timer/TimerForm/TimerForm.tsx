@@ -55,6 +55,10 @@ function TimerForm({
           hours,
           minutes,
           seconds,
+          timeInSeconds:
+            Number(hours) * 60 * 60 +
+            Number(minutes) * 60 +
+            Number(seconds),
           timerId,
           timerName,
         })
@@ -71,6 +75,15 @@ function TimerForm({
         hours,
         minutes,
         seconds,
+        isCounting: false,
+        timeInSeconds:
+          Number(hours) * 60 * 60 +
+          Number(minutes) * 60 +
+          Number(seconds),
+        timeRemaining:
+          Number(hours) * 60 * 60 +
+          Number(minutes) * 60 +
+          Number(seconds),
         id,
         timerName,
       })
@@ -155,7 +168,7 @@ function TimerForm({
               </li>
             </ul>
             <Button variant='Capsule' color='Orange'>
-              {modal ? 'Edit timer' : 'Add timer'}
+              {modal ? 'Save' : 'Add timer'}
             </Button>
           </form>
         </div>,

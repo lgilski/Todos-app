@@ -19,12 +19,15 @@ import clsx from '../../utils/clsx';
 
 import AppNavigationHorizontal from '../../components/UI/Nav/AppNavigationHorizontal/AppNavigationHorizontal';
 import { WholeState } from '@/types';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 function RootLayout({ routes }: { routes: any }) {
   const location = useLocation();
   const currentOutlet = useOutlet();
   const navigate = useNavigate();
+
+  const ref: { current: NodeJS.Timeout | undefined } =
+    useRef(undefined);
 
   const { nodeRef } =
     routes.find((route: any) => {
@@ -37,6 +40,12 @@ function RootLayout({ routes }: { routes: any }) {
   const isSidenavOpen = useSelector(
     (state: WholeState) => state.data.isSidenavOpen
   );
+  const activeIndex = useSelector(
+    (state: WholeState) => state.timers.activeIndex
+  );
+  const timers = useSelector(
+    (state: WholeState) => state.timers.timers
+  );
 
   const user = auth.currentUser;
 
@@ -45,6 +54,13 @@ function RootLayout({ routes }: { routes: any }) {
       navigate('/');
     }
   }, [isLoading]);
+
+  // useEffect(() => {
+  //   if (timers[activeIndex])
+  //     setInterval(() => {
+  //       console.log(timers[activeIndex].timeRemaining);
+  //     }, 1000);
+  // }, [activeIndex]);
 
   if (isLoading) {
     return (
@@ -65,15 +81,13 @@ function RootLayout({ routes }: { routes: any }) {
     <>
       <ToastContainer />
       {!user && <MainNavigation />}
-      {/* <MainNavigation /> */}
       {user && <AppNavigation />}
       {user && <AppNavigationHorizontal />}
-      {/* <AppNavigation /> */}
       <main
         className={clsx(
           user && 'pl-[200px]',
           !isSidenavOpen && user && 'pl-[58px]',
-          'ease-in-out duration-300 ',
+          'ease-in-out duration-300 main dark',
           user && 'greyBg',
           user && 'min-h-screen'
         )}
