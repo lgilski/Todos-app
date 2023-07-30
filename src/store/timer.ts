@@ -14,6 +14,37 @@ const timerSlice = createSlice({
   name: 'timer',
   initialState,
   reducers: {
+    startTimer(state, action: PayloadAction<{ timerId: string }>) {
+      state.timers.find(
+        (timer) => timer.id === action.payload.timerId
+      )!.isCounting = true;
+
+      localStorage.setItem('timers', JSON.stringify(state.timers));
+    },
+
+    stopTimer(state, action: PayloadAction<{ timerId: string }>) {
+      state.timers.find(
+        (timer) => timer.id === action.payload.timerId
+      )!.isCounting = false;
+
+      localStorage.setItem('timers', JSON.stringify(state.timers));
+    },
+
+    setRemainingTime(
+      state,
+      action: PayloadAction<{
+        timerId: string;
+        timeRemaining: number;
+      }>
+    ) {
+      state.timers.find(
+        (timer) => timer.id === action.payload.timerId
+      )!.timeRemaining = action.payload.timeRemaining;
+
+      localStorage.setItem('timers', JSON.stringify(state.timers));
+    },
+
+    /////////////////////////////////////
     setTimers(state, action: PayloadAction<Timer[]>) {
       state.timers = action.payload;
 
@@ -35,6 +66,7 @@ const timerSlice = createSlice({
         hours: number | string;
         minutes: number | string;
         seconds: number | string;
+        timeInSeconds: number;
         timerName: string;
       }>
     ) {
@@ -45,6 +77,11 @@ const timerSlice = createSlice({
         timer.minutes = action.payload.minutes;
         timer.seconds = action.payload.seconds;
         timer.timerName = action.payload.timerName;
+        timer.timeInSeconds = action.payload.timeInSeconds;
+
+        if (timer.timeRemaining! > timer.timeInSeconds) {
+          timer.timeRemaining = action.payload.timeInSeconds;
+        }
 
         localStorage.setItem('timers', JSON.stringify(state.timers));
       });

@@ -33,4 +33,7 @@ const store = configureStore({
 
 export const dataActions = dataSlice.actions;
 
+// store.getState();
+// store.dispatch();
+
 export default store;

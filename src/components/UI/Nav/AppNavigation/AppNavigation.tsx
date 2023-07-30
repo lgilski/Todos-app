@@ -25,16 +25,12 @@ function AppNavigation() {
 
   return (
     <nav
-      className={clsx(
-        classes.sidenav,
-        !isSidenavOpen && classes.sidenavHidden
-      )}
+      className={`fixed top-0 left-0 z-[1] ${
+        !isSidenavOpen ? 'w-[58px]' : 'w-[200px]'
+      } h-full pt-[68px] overflow-hidden text-base bg-white shadow-md duration-500 [&_ion-icon]:min-w-[24px] [&_ion-icon]:min-h-[24px] dark:bg-grey-900`}
       onMouseEnter={() => setShowHideOption(true)}
       onMouseLeave={() => setShowHideOption(false)}
     >
-      {/* <p className={classes.logo}>
-        Your To-dos <span>and stuff UwU</span>
-      </p> */}
       <button
         onClick={hideSidenav}
         className={clsx(
@@ -94,13 +90,16 @@ function AppNavigation() {
         <li className={classes.divider} />
         <li>
           <Form action='/app/logout' method='post'>
-            <button className={classes.logoutBtn}>
-              <span>
+            <button
+              className={`cursor-pointer py-2 px-4 bg-inherit border-none w-full font-medium text-grey-700 no-underline duration-300 dark:text-grey-100 dark:hover:bg-orange-500 hover:bg-orange-100 text-base font-['Roboto']`}
+            >
+              <span className='flex gap-2 items-center'>
                 <ion-icon name='exit' />
                 <p
                   className={clsx(
-                    classes.btnText,
-                    !isSidenavOpen && classes.hideBtnText
+                    `text-start leading-normal duration-300 h-6 whitespace-nowrap ${
+                      !isSidenavOpen ? 'w-0 opacity-0' : 'w-[100px]'
+                    }`
                   )}
                 >
                   Log out

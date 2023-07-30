@@ -8,8 +8,8 @@ import { Timer, WholeState } from '@/types';
 function TimerContent({
   functions,
   timerData,
-  isCounting,
   currentTime,
+  index,
 }: {
   functions: {
     startTimer: () => void;
@@ -20,15 +20,18 @@ function TimerContent({
     closeModal: () => void;
   };
   timerData: Timer;
-  isCounting: boolean;
   currentTime: {
     hours: number;
     minutes: number;
     seconds: number;
   };
+  index: number;
 }) {
   const countDownMethod = useSelector(
     (state: WholeState) => state.timers.countDownMethod
+  );
+  const isCounting = useSelector(
+    (state: WholeState) => state.timers.timers[index].isCounting
   );
 
   return (
