@@ -35,6 +35,19 @@ const TimerComponent = function ({
     timeRemaining! - (currentHours * 60 * 60 + currentMinutes * 60)
   );
 
+  // .timer {
+  //   position: relative;
+  //   width: 100%;
+  //   padding: 30px;
+  //   margin-bottom: 32px;
+  //   cursor: grab;
+  //   /* background-color: var(--tint-orange-50); */
+  //   background-color: var(--orange-200);
+  //   border-radius: 8px;
+
+  //   /* box-shadow: var(--shadow-s);  */
+  // }
+
   return (
     <Draggable
       key={timerData.id}
@@ -43,7 +56,7 @@ const TimerComponent = function ({
     >
       {(provided, snapshot) => (
         <div
-          className={classes.timer}
+          className='relative w-full p-8 mb-8 cursor-grab bg-orange-200 rounded-lg text-black dark:bg-orange-300 '
           {...provided.dragHandleProps}
           {...provided.draggableProps}
           ref={provided.innerRef}

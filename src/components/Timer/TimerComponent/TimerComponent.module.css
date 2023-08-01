@@ -1,16 +1,3 @@
-.timer {
-  position: relative;
-  width: 100%;
-  padding: 30px;
-  margin-bottom: 32px;
-  cursor: grab;
-  /* background-color: var(--tint-orange-50); */
-  background-color: var(--orange-200);
-  border-radius: 8px;
-
-  /* box-shadow: var(--shadow-s);  */
-}
-
 .timerCloseBtn {
   position: absolute;
   top: 5px;
