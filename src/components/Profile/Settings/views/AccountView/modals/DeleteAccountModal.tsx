@@ -41,8 +41,9 @@ function DeleteAccountModal({
       }
       setIsSubmitting(true);
 
-      await deleteProfileImage();
-
+      if (user?.photoURL) {
+        await deleteProfileImage();
+      }
       await deleteUser(user!);
 
       toast.success('Account has been successfully deleted.', {
