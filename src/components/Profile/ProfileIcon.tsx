@@ -26,7 +26,9 @@ const ProfileIcon = function ({ settings }: { settings?: boolean }) {
 
     const imgRef = ref(storage, `images/${user!.uid}`);
 
-    await deleteObject(imgRef);
+    if (imgRef) {
+      await deleteObject(imgRef);
+    }
 
     updateProfile(user!, {
       photoURL: '',
