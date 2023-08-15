@@ -91,7 +91,7 @@ function RootLayout({ routes }: { routes: any }) {
         className={clsx(
           userVerified && 'pl-[200px]',
           !isSidenavOpen && userVerified && 'pl-[58px]',
-          'ease-in-out duration-300',
+          'duration-500',
           userVerified && 'bg-grey-050 dark:bg-grey-800',
           userVerified && 'min-h-screen'
         )}

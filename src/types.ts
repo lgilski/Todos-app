@@ -215,13 +215,9 @@ export type Hour = {
   uv: number;
 };
 
-// export type Routes = Route[];
-
-// export type Route = {
-//   index?: boolean;
-//   element: HTMLElement;
-//   path: string;
-//   children: Route[];
-//   loader: () => any;
-//   action: () => any;
-// };
+export type Friend = {
+  displayName: string;
+  userName: string;
+  photoURL: string;
+  uid: string;
+};

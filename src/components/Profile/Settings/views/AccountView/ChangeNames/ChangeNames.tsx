@@ -1,9 +1,26 @@
 import { auth } from '@/config/firebase';
 import { updateProfile } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ChangeButtons from './ChangeButtons/ChangeButtons';
+import {
+  child,
+  getDatabase,
+  ref,
+  get,
+  update,
+  onValue,
+} from 'firebase/database';
 
 function ChangeNames() {
+  const [userName, setUserName] = useState<string | null>(null);
+
+  const db = getDatabase();
+
+  const userNameRef = ref(
+    db,
+    'usersPublicData/' + auth!.currentUser!.uid + '/userName'
+  );
+
   const user = auth.currentUser;
 
   const [saveDisplayName, setSaveDisplayName] =
@@ -13,6 +30,7 @@ function ChangeNames() {
   const showSaveDisplayName = function () {
     setSaveDisplayName(true);
   };
+
   const showSaveUserName = function () {
     setSaveUsersName(true);
   };
@@ -32,6 +50,10 @@ function ChangeNames() {
     updateProfile(user!, {
       displayName: e.target[0].value,
     });
+
+    update(ref(db, 'usersPublicData/' + user!.uid), {
+      displayName: e.target[0].value,
+    });
   };
 
   const resetDisplayName = function (e: any) {
@@ -42,8 +64,46 @@ function ChangeNames() {
     e.target[0].value = user?.displayName;
   };
 
+  const submitUserName = async function (
+    e: React.FormEvent<HTMLFormElement>
+  ) {
+    e.preventDefault();
+    e.target[0].blur();
+
+    if (e.target[0].value.length === 0) {
+      return;
+    }
+
+    const snapshot = await get(child(ref(db), 'usersPublicData/'));
+
+    const checkUserNames = snapshot.forEach((publicUserData) => {
+      if (publicUserData.key === user!.uid) {
+        return;
+      } else if (publicUserData.val().userName === e.target[0]) {
+        return true;
+      }
+    });
+
+    if (checkUserNames) {
+      return;
+    }
+
+    setSaveUsersName(false);
+
+    await update(ref(db, 'usersPublicData/' + user!.uid), {
+      userName: e.target[0].value,
+    });
+  };
+
+  useEffect(() => {
+    onValue(userNameRef, (snapshot) => {
+      const data = snapshot.val();
+      setUserName(data);
+    });
+  }, []);
+
   return (
-    <div className='flex flex-col mt-4 w-96'>
+    <div className='flex flex-col gap-2 mt-4 w-96'>
       <form
         className='flex gap-2'
         onSubmit={submitDisplayName}
@@ -70,7 +130,7 @@ function ChangeNames() {
         </div>
         {saveDisplayName && <ChangeButtons />}
       </form>
-      {/* <form className='flex gap-2'>
+      <form className='flex gap-2' onSubmit={submitUserName}>
         <div className='flex flex-col'>
           <label
             className='text-sm font-medium mt-4'
@@ -80,8 +140,8 @@ function ChangeNames() {
           </label>
           <input
             maxLength={32}
-            // defaultValue={user!.userName || ''}
-            className={`mt-1 py-1 px-2 w-52 rounded border border-lime-green-700 text-sm bg-lime-green-100 dark:border-lime-green-050`}
+            defaultValue={userName || ''}
+            className={`mt-1 py-1 px-2 w-52 rounded border border-lime-green-700 text-sm bg-lime-green-100 dark:border-lime-green-050 lowercase`}
             type='text'
             id='userName'
             name='userName'
@@ -91,7 +151,7 @@ function ChangeNames() {
           />
         </div>
         {saveUsersName && <ChangeButtons />}
-      </form> */}
+      </form>
     </div>
   );
 }
