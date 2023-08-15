@@ -5,6 +5,12 @@ import {
   deleteUser,
   reauthenticateWithCredential,
 } from 'firebase/auth';
+import {
+  getDatabase,
+  set,
+  ref as dbRef,
+  remove,
+} from 'firebase/database';
 import { deleteObject, getStorage, ref } from 'firebase/storage';
 import { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -44,6 +50,15 @@ function DeleteAccountModal({
       if (user?.photoURL) {
         await deleteProfileImage();
       }
+
+      const db = getDatabase();
+      set(dbRef(db, 'users/' + auth.currentUser!.uid), {
+        cards: null,
+      });
+
+      // delete public data
+      remove(dbRef(db, 'usersPublicData/' + auth!.currentUser!.uid));
+
       await deleteUser(user!);
 
       toast.success('Account has been successfully deleted.', {
@@ -126,13 +141,13 @@ function DeleteAccountModal({
               <div className='flex gap-4 w-full justify-center'>
                 <button
                   onClick={hideDeleteAccountModal}
-                  className='border-none rounded text-2xl font-semibold py-2 px-4 bg-red-100 text-red-800 cursor-pointer hover:bg-red-200 duration-300'
+                  className='border-none rounded text-2xl font-medium py-2 px-4 bg-red-100 text-red-800 cursor-pointer hover:bg-red-200 duration-300'
                 >
                   Cancle
                 </button>
                 <button
                   onClick={() => setProceeded(true)}
-                  className='border-none rounded text-2xl font-semibold py-2 px-4 bg-red-400 text-red-50 cursor-pointer hover:bg-red-500 duration-300'
+                  className='border-none rounded text-2xl font-medium py-2 px-4 bg-red-400 text-red-50 cursor-pointer hover:bg-red-500 duration-300'
                 >
                   Continue
                 </button>
@@ -195,6 +210,7 @@ function DeleteAccountModal({
               <label htmlFor='email'>Type email</label>
               <input
                 required
+                autoComplete='off'
                 ref={emailRef}
                 placeholder={email!}
                 type='email'
@@ -205,7 +221,7 @@ function DeleteAccountModal({
               <div className='flex flex-col gap-2'>
                 <button
                   type='submit'
-                  className='py-2 px-4 text-2xl rounded border-none text-red-50 bg-red-400 hover:bg-red-500 duration-300 cursor-pointer'
+                  className='py-2 px-4 text-2xl rounded border-none text-red-50 bg-red-400 hover:bg-red-500 duration-300 cursor-pointer font-medium'
                 >
                   Delete my account
                 </button>
@@ -215,7 +231,7 @@ function DeleteAccountModal({
                     hideDeleteAccountModal();
                   }}
                   type='button'
-                  className='py-2 px-4 text-2xl rounded border-none duration-300 cursor-pointer text-red-800 bg-red-100 hover:bg-red-200'
+                  className='py-2 px-4 text-2xl rounded border-none duration-300 cursor-pointer text-red-800 bg-red-100 hover:bg-red-200 font-medium'
                 >
                   Cancle
                 </button>

@@ -119,7 +119,7 @@ const Cards = function () {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className='max-w-[1532px] m-auto overflow-hidden bg-white border border-solid border-grey-100 rounded-2xl max-[1800px]:max-w-[1232px] max-[1500px]:max-w-[1000px] max-[1250px]:max-w-[632px] max-[900px]:max-w-[300px] max-[300px]:max-w-[262px] dark:bg-grey-900 dark:border-grey-600'>
+      <div className='max-w-[1532px] m-auto overflow-hidden bg-white border border-solid border-grey-200 rounded-2xl max-[1800px]:max-w-[1232px] max-[1500px]:max-w-[1000px] max-[1250px]:max-w-[632px] max-[900px]:max-w-[300px] max-[300px]:max-w-[262px] dark:bg-grey-900 dark:border-grey-600'>
         <div className='m-auto'>
           <Toolbar setShowForm={setShowForm} />
           {showForm && <FormCards setShowForm={setShowForm} />}

@@ -65,6 +65,11 @@ const routes = [
       {
         path: 'community',
         element: <CommunityPage />,
+        children: [
+          {
+            path: ':combindedId',
+          },
+        ],
       },
       {
         path: 'logout',

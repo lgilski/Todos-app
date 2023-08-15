@@ -48,6 +48,31 @@ function AuthForm({ mode }: { mode?: string }) {
             </div>
           )}
           <div className='w-[98%] m-auto'>
+            {!isLogin && (
+              <div className='flex gap-4'>
+                <div>
+                  <Input
+                    autoComplete='off'
+                    color={'Green'}
+                    name={'displayName'}
+                    type={'text'}
+                    required={true}
+                    text={'Display name'}
+                  />
+                </div>
+                <div>
+                  <Input
+                    className='lowercase'
+                    autoComplete='off'
+                    color={'Green'}
+                    name={'userName'}
+                    type={'text'}
+                    required={true}
+                    text={'User name'}
+                  />
+                </div>
+              </div>
+            )}
             <Input
               color={'Green'}
               name='email'

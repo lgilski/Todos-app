@@ -9,6 +9,7 @@ import {
 import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { auth } from '@/config/firebase';
+import { getDatabase, ref as dbRef, update } from 'firebase/database';
 
 function SectionWithImg() {
   const user = auth.currentUser;
@@ -33,6 +34,11 @@ function SectionWithImg() {
       const url = await getDownloadURL(storageRef);
 
       updateProfile(user!, {
+        photoURL: url,
+      });
+
+      const db = getDatabase();
+      update(dbRef(db, 'usersPublicData/' + auth!.currentUser!.uid), {
         photoURL: url,
       });
 

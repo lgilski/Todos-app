@@ -45,7 +45,7 @@ function Toolbar({
 
   return (
     <div className={classes.toolbar}>
-      <div className='flex justify-between pt-0 px-2 pb-2 m-auto border-x-0 border-t-0 border-b border-solid border-grey-100 dark:border-grey-600'>
+      <div className='flex justify-between pt-0 px-2 pb-2 m-auto border-x-0 border-t-0 border-b border-solid border-grey-200 dark:border-grey-600'>
         <div className='flex items-end'>
           <button
             className={`border-none bg-inherit text-base font-semibold text-grey-500 cursor-pointer duration-300 hover:text-grey-700 relative ${

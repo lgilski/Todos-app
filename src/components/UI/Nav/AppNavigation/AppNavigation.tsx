@@ -144,7 +144,7 @@ function AppNavigation() {
               Weather
             </p>
           </AppNavButton>
-          {/* <AppNavButton to='/app/community' end={false}>
+          <AppNavButton to='/app/community' end={false}>
             <ion-icon name='people' />
             <p
               className={clsx(
@@ -154,7 +154,7 @@ function AppNavigation() {
             >
               Community
             </p>
-          </AppNavButton> */}
+          </AppNavButton>
           {/* <li className={classes.divider} /> */}
         </ul>
         <div className='mt-auto w-full mb-2 flex duration-0 justify-start'>
