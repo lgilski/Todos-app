@@ -40,7 +40,7 @@ function ChatView() {
 
       <div className='flex flex-col'>
         <div
-          onScroll={functions.handleScroll}
+          // onScroll={functions.handleScroll}
           className='flex flex-col dark:text-grey-200 overflow-y-scroll max-h-[740px] pt-4'
         >
           {messages &&
