@@ -1,3 +1,4 @@
+import store from '@/store';
 import { chatActions } from '@/store/chat';
 import { Friend } from '@/types';
 import { AnyAction } from '@reduxjs/toolkit';

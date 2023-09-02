@@ -13,14 +13,14 @@ import {
   child,
   get,
   getDatabase,
+  off,
   onValue,
   ref,
   serverTimestamp,
   update,
 } from 'firebase/database';
 import { RefObject, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function useChat({
   dummy,
@@ -47,6 +47,8 @@ function useChat({
   const [requestsBeforeUpdate, setRequestsBeforeUpdate] = useState<
     number | null
   >(null);
+
+  // const [newMessages, setNewMessages] = useState<number>(0);
 
   const acceptFriendRequest = async function (sentRequest: Friend) {
     // /////////////////////
@@ -118,20 +120,27 @@ function useChat({
         ? user.uid + friend.uid
         : friend.uid + user.uid;
 
+    off(ref(db, 'chats/' + currentCombinedId + '/messages'));
+
     dispatch(chatActions.setCurrentCombinedId(innerCombinedId));
     dispatch(
-      chatActions.setCurrentfriend({
+      chatActions.setCurrentFriend({
         displayName: friend.displayName,
         photoURL: friend.photoURL,
         uid: friend.uid,
       })
     );
+
+    // update(
+    //   ref(db, 'userChats/' + user!.uid + '/' + innerCombinedId),
+    //   {
+    //     lastCheck: Date.now(),
+    //   }
+    // );
   };
 
   async function sendMessage(messageToSend: string) {
     if (!messageToSend) return;
-
-    // Check if friends
 
     const myFriends = await getMyFriendsOnce(user, db);
 
@@ -140,8 +149,6 @@ function useChat({
       .find((myFriend) => myFriend.uid === currentFriend?.uid);
 
     if (!hasThisFriend) {
-      console.log('nonono');
-
       dispatch(
         chatActions.setMyMessages([
           ...myMessages,
@@ -168,16 +175,17 @@ function useChat({
       ],
     });
 
-    updateMyAndFriendCurrentUserChats({
-      currentCombinedId,
-      currentFriend,
-      db,
-      user,
-    });
+    // updateMyAndFriendCurrentUserChats({
+    //   currentCombinedId,
+    //   currentFriend,
+    //   db,
+    //   user,
+    // });
   }
 
   function goToFriendsList() {
-    dispatch(chatActions.setCurrentfriend(null));
+    off(ref(db, 'chats/' + currentCombinedId + '/messages'));
+    dispatch(chatActions.setCurrentFriend(null));
     dispatch(chatActions.setCurrentCombinedId(null));
     dispatch(chatActions.setMyMessages([]));
   }
@@ -224,7 +232,14 @@ function useChat({
   useEffect(() => {
     onMyFriendsChange({ dispatch, user, db });
     onMyRequestsChange({ dispatch, user, db });
-    onMyCurrentChatMessageChange({ dispatch, currentCombinedId, db });
+  }, []);
+
+  useEffect(() => {
+    onMyCurrentChatMessageChange({
+      dispatch,
+      currentCombinedId,
+      db,
+    });
   }, [currentCombinedId]);
 
   useEffect(() => {
@@ -246,14 +261,37 @@ function useChat({
     dummy.current?.scrollIntoView({ behavior: 'instant' });
   }, [myMessages]);
 
+  // //////////////////////
+  // //////////////////////
+
   useEffect(() => {
-    onValue(ref(db, 'userChats/' + user.uid), (userChat) => {
-      if (userChat.exists())
+    onValue(ref(db, 'userChats/' + user.uid), (userChats) => {
+      // userChats.forEach(async (userChat) => {
+      //   const chat = await get(
+      //     child(ref(db), 'chats/' + userChat.key)
+      //   );
+
+      //   chat.val().messages.forEach((messages) => {
+      //     // console.log(userChat.val().lastCheck, messages.date);
+      //     if (messages.date > userChat.val().lastCheck) {
+      //       console.log('added one');
+      //       setNewMessages((prevState) => prevState + 1);
+      //     }
+      //   });
+      // });
+
+      if (userChats.exists())
+        // Add a number of new messages to userChat
+
         dispatch(
-          chatActions.setUserChats(Object.values(userChat.val()))
+          chatActions.setUserChats(Object.values(userChats.val()))
         );
     });
   }, []);
+
+  // useEffect(() => {
+  //   console.log(newMessages);
+  // }, [newMessages]);
 
   useEffect(() => {
     dispatch(chatActions.setSearchedFriend(null));

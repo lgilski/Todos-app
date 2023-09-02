@@ -26,7 +26,6 @@ const chatSlice = createSlice({
         return state;
 
       state.myFriends.push(action.payload);
-      // state.myFriends = action.payload;
 
       if (state.myFriends.length > 0)
         state.myFriends.sort((a, b) => {
@@ -49,10 +48,6 @@ const chatSlice = createSlice({
       state.myFriends = [];
     },
     setMyRequests(state, action: PayloadAction<Friend | null>) {
-      // if (state.myRequests === null) {
-      //   state.myRequests = [];
-      // }
-
       if (!action.payload) {
         state.myRequests = [];
         return state;
@@ -68,9 +63,6 @@ const chatSlice = createSlice({
 
       return state;
     },
-    // setMyRequestsLength(state, action) {
-    //   return state;
-    // },
     setMyMessages(state, action: PayloadAction<Message[] | []>) {
       state.myMessages = action.payload;
       return state;
@@ -81,7 +73,7 @@ const chatSlice = createSlice({
       state.userChats.sort((a, b) => b.date - a.date);
       return state;
     },
-    setCurrentfriend(state, action: PayloadAction<Friend | null>) {
+    setCurrentFriend(state, action: PayloadAction<Friend | null>) {
       state.currentFriend = action.payload;
       return state;
     },

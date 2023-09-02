@@ -239,6 +239,8 @@ export type UserChat = {
     photoURL: string;
   };
   date: number;
+  lastCheck: number;
+  newMessages: number;
 };
 
 export type ChatState = {
