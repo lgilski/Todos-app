@@ -165,7 +165,7 @@ function Timers() {
               There are no timers yet
             </h4>
             <p className='text-lg mb-6 dark:text-cool-grey-400'>
-              So why don&apos;t try one out?
+              So why don&apos;t you try one out?
             </p>
             <button
               onClick={showFormHandler}
