@@ -36,11 +36,64 @@ function TimerCountDownMethod() {
     dispatch(timerActions.stopTimersInSquence());
   };
 
+  // .wrapper {
+  //   /* max-width: 500px; */
+  //   /* margin: auto; */
+  //   display: flex;
+  //   gap: 16px;
+  //   align-items: center;
+  //   /* justify-content: space-between; */
+  // }
+
+  // .wrapper:not(div) .chooseCountDownType {
+  //   margin: auto;
+  // }
+
+  // .chooseCountDownType {
+  //   /* margin: auto; */
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-around;
+  //   max-width: 250px;
+  //   max-height: 75px;
+  //   border-radius: 8px;
+  // }
+
+  // .chooseCountDownType select {
+  //   padding: 8px;
+  //   font-size: 20px;
+  //   /* background-color: var(--tint-orange-vivid-80); */
+  //   background-color: var(--orange-vivid-200);
+  //   border: none;
+  //   border-radius: 9px;
+  // }
+
+  // .btns {
+  //   display: flex;
+  //   gap: 8px;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
+
+  // .btns ion-icon {
+  //   width: 28px;
+  //   height: 28px;
+  // }
+
+  // .btns button {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   width: 38px;
+  //   height: 38px;
+  // }
+
   return (
     <div className={classes.wrapper}>
       <form className={classes.chooseCountDownType}>
         <div>
           <select
+            className='p-2 text-lg rounded-md bg-orange-300 border-none'
             defaultValue={countDownMethod}
             onChange={setMethod}
             id='countDownType'
@@ -54,31 +107,28 @@ function TimerCountDownMethod() {
       {countDownMethod === 'Start in sequence' && (
         <div className={classes.btns}>
           {!startedSequence && (
-            <Button
-              variant='Circle'
-              color='Start'
+            <button
+              className='bg-orange-vivid-400 rounded-md border-none p-2 hover:bg-orange-vivid-500 duration-300 cursor-pointer'
               onClick={startSequence}
             >
               <ion-icon name='play' />
-            </Button>
+            </button>
           )}
           {startedSequence && (
-            <Button
-              variant='Circle'
-              color='Stop'
+            <button
+              className='bg-orange-vivid-400 rounded-md border-none p-2 hover:bg-orange-vivid-500 duration-300 cursor-pointer'
               onClick={stopTimers}
             >
               <ion-icon name='pause' />
-            </Button>
+            </button>
           )}
           {!startedSequence && (
-            <Button
-              variant='Circle'
-              color='Reset'
+            <button
+              className='bg-orange-vivid-400 rounded-md border-none p-2 hover:bg-orange-vivid-500 duration-300 cursor-pointer'
               onClick={resetTimers}
             >
               <ion-icon name='refresh' />
-            </Button>
+            </button>
           )}
         </div>
       )}

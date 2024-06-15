@@ -1,6 +1,5 @@
 import { Forecastday } from '@/types';
 import WeatherDetailHour from '../WeatherDetailCards/WeatherDetailHour/WeatherDetailHour';
-import classes from './WeatherDetailCard.module.css';
 
 function WeatherDetailCard({
   weatherForecastDay,
@@ -24,29 +23,47 @@ function WeatherDetailCard({
     daylightMinutes - daylightHours * 60;
 
   return (
-    <div className={classes.detailCard}>
-      <h5 className={classes.date}>{weatherForecastDay.date} </h5>
-      <div className={classes.contentWrapper}>
-        <div className={classes.contentCol}>
-          <h6>Temperature</h6>
-          <p className={classes.contentColWithIcon}>
+    <div
+      className={
+        'w-full py-4 px-5 mt-8 bg-orange-vivid-200 rounded-md shadow-sm'
+      }
+    >
+      <h5 className={'text-xl'}>{weatherForecastDay.date} </h5>
+      <div
+        className={
+          'grid grid-cols-4 py-4 mt-2 [&_span]:font-semibold [&_span]:ml-1'
+        }
+      >
+        <div
+          className={
+            ' relative flex flex-col gap-4 p-4 border-r-2 border-solid border-orange-vivid-600 border-l-0 border-y-0'
+          }
+        >
+          <h6 className='text-lg text-orange-vivid-900'>
+            Temperature
+          </h6>
+          <p className={'flex gap1 items-center'}>
             <ion-icon name='flame' /> max:{' '}
             <span>
               {weatherForecastDay.day.maxtemp_c}
               &deg;C
             </span>
           </p>
-          <p className={classes.contentColWithIcon}>
+          <p className={'flex gap1 items-center'}>
             <ion-icon name='thermometer-outline' /> avg:{' '}
             <span>{weatherForecastDay.day.avgtemp_c}&deg;C</span>
           </p>
-          <p className={classes.contentColWithIcon}>
+          <p className={'flex gap1 items-center'}>
             <ion-icon name='trending-down' /> min:{' '}
             <span>{weatherForecastDay.day.mintemp_c}&deg;C</span>
           </p>
         </div>
-        <div className={classes.contentCol}>
-          <h6>Sun</h6>
+        <div
+          className={
+            ' relative flex flex-col gap-4 p-4 border-r-2 border-solid border-orange-vivid-600 border-l-0 border-y-0'
+          }
+        >
+          <h6 className='text-lg text-orange-vivid-900'>Sun</h6>
           <p>
             Sunrise at <span>{weatherForecastDay.astro.sunrise}</span>
           </p>
@@ -64,27 +81,41 @@ function WeatherDetailCard({
             </span>
           </p>
         </div>
-        <div className={classes.contentCol}>
-          <h6>Precipitation</h6>
-          <p className={classes.contentColWithIcon}>
+        <div
+          className={
+            ' relative flex flex-col gap-4 p-4 border-r-2 border-solid border-orange-vivid-600 border-l-0 border-y-0'
+          }
+        >
+          <h6 className='text-lg text-orange-vivid-900'>
+            Precipitation
+          </h6>
+          <p className={'flex gap1 items-center'}>
             <ion-icon name='rainy' /> Chance of rain:{' '}
             <span>
               {weatherForecastDay.day.daily_chance_of_rain}%
             </span>
           </p>
-          <p className={classes.contentColWithIcon}>
+          <p className={'flex gap1 items-center'}>
             <ion-icon name='snow' /> Chance of snow:{' '}
             <span>
               {weatherForecastDay.day.daily_chance_of_snow}%
             </span>
           </p>
         </div>
-        <div className={classes.contentCol}>
-          <img src={weatherForecastDay.day.condition.icon} alt='' />
+        <div className={' relative flex flex-col gap-4 p-4 '}>
+          <img
+            className='self-center w-20 h-20 mb-auto bg-white rounded-md shadow-sm'
+            src={weatherForecastDay.day.condition.icon}
+            alt=''
+          />
           <p>{weatherForecastDay.day.condition.text}</p>
         </div>
       </div>
-      <div className={classes.hours}>
+      <div
+        className={
+          'grid grid-cols-[repeat(24,_150px)] gap-4  p-6 overflow-x-scroll bg-orange-vivid-100  rounded-t-md'
+        }
+      >
         {weatherForecastDay.hour.map((hour) => (
           <WeatherDetailHour key={hour.time} hour={hour} />
         ))}

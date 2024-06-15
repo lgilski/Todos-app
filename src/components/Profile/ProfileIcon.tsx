@@ -83,7 +83,7 @@ const ProfileIcon = function ({
             : 'min-w-[32px] min-h-[32px] w-[32px] h-[32px]'
         }  block rounded-full overflow-hidden ${
           (!user?.photoURL || !src) &&
-          'bg-orange-400 [&_ion-icon]:w-full [&_ion-icon]:h-full [&_ion-icon]:translate-y-[6.25%] dark:[&_ion-icon]:text-black'
+          'bg-orange-vivid-400 [&_ion-icon]:w-full [&_ion-icon]:h-full [&_ion-icon]:translate-y-[6.25%] dark:[&_ion-icon]:text-black'
         } ${(user?.photoURL || src) && 'flex justify-center'}`}
         onMouseEnter={showDeleteImageHandler}
         onMouseLeave={hideDeleteImageHandler}

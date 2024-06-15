@@ -42,10 +42,10 @@ function AppNavigation() {
         openOnClick
         className={classes.tooltip}
       >
-        <div className='flex flex-col text-grey-900 [&_ion-icon]:min-w-[24px] [&_ion-icon]:min-h-[24px]'>
+        <div className='flex flex-col text-cool-grey-900 [&_ion-icon]:min-w-[24px] [&_ion-icon]:min-h-[24px]'>
           <button
             onClick={showSettings}
-            className={`cursor-pointer py-2 px-4 bg-inherit border-none w-full font-medium text-grey-900 no-underline duration-300 hover:bg-lime-green-300 text-base font-['Roboto']`}
+            className={`cursor-pointer py-2 px-4 bg-inherit border-none w-full font-medium text-cool-grey-900 no-underline duration-300 hover:bg-orange-vivid-300 text-base font-['Roboto']`}
           >
             <span className='flex gap-2 items-center'>
               <ion-icon name='cog' />
@@ -60,7 +60,7 @@ function AppNavigation() {
           </button>
           <Form action='/app/logout' method='post'>
             <button
-              className={`cursor-pointer py-2 px-4 bg-inherit border-none w-full font-medium text-grey-900 no-underline duration-300 hover:bg-lime-green-300 text-base font-['Roboto']`}
+              className={`cursor-pointer py-2 px-4 bg-inherit border-none w-full font-medium text-cool-grey-900 no-underline duration-300 hover:bg-orange-vivid-300 text-base font-['Roboto']`}
             >
               <span className='flex gap-2 items-center'>
                 <ion-icon name='exit' />
@@ -79,14 +79,14 @@ function AppNavigation() {
       <nav
         className={`fixed top-0 left-0 z-[1] flex flex-col  ${
           !isSidenavOpen ? 'w-[58px]' : 'w-[200px]'
-        } h-full pt-[68px] overflow-hidden text-base bg-white shadow-md duration-500 [&_ion-icon]:min-w-[24px] [&_ion-icon]:min-h-[24px]  dark:bg-grey-900 dark:border-r dark:border-solid dark:border-grey-700 dark:border-y-0 dark:border-l-0`}
+        } h-full pt-[68px] overflow-hidden text-base bg-white shadow-md duration-500 [&_ion-icon]:min-w-[24px] [&_ion-icon]:min-h-[24px]  dark:bg-cool-grey-900 dark:border-r dark:border-solid dark:border-cool-grey-700 dark:border-y-0 dark:border-l-0`}
         onMouseEnter={() => setShowHideOption(true)}
         onMouseLeave={() => setShowHideOption(false)}
       >
         <button
           onClick={hideSidenav}
           className={clsx(
-            'absolute top-[62px] right-2 flex items-center w-8 h-8 p-1 cursor-pointer bg-inherit border-none rounded opacity-0 duration-300 hover:bg-orange-100 dark:[&_ion-icon]:text-grey-050 dark:hover:bg-grey-800',
+            'absolute top-[62px] right-2 flex items-center w-8 h-8 p-1 cursor-pointer bg-inherit border-none rounded opacity-0 duration-300 hover:bg-orange-vivid-100 dark:[&_ion-icon]:text-cool-grey-050 dark:hover:bg-cool-grey-800',
             showHideOption && classes.showHideBtn,
             !isSidenavOpen && classes.hideBtnOtherPosition
           )}
@@ -97,7 +97,7 @@ function AppNavigation() {
         <ul
           className={clsx(
             classes.contentWrapper,
-            'dark:[&_ion-icon]:text-grey-050'
+            'dark:[&_ion-icon]:text-cool-grey-050'
           )}
         >
           <AppNavButton to='/app/cards' end={true}>

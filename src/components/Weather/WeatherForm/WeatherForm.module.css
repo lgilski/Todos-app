@@ -4,8 +4,8 @@
   max-width: 500px;
   padding: 16px;
   margin: auto;
-  /* background-color: var(--tint-orange-20); */
-  background-color: var(--orange-300);
+  /* background-color: var(--tint-orange-vivid-20); */
+  background-color: var(--orange-vivid-300);
   border-radius: 8px;
   box-shadow: var(--shadow-m);
 }

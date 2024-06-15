@@ -20,8 +20,8 @@
   padding: 16px;
   margin: auto;
   font-size: var(--text-big);
-  /* background-color: var(--tint-orange-20); */
-  background-color: var(--orange-300);
+  /* background-color: var(--tint-orange-vivid-20); */
+  background-color: var(--orange-vivid-300);
   border-radius: 8px;
   box-shadow: var(--shadow-m);
 }
@@ -83,7 +83,7 @@ li.timerFormListTime {
 
 .border {
   margin: 30px 0;
-  border-bottom: 3px solid var(--shade-orange-20);
+  border-bottom: 3px solid var(--shade-orange-vivid-20);
 }
 
 .modal {

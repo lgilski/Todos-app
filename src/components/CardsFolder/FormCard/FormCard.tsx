@@ -84,7 +84,7 @@ const FormCards = function ({
             type='button'
             onClick={hideForm}
             className='absolute top-2 right-2'
-            color='orange'
+            color='orange-vivid'
             size='big'
           />
           <h4 className='flex self-center mb-5 text-3xl'>
@@ -108,14 +108,20 @@ const FormCards = function ({
             required={true}
             text='On what day will it be?'
           />
-          <Button
+          {/* <Button
             className='w-full mt-3'
             type='submit'
             variant='RoundedSquare'
             color='OrangeLite'
           >
             Add card
-          </Button>
+          </Button> */}
+          <button
+            type='submit'
+            className='w-full mt-3 py-2 px-4 rounded-md border-none bg-orange-vivid-400 text-lg hover:bg-orange-vivid-500 cursor-pointer duration-300'
+          >
+            Add card
+          </button>
         </form>,
         document.getElementById('modal-root') as HTMLElement
       )}

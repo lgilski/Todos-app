@@ -10,13 +10,13 @@ const Subtitle = function ({ type }: { type?: string }) {
       <Link
         to={!userVerified ? '/' : '/app/cards'}
         className={clsx(
-          'font-extrabold text-orange-400 no-underline',
-          type === 'small' ? 'text-2xl' : 'text-4xl'
+          'font-extrabold text-orange-vivid-400 no-underline',
+          type === 'small' ? 'text-xl' : 'text-2xl'
         )}
       >
         Your To-dos{' '}
         <span
-          className={`text-grey-900 ${
+          className={`text-cool-grey-900 ${
             userVerified && 'dark:text-gray-50'
           }`}
         >

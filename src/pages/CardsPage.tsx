@@ -8,16 +8,8 @@ function CardsPage() {
   const userVerified = auth.currentUser?.emailVerified;
 
   return (
-    <section className='greyBg paddingBottom'>
+    <section className='greyBg pb-16 pt-32 mt-0'>
       {!userVerified && <LoginToGetAccess />}
-      {userVerified && (
-        <SectionHeader
-          className='pageTitleCenter paddingTop'
-          subheader='Cards page'
-          header='Start planning your days'
-          type='medium'
-        />
-      )}
       {userVerified && <Cards />}
     </section>
   );

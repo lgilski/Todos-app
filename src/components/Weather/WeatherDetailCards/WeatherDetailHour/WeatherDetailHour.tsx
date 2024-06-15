@@ -9,7 +9,11 @@ function WeatherDetailHour({ hour }: { hour: Hour }) {
         <h6 className={classes.time}>{hour.time.split(' ')[1]}</h6>
         <p>{hour.condition.text}</p>
       </div>
-      <img src={hour.condition.icon} alt='' />
+      <img
+        className='bg-white rounded-md'
+        src={hour.condition.icon}
+        alt=''
+      />
       <div>
         {/* <p>Feels like {hour.feelslike_c}&deg;C</p> */}
         <div className={clsx(classes.withIcon, classes.humidity)}>

@@ -119,7 +119,7 @@ function ChangeNames() {
           <input
             maxLength={32}
             defaultValue={user!.displayName || ''}
-            className={`mt-1 py-1 px-2 w-52 rounded border border-lime-green-700 text-sm bg-lime-green-100 dark:border-lime-green-050`}
+            className={`mt-1 py-1 px-2 w-52 rounded border border-orange-vivid-700 text-sm bg-orange-vivid-100 dark:border-orange-vivid-050`}
             type='text'
             id='displayName'
             name='displayName'
@@ -141,7 +141,7 @@ function ChangeNames() {
           <input
             maxLength={32}
             defaultValue={userName || ''}
-            className={`mt-1 py-1 px-2 w-52 rounded border border-lime-green-700 text-sm bg-lime-green-100 dark:border-lime-green-050 lowercase`}
+            className={`mt-1 py-1 px-2 w-52 rounded border border-orange-vivid-700 text-sm bg-orange-vivid-100 dark:border-orange-vivid-050 lowercase`}
             type='text'
             id='userName'
             name='userName'

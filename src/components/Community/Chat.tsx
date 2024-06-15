@@ -32,7 +32,7 @@ function Chat() {
   };
 
   return (
-    <div className=' w-[1600px] h-[800px] bg-white mx-auto rounded-2xl border border-solid border-grey-200 dark:border-grey-600 dark:bg-grey-850 duration-500 grid grid-cols-[300px_1fr] overflow-hidden relative shadow-md'>
+    <div className=' w-[1600px] h-[800px] bg-white mx-auto rounded-md border border-solid border-cool-grey-200 dark:border-cool-grey-600 dark:bg-cool-grey-850 duration-500 grid grid-cols-[300px_1fr] overflow-hidden relative shadow-md'>
       <ChatsList
         goToChat={functions.goToChat}
         goToFriendsList={functions.goToFriendsList}

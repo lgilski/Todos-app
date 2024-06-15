@@ -90,27 +90,120 @@ function TimerForm({
     );
   };
 
+  // .wrapper {
+  //   position: fixed;
+  //   top: 30vh;
+  //   left: 50%;
+  //   z-index: 100;
+  //   z-index: 5;
+  //   width: 400px;
+  //   max-width: 1400px;
+  //   /* margin: 64px auto 32px; */
+  //   margin: 0 auto 32px;
+  //   overflow: hidden;
+  //   border-radius: 8px;
+  //   transform: translate(-50%, -50%);
+  // }
+
+  // .timerFormHeading {
+  //   font-size: var(--heading-s);
+  // }
+
+  // .timerFormList {
+  //   list-style: none;
+  // }
+
+  // .timerFormList li {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+
+  // .timerFormList input {
+  //   width: 200px;
+  // }
+
+  // .timerFormList label {
+  //   margin: 4px 0;
+  // }
+
+  // .timerFormList input[type='number'] {
+  //   width: 80px;
+  // }
+
+  // .timerFormList input[type='text'] {
+  //   margin-bottom: 20px;
+  // }
+
+  // .timerForm button {
+  //   align-self: flex-end;
+  // }
+
+  // .closeBtn {
+  //   position: absolute;
+  //   top: 8px;
+  //   right: 8px;
+  // }
+
+  // li.timerFormListTime {
+  //   flex-direction: row;
+  //   gap: 10px;
+  //   margin-top: 20px;
+  // }
+
+  // .timerFormListTime > p {
+  //   font-size: var(--text-huge);
+  //   transform: translateY(5px);
+  // }
+
+  // .timerFormListTime label {
+  //   display: flex;
+  //   justify-content: center;
+  // }
+
+  // .border {
+  //   margin: 30px 0;
+  //   border-bottom: 3px solid var(--shade-orange-vivid-20);
+  // }
+
+  // .timerForm {
+  //   display: flex;
+  //   flex-direction: column;
+  //   max-width: 500px;
+  //   padding: 16px;
+  //   margin: auto;
+  //   font-size: var(--text-big);
+  //   /* background-color: var(--tint-orange-vivid-20); */
+  //   background-color: var(--orange-vivid-300);
+  //   border-radius: 8px;
+  //   box-shadow: var(--shadow-m);
+  // }
+
   return (
     <>
       {createPortal(
-        <div className={`${classes.wrapper}`}>
-          <form className={classes.timerForm} onSubmit={onSubmit}>
+        <div
+          className={`fixed top-1/2 left-1/2 z-10 max-w-md mx-auto rounded-md -translate-x-1/2 -translate-y-1/2 bg-white`}
+        >
+          <form
+            className={'flex flex-col p-4 mx-auto'}
+            onSubmit={onSubmit}
+          >
             <CloseButton
               type='button'
               onClick={showFormHandler}
               className={classes.closeBtn}
-              color='orange'
+              color='orange-vivid'
               size='big'
             />
-            <h4 className={classes.timerFormHeading}>
-              {modal ? 'Edit your timer' : 'Create new timer'}
+            <h4 className={'flex self-center mb-5 text-3xl'}>
+              {modal ? 'Edit timer' : 'Create timer'}
             </h4>
-            <ul className={classes.timerFormList}>
-              <li className={classes.timerFormListTime}>
-                <div className={classes.timerFormListTimeElement}>
+            <ul className={'list-none flex flex-col gap-4 mb-4'}>
+              <li className={'flex gap-2 justify-center'}>
+                <div className={'block'}>
                   <Input
                     color='Orange'
-                    down={true}
+                    down={false}
                     name='hours'
                     type='number'
                     min='0'
@@ -121,11 +214,11 @@ function TimerForm({
                     noMargin={true}
                   />
                 </div>
-                <p>:</p>
-                <div className={classes.timerFormListTimeElement}>
+                <p className='mt-8'>:</p>
+                <div className={''}>
                   <Input
                     color='Orange'
-                    down={true}
+                    down={false}
                     name='minutes'
                     type='number'
                     min='0'
@@ -136,11 +229,11 @@ function TimerForm({
                     noMargin={true}
                   />
                 </div>
-                <p>:</p>
-                <div className={classes.timerFormListTimeElement}>
+                <p className='mt-8'>:</p>
+                <div className={''}>
                   <Input
                     color='Orange'
-                    down={true}
+                    down={false}
                     name='seconds'
                     type='number'
                     min='0'
@@ -152,7 +245,7 @@ function TimerForm({
                   />
                 </div>
               </li>
-              <li className={classes.border} />
+              {/* <li className={classes.border} /> */}
               <li>
                 <Input
                   color='Orange'
@@ -167,9 +260,9 @@ function TimerForm({
                 />
               </li>
             </ul>
-            <Button variant='Capsule' color='Orange'>
+            <button className='w-full mt-3 py-2 px-4 rounded-md border-none bg-orange-vivid-400 text-lg hover:bg-orange-vivid-500 cursor-pointer duration-300'>
               {modal ? 'Save' : 'Add timer'}
-            </Button>
+            </button>
           </form>
         </div>,
         document.getElementById('modal-root') as HTMLElement

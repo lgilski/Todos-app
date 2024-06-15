@@ -1,7 +1,7 @@
 .toolbar {
   width: 100%;
-  /* background-color: var(--orange-600); */
-  /* background-color: var(--orange-200); */
+  /* background-color: var(--orange-vivid-600); */
+  /* background-color: var(--orange-vivid-200); */
   /* background-color: #fff; */
   padding: 8px 20px;
   border-top-left-radius: 14px;
@@ -14,8 +14,8 @@
   width: 100%;
   padding: 0 8px 8px;
   margin: auto;
-  /* border-bottom: 2px solid var(--orange-600); */
-  border-bottom: 1px solid var(--grey-100);
+  /* border-bottom: 2px solid var(--orange-vivid-600); */
+  border-bottom: 1px solid var(--cool-grey-100);
 }
 
 .searchWrapper {
@@ -29,14 +29,14 @@
 }
 
 .searchBtn {
-  /* border: 1px solid var(--lime-green-800); */
+  /* border: 1px solid var(--orange-vivid-800); */
   width: 38px;
   height: 38px;
   /* aspect-ratio: 1; */
-  color: var(--lime-green-900);
+  color: var(--orange-vivid-900);
   cursor: pointer;
-  /* background-color: var(--orange-100); */
-  background-color: var(--lime-green-200);
+  /* background-color: var(--orange-vivid-100); */
+  background-color: var(--orange-vivid-200);
   border: none;
   /* border-radius: 8px; */
   border-radius: 20px;
@@ -57,9 +57,9 @@
 
 .searchBtn:hover,
 .searchBtn:active {
-  /* background-color: var(--orange-300); */
-  background-color: var(--lime-green-400);
-  /* color: var(--orange-050); */
+  /* background-color: var(--orange-vivid-300); */
+  background-color: var(--orange-vivid-400);
+  /* color: var(--orange-vivid-050); */
 }
 
 .addBtn {

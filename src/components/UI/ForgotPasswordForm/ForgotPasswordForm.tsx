@@ -8,7 +8,7 @@ function ForgotPasswordForm() {
   return (
     <Form
       method='post'
-      className='flex flex-col max-w-[380px] p-4 my-20 mx-auto border border-solid border-lime-green-900 rounded-lg shadow-md'
+      className='flex flex-col max-w-[380px] p-4 my-20 mx-auto border border-solid border-orange-vivid-900 rounded-lg shadow-md'
     >
       <h5 className='mt-4 mx-0 mb-8 text-3xl text-center'>
         Reset your password

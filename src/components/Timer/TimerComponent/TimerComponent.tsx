@@ -35,17 +35,19 @@ const TimerComponent = function ({
     timeRemaining! - (currentHours * 60 * 60 + currentMinutes * 60)
   );
 
-  // .timer {
-  //   position: relative;
-  //   width: 100%;
-  //   padding: 30px;
-  //   margin-bottom: 32px;
-  //   cursor: grab;
-  //   /* background-color: var(--tint-orange-50); */
-  //   background-color: var(--orange-200);
-  //   border-radius: 8px;
+  // .timerButtons {
+  //   display: flex;
+  //   gap: 10px;
+  // }
 
-  //   /* box-shadow: var(--shadow-s);  */
+  // .timerButtons button {
+  //   width: 100px;
+  //   height: 100px;
+  //   font-size: 32px;
+  //   cursor: pointer;
+  //   border: none;
+  //   border-radius: 100%;
+  //   transition: all 0.4s;
   // }
 
   return (
@@ -56,16 +58,16 @@ const TimerComponent = function ({
     >
       {(provided, snapshot) => (
         <div
-          className='relative w-full p-8 mb-8 cursor-grab bg-orange-200 rounded-lg text-black dark:bg-orange-300 '
+          className='relative w-full py-6 px-8 mb-8 cursor-grab bg-orange-vivid-100 rounded-md text-black dark:bg-orange-vivid-200 '
           {...provided.dragHandleProps}
           {...provided.draggableProps}
           ref={provided.innerRef}
           data-isdragging={snapshot.isDragging.toString()}
         >
           <CloseButton
-            className={classes.timerCloseBtn}
+            className={'absolute top-[5px] left-[5px]'}
             onClick={functions.deleteTimer}
-            color='orange'
+            color='orange-vivid'
             size='big'
           />
           {showModal && (

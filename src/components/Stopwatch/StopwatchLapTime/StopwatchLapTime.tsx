@@ -9,7 +9,7 @@ const StopwatchLapTime = function ({
   let number = 0;
 
   return (
-    <div className='flex flex-col gap-2 items-center mb-6 p-5 w-[95%] bg-orange-100 rounded-xl mx-auto text-3xl dark:bg-orange-800 dark:text-white'>
+    <div className='flex flex-col gap-2 items-center mb-6 p-5 w-[95%] bg-orange-vivid-100 rounded-xl mx-auto text-3xl dark:bg-orange-vivid-200 dark:text-orange-vivid-900'>
       {lapTime.map((time) => {
         return (
           <StopwatchTime

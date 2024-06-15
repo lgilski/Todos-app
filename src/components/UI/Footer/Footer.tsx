@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className='sticky top-full w-full py-32 px-0 text-base text-grey-600 bg-grey-050 border-t-2 border-x-0 border-b-0 border-grey-200 border-solid [&_h6]:mb-9 [&_h6]:text-xl [&_h6]:font-medium [&_h6]:text-grey-700 [&_a]:text-base [&_a]:text-grey-600 [&_a]:no-underline hover:[&_a]:text-grey-800'>
+    <footer className='sticky top-full w-full py-32 px-0 text-base text-cool-grey-600 bg-cool-grey-050 border-t-2 border-x-0 border-b-0 border-cool-grey-200 border-solid [&_h6]:mb-9 [&_h6]:text-xl [&_h6]:font-medium [&_h6]:text-cool-grey-700 [&_a]:text-base [&_a]:text-cool-grey-600 [&_a]:no-underline hover:[&_a]:text-cool-grey-800'>
       <div className='grid grid-cols-6 max-w-[1200px] my-0 mx-auto py-0 px-8 gap-y-24 gap-x-16 max-[1100px]:grid-rows-2 max-[1100px]:grid-cols-6 max-[1100px]:gap-y-16 max-[1100px]:gap-x-12 '>
         <div
           className={
@@ -10,14 +10,16 @@ function Footer() {
           }
         >
           <h5
-            className={'mb-4 text-xl font-extrabold text-orange-400'}
+            className={
+              'mb-4 text-xl font-extrabold text-orange-vivid-400'
+            }
           >
             Your To-dos{' '}
-            <span className='text-grey-900'>and stuff UwU</span>
+            <span className='text-cool-grey-900'>and stuff UwU</span>
           </h5>
           <div
             className={
-              'flex gap-4 [&_*]:text-grey-600 [&_*]:w-6 [&_*]:h-6 [&_*]:duration-300 hover:[&_*]:text-grey-800'
+              'flex gap-4 [&_*]:text-cool-grey-600 [&_*]:w-6 [&_*]:h-6 [&_*]:duration-300 hover:[&_*]:text-cool-grey-800'
             }
           >
             <Link to='#'>

@@ -33,24 +33,70 @@ function Toolbar({
     dispatch(cardActions.setHideHappened());
   };
 
+  // .toolbar {
+  //   width: 100%;
+  //   /* background-color: var(--orange-vivid-600); */
+  //   /* background-color: var(--orange-vivid-200); */
+  //   /* background-color: #fff; */
+  //   padding: 8px 20px;
+  //   border-top-left-radius: 14px;
+  //   border-top-right-radius: 14px;
+  // }
+
   // .toolbarContent {
   //   display: flex;
   //   justify-content: space-between;
   //   width: 100%;
   //   padding: 0 8px 8px;
   //   margin: auto;
-  //   /* border-bottom: 2px solid var(--orange-600); */
-  //   border-bottom: 1px solid var(--grey-100);
+  //   /* border-bottom: 2px solid var(--orange-vivid-600); */
+  //   border-bottom: 1px solid var(--cool-grey-100);
+  // }
+
+  // .searchWrapper {
+  //   display: flex;
+  // }
+
+  // .hideSearch {
+  //   max-width: 0;
+  //   padding: 0;
+  //   /* display: none; */
+  // }
+
+  // .shownSearch {
+  //   border-top-right-radius: 0;
+  //   border-bottom-right-radius: 0;
+  // }
+
+  // .searchBtn ion-icon {
+  //   width: 28px;
+  //   height: 28px;
+  //   font-weight: 800;
+  //   vertical-align: middle;
+  // }
+
+  // .searchBtn:hover,
+  // .searchBtn:active {
+  //   /* background-color: var(--orange-vivid-300); */
+  //   background-color: var(--orange-vivid-400);
+  //   /* color: var(--orange-vivid-050); */
+  // }
+
+  // .addBtn {
+  //   font-size: var(--text-big);
+  //   font-weight: 600;
+  //   /* border-radius: 50px;
+  //   padding: 8px 12px; */
   // }
 
   return (
     <div className={classes.toolbar}>
-      <div className='flex justify-between pt-0 px-2 pb-2 m-auto border-x-0 border-t-0 border-b border-solid border-grey-200 dark:border-grey-600'>
+      <div className='flex justify-between pt-0 px-2 pb-2 m-auto border-x-0 border-t-0 border-b border-solid border-cool-grey-200 dark:border-cool-grey-600'>
         <div className='flex items-end'>
           <button
-            className={`border-none bg-inherit text-base font-semibold text-grey-500 cursor-pointer duration-300 hover:text-grey-700 relative ${
+            className={`border-none bg-inherit text-base font-semibold text-cool-grey-500 cursor-pointer duration-300 hover:text-cool-grey-700 relative ${
               hideHappened &&
-              "after:absolute after:content-[''] after:h-[2px] after:w-full after:bg-lime-green-500 after:-bottom-[9px] after:left-0"
+              "after:absolute after:content-[''] after:h-[2px] after:w-full after:bg-orange-vivid-500 after:-bottom-[9px] after:left-0"
             }`}
             onClick={hideHappenedHandler}
           >
@@ -58,12 +104,13 @@ function Toolbar({
           </button>
         </div>
         <div className='flex gap-4'>
-          <div className={classes.searchWrapper}>
+          <div className={'flex'}>
             <button
               onClick={showSearchHandler}
               className={clsx(
-                classes.searchBtn,
-                showSearch && classes.shownSearch
+                'w-11 h-11 text-orange-vivid-900 border-none cursor-pointer bg-orange-300 rounded-md  [&_ion-icon]:w-8 [&_ion-icon]:h-8',
+                showSearch && 'rounded-e-none',
+                !showSearch ? 'delay-300' : ''
               )}
             >
               <ion-icon name='search-outline' />
@@ -72,14 +119,16 @@ function Toolbar({
               className={`${!showSearch && classes.hideSearch}`}
             />
           </div>
-          <Button
+          <button
             onClick={showModal}
-            className={classes.addBtn}
+            className={
+              'rounded-md px-4 py-2 text-lg bg-orange-vivid-700 hover:bg-orange-vivid-800 duration-300 cursor-pointer border-none text-orange-vivid-050'
+            }
             color='Green'
-            variant='RoundedSquare'
+            // variant='RoundedSquare'
           >
             Add
-          </Button>
+          </button>
         </div>
       </div>
     </div>

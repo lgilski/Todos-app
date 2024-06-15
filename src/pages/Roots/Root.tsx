@@ -92,7 +92,7 @@ function RootLayout({ routes }: { routes: any }) {
           userVerified && 'pl-[200px]',
           !isSidenavOpen && userVerified && 'pl-[58px]',
           'duration-500',
-          userVerified && 'bg-grey-050 dark:bg-grey-800',
+          userVerified && 'bg-cool-grey-050 dark:bg-cool-grey-800',
           userVerified && 'min-h-screen'
         )}
       >

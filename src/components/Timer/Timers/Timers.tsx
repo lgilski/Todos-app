@@ -79,44 +79,102 @@ function Timers() {
     }
   }, [dispatch]);
 
+  // .timersWrapper {
+  //   display: flex;
+  //   flex-direction: column;
+  //   max-width: 700px;
+  //   padding-top: 16px;
+  //   margin: auto;
+  //   /* gap: 32px; */
+  // }
+
+  // .timerToolbar {
+  //   /* width: 90%; */
+  //   display: flex;
+  //   justify-content: space-between;
+  //   padding: 0 8px 8px;
+  //   margin: auto;
+  //   border-bottom: 1px solid var(--cool-grey-200);
+  // }
+
+  // .timerAddBtn {
+  //   font-size: var(--text-big);
+  // }
+
+  // .buttonsContainer {
+  //   justify-content: center;
+  //   margin-top: 12px;
+  // }
+
   return (
     <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
-      <div className='max-w-3xl py-2 px-8 m-auto bg-white border border-solid border-grey-200 rounded-2xl dark:bg-grey-900 dark:border-grey-600'>
+      <div className='max-w-2xl py-2 px-8 m-auto bg-white border border-solid border-cool-grey-200 rounded-md dark:bg-cool-grey-900 dark:border-cool-grey-600'>
         {showForm && (
           <TimerForm
             modal={false}
             showFormHandler={showFormHandler}
           />
         )}
-        <div className={classes.timerToolbar}>
+        <div
+          className={
+            'flex justify-between px-2 pb-2 mx-auto border-x-0 border-t-0 border-b border-solid border-cool-grey-200'
+          }
+        >
           <TimerCountDownMethod />
-          <Button
+          {/* <Button
             onClick={showFormHandler}
             className={classes.timerAddBtn}
             color='Green'
             variant='RoundedSquare'
           >
             Add
-          </Button>
+          </Button> */}
+          <button
+            onClick={showFormHandler}
+            className={
+              'px-4 py-2 text-lg rounded-md border-none bg-orange-vivid-700 hover:bg-orange-vivid-800 duration-300 cursor-pointer text-orange-vivid-050'
+            }
+            // color='Green'
+            // variant='RoundedSquare'
+          >
+            Add
+          </button>
         </div>
-        <Droppable droppableId={'timersColumn'}>
-          {(provided) => (
-            <ul
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              className={classes.timersWrapper}
+        {timers.length > 0 ? (
+          <Droppable droppableId={'timersColumn'}>
+            {(provided) => (
+              <ul
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                className={classes.timersWrapper}
+              >
+                {timers.map((timer, index) => (
+                  <TimerComponent
+                    key={timer.id}
+                    timerData={timer}
+                    index={index}
+                  />
+                ))}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        ) : (
+          <div className=' text-center py-20'>
+            <h4 className='py-4 text-5xl text-cool-grey-800 dark:text-white text-center rounded-lg '>
+              There are no timers yet
+            </h4>
+            <p className='text-lg mb-6 dark:text-cool-grey-400'>
+              So why don&apos;t try one out?
+            </p>
+            <button
+              onClick={showFormHandler}
+              className='rounded-md border-none px-4 py-2 bg-orange-vivid-700 hover:bg-orange-vivid-800 duration-300 text-lg cursor-pointer text-orange-vivid-050'
             >
-              {timers.map((timer, index) => (
-                <TimerComponent
-                  key={timer.id}
-                  timerData={timer}
-                  index={index}
-                />
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
+              Create timer
+            </button>
+          </div>
+        )}
       </div>
     </DragDropContext>
   );

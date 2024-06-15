@@ -14,13 +14,15 @@ function AppNavButton({
     <li>
       <NavLink
         className={({ isActive }) =>
-          `relative block py-2 px-4 font-medium text-grey-700 no-underline duration-300 dark:text-grey-200 ${
+          `relative block py-2 px-4 font-medium text-cool-grey-700 no-underline duration-300 dark:text-cool-grey-200 ${
             isActive
-              ? 'dark:hover:bg-grey-700 hover:bg-orange-200'
-              : 'dark:hover:bg-grey-800 hover:bg-orange-100'
-          } ${isActive && 'dark:bg-grey-800 bg-orange-100'} ${
+              ? 'dark:hover:bg-cool-grey-700 hover:bg-orange-vivid-200'
+              : 'dark:hover:bg-cool-grey-800 hover:bg-orange-vivid-100'
+          } ${
+            isActive && 'dark:bg-cool-grey-800 bg-orange-vivid-100'
+          } ${
             isActive &&
-            'after:absolute after:top-0 after:right-0 after:w-1 after:h-full after:content-[""] after:bg-orange-600 after:dark:bg-orange-500'
+            'after:absolute after:top-0 after:right-0 after:w-1 after:h-full after:content-[""] after:bg-orange-vivid-600 after:dark:bg-orange-vivid-500'
           }`
         }
         to={to}

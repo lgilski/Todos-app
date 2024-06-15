@@ -39,10 +39,42 @@ function TimerContent({
     (state: WholeState) => state.timers.timers[index].timeRemaining
   );
 
+  // .timerName {
+  //   font-size: 24px;
+  //   text-align: center;
+  // }
+
+  // .timerWrapper {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+
+  // .timerTime {
+  //   font-size: 64px;
+  //   text-align: center;
+  //   cursor: pointer;
+  //   transition: all 0.3s;
+  // }
+
+  // .timerTime:hover,
+  // .timerTime:active {
+  //   color: var(--shade-orange-vivid-10);
+  // }
+
   // .timerButton {
   //   display: flex;
   //   align-items: center;
   //   justify-content: center;
+  // }
+
+  // @media (max-width: 580px) {
+  //   .timerTime {
+  //     font-size: 48px;
+  //   }
+
+  //   .timerName {
+  //     font-size: 18px;
+  //   }
   // }
 
   return (
@@ -50,7 +82,9 @@ function TimerContent({
       <div>
         <h4
           onClick={functions.editTimer}
-          className={classes.timerTime}
+          className={
+            'text-6xl text-center cursor-pointer duration-300 hover:text-orange-vivid-800'
+          }
         >
           <DisplayTime time={currentTime.hours} />
           :
@@ -72,38 +106,41 @@ function TimerContent({
         </p>
       </div>
       {countDownMethod === 'Manually' && (
-        <div className={classes.timerButtons}>
+        <div
+          className={
+            'flex gap-6 [&_ion-icon]:w-10 [&_ion-icon]:h-10 items-center'
+          }
+        >
           {!isCounting && (
-            <Button
-              variant='Circle'
+            <button
               color='Start'
               onClick={functions.startTimer}
-              className={`${
+              className={`bg-orange-vivid-400 rounded-md border-none p-2 hover:bg-orange-vivid-500 duration-300 cursor-pointer ${
                 !timeRemaining ? 'hidden' : 'flex'
               } items-center justify-center`}
             >
               <ion-icon name='play' />
-            </Button>
+            </button>
           )}
           {isCounting && (
-            <Button
-              variant='Circle'
-              color='Stop'
+            <button
               onClick={functions.stopTimer}
-              className={classes.timerButton}
+              className={
+                'bg-orange-vivid-400 rounded-md border-none p-2 hover:bg-orange-vivid-500 duration-300 cursor-pointer'
+              }
             >
               <ion-icon name='pause' />
-            </Button>
+            </button>
           )}
           {!isCounting && (
-            <Button
-              variant='Circle'
-              color='Reset'
+            <button
               onClick={functions.resetTimer}
-              className={classes.timerButton}
+              className={
+                'bg-orange-vivid-400 rounded-md border-none p-2 hover:bg-orange-vivid-500 duration-300 cursor-pointer'
+              }
             >
               <ion-icon name='refresh' />
-            </Button>
+            </button>
           )}
         </div>
       )}

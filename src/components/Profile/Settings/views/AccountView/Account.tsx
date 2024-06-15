@@ -47,13 +47,13 @@ function Account() {
         <div className='flex justify-between items-center'>
           <div>
             <p>My email</p>
-            <span className='text-xs text-grey-500 dark:text-grey-300 font-medium'>
+            <span className='text-xs text-cool-grey-500 dark:text-cool-grey-300 font-medium'>
               {user?.email}
             </span>
           </div>
           <button
             onClick={showChangeEmailModal}
-            className='h-min border-0 rounded-lg px-2 py-1 text-base font-medium cursor-pointer text-lime-green-900 bg-lime-green-200 hover:bg-lime-green-300 duration-300'
+            className='h-min border-0 rounded-lg px-2 py-1 text-base font-medium cursor-pointer text-orange-vivid-900 bg-orange-vivid-200 hover:bg-orange-vivid-300 duration-300'
           >
             Change email
           </button>
@@ -61,13 +61,13 @@ function Account() {
         <div className='flex justify-between items-center'>
           <div>
             <p>My password</p>
-            <span className='text-xs text-grey-500 dark:text-grey-300 font-medium'>
+            <span className='text-xs text-cool-grey-500 dark:text-cool-grey-300 font-medium'>
               Set password to your account
             </span>
           </div>
           <button
             onClick={showChangePasswordModal}
-            className='h-min border-0 rounded-lg px-2 py-1 text-base font-medium cursor-pointer text-lime-green-900 bg-lime-green-200 hover:bg-lime-green-300 duration-300'
+            className='h-min border-0 rounded-lg px-2 py-1 text-base font-medium cursor-pointer text-orange-vivid-900 bg-orange-vivid-200 hover:bg-orange-vivid-300 duration-300'
           >
             Change password
           </button>
@@ -78,7 +78,7 @@ function Account() {
         <div className='flex justify-between items-center'>
           <div>
             <p className='text-red-400 text-sm'>Delete my account</p>
-            <span className='text-xs text-grey-500 dark:text-grey-300 font-medium'>
+            <span className='text-xs text-cool-grey-500 dark:text-cool-grey-300 font-medium'>
               Permanently delete my account and all data
             </span>
           </div>

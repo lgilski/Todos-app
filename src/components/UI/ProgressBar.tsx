@@ -6,10 +6,10 @@ const ProgressBar = ({
   completed: number;
 }) => {
   const containerStyles = {
-    height: 30,
+    height: 28,
     width: '100%',
     backgroundColor: '#f7e4d2',
-    marginTop: 30,
+    marginTop: 16,
   };
 
   const fillerStyles = {

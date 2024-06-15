@@ -61,22 +61,22 @@ const CardComponent = function ({
   return (
     <div
       className={clsx(
-        `relative flex flex-col w-[270px] p-4 text-lg text-grey-900 max-[300px]:w-[230px] ${
+        `relative flex flex-col w-[270px] p-4 text-lg text-cool-grey-900 max-[300px]:w-[230px] ${
           happened
-            ? 'bg-grey-warm-300'
+            ? 'bg-cool-grey-300'
             : today
-            ? 'bg-orange-300'
+            ? 'bg-orange-vivid-300'
             : withinThreeDays
-            ? 'bg-orange-200'
-            : 'bg-orange-100'
-        } rounded-lg shadow-md duration-500 items-center`
+            ? 'bg-orange-vivid-200'
+            : 'bg-orange-vivid-100'
+        } rounded-md shadow-md duration-500 items-center`
       )}
     >
       <CloseButton
-        // className='absolute top-1 right-1 hover:text-orange-900 bg-orange-50'
+        // className='absolute top-1 right-1 hover:text-orange-vivid-900 bg-orange-vivid-50'
         className='absolute top-1 right-1'
         onClick={onCardDelete}
-        color={'orange'}
+        color={'orange-vivid'}
         size={'big'}
       />
       {currentWeather && (
@@ -89,7 +89,7 @@ const CardComponent = function ({
       <div className='flex flex-col items-center pb-4'>
         <h3
           className={`text-4xl font-extrabold ${
-            withinThreeDays && 'text-orange-900'
+            withinThreeDays && 'text-orange-vivid-900'
           }`}
         >
           {today === 'true' ? 'TODAY' : dayName}

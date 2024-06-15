@@ -18,9 +18,38 @@ function WeatherTooltip({
   showOnCards: () => void;
   stopShowingOnCards: () => void;
 }) {
+  //   .triggerButton,
+  // .triggerButton:link,
+  // .triggerButton:visited {
+  //   display: inline-block;
+  //   width: 32px;
+  //   height: 32px;
+  //   padding: 4px;
+  //   cursor: pointer;
+  //   background-color: var(--tint-orange-vivid-80);
+  //   border: none;
+  //   border-radius: 100%;
+  //   transition: all 0.3s;
+  // }
+
+  // .triggerButton:hover,
+  // .triggerButton:active {
+  //   background-color: #fff;
+  // }
+
+  // .triggerButton ion-icon {
+  //   width: 100%;
+  //   height: 100%;
+  // }
+
   return (
     <div className={classes.container}>
-      <button className={classes.triggerButton} id={city}>
+      <button
+        className={
+          'inline-block w-8 h-8 p-1 cursor-pointer border-none rounded-full [&_ion-icon]:w-full [&_ion-icon]:h-full bg-transparent'
+        }
+        id={city}
+      >
         <ion-icon name='ellipsis-vertical' />
       </button>
       <Tooltip

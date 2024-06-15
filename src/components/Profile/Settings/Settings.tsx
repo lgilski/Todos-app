@@ -21,8 +21,8 @@ function Settings({ className }: { className?: any }) {
   return (
     <>
       {createPortal(
-        <div className='z-10 grid grid-cols-[200px_1fr] w-[1000px] h-[600px] fixed top-2/4 left-2/4 bg-white -translate-y-1/2 -translate-x-2/4 rounded dark:text-grey-100 dark:bg-grey-900 shadow-lg overflow-hidden'>
-          <div className='pt-4 px-1 bg-grey-050 shadow-lg dark:bg-grey-800'>
+        <div className='z-10 grid grid-cols-[200px_1fr] w-[1000px] h-[600px] fixed top-2/4 left-2/4 bg-white -translate-y-1/2 -translate-x-2/4 rounded dark:text-cool-grey-100 dark:bg-cool-grey-900 shadow-lg overflow-hidden'>
+          <div className='pt-4 px-1 bg-cool-grey-050 shadow-lg dark:bg-cool-grey-800'>
             <h5 className='pb-2 pl-2'>Account</h5>
             <ul className='list-none '>
               <SettingsButton

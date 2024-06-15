@@ -23,7 +23,7 @@ function FriendsList({
       {myFriends.length > 0 && currentFriendListSecton === 'All' && (
         <input
           onChange={setCurrentSearchedFriend}
-          className={`bg-lime-green-100 dark:bg-grey-800 dark:text-grey-100 rounded mb-4 border-none py-1 px-2 text-base w-full focus:outline-none`}
+          className={`bg-lime-green-100 dark:bg-cool-grey-800 dark:text-cool-grey-100 rounded mb-4 border-none py-1 px-2 text-base w-full focus:outline-none`}
           placeholder='Search friend'
         />
       )}
@@ -43,7 +43,7 @@ function FriendsList({
               <div
                 onClick={(e) => goToChat(e, friend)}
                 key={friend.uid}
-                className='flex items-center justify-between hover:bg-orange-100 px-2 py-2 rounded duration-300 cursor-pointer dark:hover:bg-grey-600'
+                className='flex items-center justify-between hover:bg-orange-vivid-100 px-2 py-2 rounded duration-300 cursor-pointer dark:hover:bg-cool-grey-600'
               >
                 <div
                   onClick={() => goToChat(null, friend)}
@@ -61,13 +61,13 @@ function FriendsList({
                 <div className='flex gap-3'>
                   <button
                     onClick={() => goToChat(null, friend)}
-                    className='border-none w-8 h-8 rounded-full [&_ion-icon]:w-5 [&_ion-icon]:h-5 cursor-pointer bg-orange-300 hover:bg-orange-400 duration-300 '
+                    className='border-none w-8 h-8 rounded-full [&_ion-icon]:w-5 [&_ion-icon]:h-5 cursor-pointer bg-orange-vivid-300 hover:bg-orange-vivid-400 duration-300 '
                   >
                     <ion-icon name='chatbox' />
                   </button>
                   <button
                     data-tooltip-id='friend-info'
-                    className='border-none w-8 h-8 rounded-full [&_ion-icon]:w-5 [&_ion-icon]:h-5 cursor-pointer bg-orange-300 hover:bg-orange-400 duration-300'
+                    className='border-none w-8 h-8 rounded-full [&_ion-icon]:w-5 [&_ion-icon]:h-5 cursor-pointer bg-orange-vivid-300 hover:bg-orange-vivid-400 duration-300'
                   >
                     <ion-icon name='ellipsis-vertical' />
                   </button>
@@ -87,7 +87,7 @@ function FriendsList({
 
       {myFriends.length === 0 &&
         currentFriendListSecton === 'All' && (
-          <h5 className='absolute text-4xl text-yellow-600 dark:text-yellow-500 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
+          <h5 className='absolute text-4xl text-cool-grey-800 dark:text-white top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
             There&apos;s noone there...
           </h5>
         )}

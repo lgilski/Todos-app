@@ -26,7 +26,7 @@ function ChatView({
       {myMessages.length > 0 && (
         <div
           // onScroll={functions.handleScroll}
-          className='flex flex-col dark:text-grey-200 overflow-y-scroll h-[740px] ml-2 pt-4'
+          className='flex flex-col dark:text-cool-grey-200 overflow-y-scroll h-[740px] ml-2 pt-4'
         >
           {isLoadingData && (
             <TailSpin
@@ -62,7 +62,7 @@ function ChatView({
           <input
             value={value}
             onChange={onMessageChange}
-            className='w-full border-none bg-orange-200 text-lg py-1 px-2 rounded placeholder:text-orange-700 focus:outline-none'
+            className='w-full border-none bg-orange-vivid-200 text-lg py-1 px-2 rounded placeholder:text-orange-vivid-700 focus:outline-none'
             placeholder={`You are typing with ${currentFriend.displayName}`}
           />
         </form>

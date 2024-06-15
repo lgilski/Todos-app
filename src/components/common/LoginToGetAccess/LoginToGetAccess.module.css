@@ -8,7 +8,7 @@
   margin: auto;
   font-size: 64px;
   font-weight: 600;
-  color: var(--shade-orange-90);
+  color: var(--shade-orange-vivid-90);
   text-align: center;
 
   /* border-bottom: #09ada4 3px solid; */
@@ -19,7 +19,7 @@
 .signup:visited {
   margin: 8px;
   font-size: 24px;
-  color: var(--color-orange-first);
+  color: var(--color-orange-vivid-first);
   transition: all 0.3s;
 }
 
@@ -30,7 +30,7 @@
 
 .cardsH2 {
   font-weight: 400;
-  color: var(--shade-orange-80);
+  color: var(--shade-orange-vivid-80);
 }
 
 .textContainer {
