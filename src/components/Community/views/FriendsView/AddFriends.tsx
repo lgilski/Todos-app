@@ -86,9 +86,9 @@ function AddFriends() {
           <label htmlFor='addFriend' className='mb-3 text-base'>
             Type your friend&apos;s user name to send request
           </label>
-          <div className='bg-orange-050 dark:bg-grey-900 px-2 py-3 rounded-lg flex justify-between w-full'>
+          <div className='bg-orange-vivid-050 dark:bg-cool-grey-900 px-2 py-3 rounded-lg flex justify-between w-full'>
             <input
-              className='lowercase bg-inherit border-none w-full text-lg px-1 py-1 focus:outline-none dark:text-grey-100'
+              className='lowercase bg-inherit border-none w-full text-lg px-1 py-1 focus:outline-none dark:text-cool-grey-100'
               maxLength={32}
               placeholder="Type your friend's user name to send request"
               type='text'
@@ -97,7 +97,7 @@ function AddFriends() {
             />
             <button
               type='submit'
-              className='mx-2 text-xl whitespace-nowrap bg-lime-green-200 border-none rounded hover:bg-lime-green-300 font-medium text-lime-green-800 py-1 px-2 cursor-pointer duration-300'
+              className='mx-2 text-xl whitespace-nowrap bg-orange-vivid-200 border-none rounded hover:bg-orange-vivid-300 font-medium text-orange-vivid-800 py-1 px-2 cursor-pointer duration-300'
             >
               Send friend request
             </button>

@@ -75,7 +75,7 @@ function ChangePasswordModal({
       {createPortal(
         <form
           onSubmit={changePassword}
-          className='p-8 rounded flex flex-col w-96 fixed top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 z-[11] bg-grey-050 dark:text-grey-100 dark:bg-grey-800'
+          className='p-8 rounded flex flex-col w-96 fixed top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 z-[11] bg-cool-grey-050 dark:text-cool-grey-100 dark:bg-cool-grey-800'
         >
           <h5 className='text-base pb-1 font-extrabold'>
             Change password
@@ -98,7 +98,7 @@ function ChangePasswordModal({
             type='password'
             id='password'
             name='password'
-            className='border border-lime-green-800 bg-lime-green-100 rounded py-1 px-2 text-base mb-4'
+            className='border border-orange-vivid-800 bg-orange-vivid-100 rounded py-1 px-2 text-base mb-4'
           />
           <label htmlFor='repeatPassword'>
             Repeat your current password
@@ -109,7 +109,7 @@ function ChangePasswordModal({
             type='password'
             id='repeatPassword'
             name='repeatPassword'
-            className='border border-lime-green-800 bg-lime-green-100 rounded py-1 px-2 text-base mb-4'
+            className='border border-orange-vivid-800 bg-orange-vivid-100 rounded py-1 px-2 text-base mb-4'
           />
           <label htmlFor='newPassword'>Provide new password</label>
           <input
@@ -118,7 +118,7 @@ function ChangePasswordModal({
             type='password'
             id='newPassword'
             name='newPassword'
-            className='border border-lime-green-800 bg-lime-green-100 rounded py-1 px-2 text-base mb-4'
+            className='border border-orange-vivid-800 bg-orange-vivid-100 rounded py-1 px-2 text-base mb-4'
           />
           <Button
             disabled={isSubmitting}

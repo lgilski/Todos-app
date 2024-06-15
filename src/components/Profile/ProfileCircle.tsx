@@ -13,13 +13,15 @@ function ProfileCircle() {
   return (
     <div
       data-tooltip-id='profile'
-      className='container px-3 py-1 flex gap-2 hover:bg-orange-200 dark:hover:bg-grey-800 w-full duration-300 cursor-pointer'
+      className='container px-3 py-1 flex gap-2 hover:bg-orange-vivid-200 dark:hover:bg-cool-grey-800 w-full duration-300 cursor-pointer'
     >
       <ProfileIcon />
       {isSidenavOpen && (
         <p
           className={`self-center text-base font-medium ${
-            !user?.displayName ? 'text-grey-500' : 'dark:text-white'
+            !user?.displayName
+              ? 'text-cool-grey-500'
+              : 'dark:text-white'
           } `}
         >
           {user?.displayName ? user?.displayName : 'none'}

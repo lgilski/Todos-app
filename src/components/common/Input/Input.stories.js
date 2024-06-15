@@ -15,7 +15,7 @@ export const Orange = {
   args: {
     type: 'password',
     text: 'UWU',
-    color: 'orange',
+    color: 'orange-vivid',
   },
 };
 

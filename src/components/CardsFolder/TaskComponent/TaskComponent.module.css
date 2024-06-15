@@ -21,8 +21,8 @@
 }
 
 .done.checkBox {
-  /* background-color: var(--color-orange-first); */
-  background-color: var(--orange-400);
+  /* background-color: var(--color-orange-vivid-first); */
+  background-color: var(--orange-vivid-400);
   border: none;
 }
 

@@ -84,7 +84,7 @@ const CardElement = function ({
       {(provided, snapshot) => (
         <li
           className={clsx(
-            'relative flex flex-row gap-1 w-[95%] pt-3 px-2 pb-2.5 mb-2 text-lg text-grey-900 break-words group bg-white border border-solid border-grey-200 rounded-lg shadow-sm hover:bg-grey-050 hover:shadow-md dark:hover:bg-grey-700 dark:bg-grey-800 dark:text-grey-050 dark:border-grey-600 transition-colors duration-300'
+            'relative flex flex-row gap-1 w-[95%] pt-3 px-2 pb-2.5 mb-2 text-lg text-cool-grey-900 break-words group bg-white border border-solid border-cool-grey-200 rounded-lg shadow-sm hover:bg-cool-grey-050 hover:shadow-md dark:hover:bg-cool-grey-700 dark:bg-cool-grey-800 dark:text-cool-grey-050 dark:border-cool-grey-600 transition-colors duration-300'
           )}
           {...provided.dragHandleProps}
           {...provided.draggableProps}
@@ -96,7 +96,7 @@ const CardElement = function ({
             className={clsx(
               'cursor-pointer  border-2 border-solid border-black dark:border-white rounded transition-colors w-5 h-5 [&_ion-icon]:w-5 [&_ion-icon]:h-5 [&_ion-icon]:text-white',
               task.done
-                ? 'border-none [&_ion-icon]:opacity-100 bg-orange-400'
+                ? 'border-none [&_ion-icon]:opacity-100 bg-orange-vivid-400'
                 : 'border-2 [&_ion-icon]:opacity-0 bg-transparent'
             )}
           >
@@ -104,7 +104,7 @@ const CardElement = function ({
           </button>
           <p
             className={clsx(
-              task.done && 'text-grey-400 line-through',
+              task.done && 'text-cool-grey-400 line-through',
               `leading-[22px] h-full border-none text-lg w-[100%] resize-none font-['Roboto'] outline-none min-w-[40%] ${
                 editable && 'cursor-text'
               }`
@@ -121,13 +121,13 @@ const CardElement = function ({
           {!editable && (
             <div className='absolute top-2 right-2 flex duration-300 opacity-0 group-hover:opacity-100 [&_ion-icon]:align-middle [&_ion-icon]:text-xl [&_ion-icon]:py-0.5 [&_ion-icon]:px-1 shadow'>
               <button
-                className='border border-solid border-grey-200 text-base leading-none border-r bg-white rounded-l duration-300 hover:bg-lime-green-100 hover:text-lime-green-900 cursor-pointer'
+                className='border border-solid border-cool-grey-200 text-base leading-none border-r bg-white rounded-l duration-300 hover:bg-orange-vivid-100 hover:text-orange-vivid-900 cursor-pointer'
                 onClick={editTask}
               >
                 <ion-icon name='create-outline' />
               </button>
               <button
-                className='border border-solid border-grey-200 bg-white border-l-0 text-base leading-none rounded-r hover:text-red-500 hover:bg-red-100 duration-300 cursor-pointer'
+                className='border border-solid border-cool-grey-200 bg-white border-l-0 text-base leading-none rounded-r hover:text-red-500 hover:bg-red-100 duration-300 cursor-pointer'
                 onClick={onDeleteTask}
               >
                 <ion-icon name='close-outline' />

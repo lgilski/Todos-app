@@ -22,8 +22,28 @@ function MainNavigation() {
     }
   }, [lessThan1100]);
 
+  // .blurElement {
+  //   position: fixed;
+  //   top: 0;
+  //   right: -100%;
+  //   z-index: 2;
+  //   width: 100%;
+  //   height: 100vh;
+  //   /* background: rgba(0, 0, 0, 0.75); */
+  //   background: rgb(239 200 166 / 95%);
+  //   transition: all 0.3s;
+  // }
+
+  // .showBlur {
+  //   top: 0;
+  //   right: 0;
+  // }
+
   return (
-    <header className={classes.wrapper}>
+    <header
+      className='flex items-center justify-between
+    py-2 px-6 [&_ion-icon]:relative [&_ion-icon]:z-[3] [&_ion-icon]:w-7 [&_ion-icon]:h-7 [&_ion-icon]:p-1 [&_ion-icon]:cursor-pointer [&_ion-icon]:bg-orange-vivid-200 [&_ion-icon]:rounded-md [&_ion-icon]:duration-300 [&_ion-icon]:hover:bg-orange-vivid-400'
+    >
       <Subtitle />
       <nav>
         {lessThan1100 && (
@@ -36,23 +56,12 @@ function MainNavigation() {
           showMobile={showMobile}
           showMobileNav={showMobileNav}
         />
-        <CSSTransition
-          classNames={{
-            enterActive: classes['fade-enter-active-blur'],
-            enter: classes['fade-enter-blur'],
-            exitActive: classes['fade-exit-active-blur'],
-            exit: classes['fade-exit-blur'],
-          }}
-          timeout={300}
-          in={showMobile}
-        >
-          <div
-            className={clsx(
-              classes.blurElement,
-              showMobile && classes.showBlur
-            )}
-          />
-        </CSSTransition>
+        <div
+          className={clsx(
+            'fixed top-0  z-[2] w-full h-screen bg-orange-vivid-300 opacity-80 duration-300',
+            showMobile ? 'right-0' : '-right-full'
+          )}
+        />
       </nav>
     </header>
   );

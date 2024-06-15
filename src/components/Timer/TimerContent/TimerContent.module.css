@@ -17,7 +17,7 @@
 
 .timerTime:hover,
 .timerTime:active {
-  color: var(--shade-orange-10);
+  color: var(--shade-orange-vivid-10);
 }
 
 .timerButtons {

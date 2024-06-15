@@ -66,7 +66,7 @@ function SectionWithImg() {
         <form className='mt-3'>
           <label
             htmlFor='img'
-            className='text-sm text-lime-green-900 p-1 bg-lime-green-200 duration-300 hover:bg-lime-green-300 cursor-pointer rounded'
+            className='text-sm text-orange-vivid-900 p-1 bg-orange-vivid-200 duration-300 hover:bg-orange-vivid-300 cursor-pointer rounded'
           >
             Choose image
           </label>
@@ -79,7 +79,7 @@ function SectionWithImg() {
             onChange={submitImage}
           />
         </form>
-        <p className='text-xs text-center text-grey-400 mt-2'>
+        <p className='text-xs text-center text-cool-grey-400 mt-2'>
           Best resolution is 360x360
         </p>
       </div>

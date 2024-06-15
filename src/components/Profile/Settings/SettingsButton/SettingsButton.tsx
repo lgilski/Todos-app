@@ -23,10 +23,10 @@ function SettingsButton({
   return (
     <li>
       <button
-        className={`border-none text-sm px-2 py-1 flex gap-1 [&_ion-icon]:w-5 [&_ion-icon]:h-5 items-center duration-300 transition-colors font-['Roboto'] cursor-pointer w-full text-start dark:text-grey-100 ${
+        className={`border-none text-sm px-2 py-1 flex gap-1 [&_ion-icon]:w-5 [&_ion-icon]:h-5 items-center duration-300 transition-colors font-['Roboto'] cursor-pointer w-full text-start dark:text-cool-grey-100 ${
           currentSettingsPage === text
-            ? 'bg-orange-100 hover:bg-orange-200 font-medium dark:bg-grey-700 dark:hover:bg-grey-600'
-            : 'bg-inherit hover:bg-orange-100 dark:hover:bg-grey-700'
+            ? 'bg-orange-vivid-100 hover:bg-orange-vivid-200 font-medium dark:bg-cool-grey-700 dark:hover:bg-cool-grey-600'
+            : 'bg-inherit hover:bg-orange-vivid-100 dark:hover:bg-cool-grey-700'
         }`}
         onClick={setCurrnetSetting}
       >

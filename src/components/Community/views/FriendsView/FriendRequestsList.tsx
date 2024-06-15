@@ -33,7 +33,7 @@ function FriendRequestsList({
       {myRequests !== null &&
         myRequests.length === 0 &&
         currentFriendListSecton === 'Requests' && (
-          <h5 className='absolute text-4xl text-yellow-600 dark:text-yellow-500 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
+          <h5 className='absolute text-4xl text-cool-grey-800 dark:text-white top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
             There are no requests yet
           </h5>
         )}

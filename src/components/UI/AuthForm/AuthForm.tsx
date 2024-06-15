@@ -34,7 +34,7 @@ function AuthForm({ mode }: { mode?: string }) {
       {!userVerified && (
         <Form
           method='post'
-          className='flex flex-col items-start max-w-[450px] p-6 mt-16 mx-auto text-grey-900 border border-solid border-lime-green-900 rounded-lg shadow-md'
+          className='flex flex-col items-start max-w-[450px] p-6 mt-16 mx-auto text-cool-grey-900 rounded-lg shadow-lg bg-orange-vivid-050'
         >
           <h4 className='mt-4 mx-auto mb-8 text-3xl'>
             {isLogin ? 'Welcome back!' : 'Start your new journey!'}
@@ -49,8 +49,8 @@ function AuthForm({ mode }: { mode?: string }) {
           )}
           <div className='w-[98%] m-auto'>
             {!isLogin && (
-              <div className='flex gap-4'>
-                <div>
+              <div className='flex gap-4 w-full'>
+                <div className='w-full'>
                   <Input
                     autoComplete='off'
                     color={'Green'}
@@ -60,7 +60,7 @@ function AuthForm({ mode }: { mode?: string }) {
                     text={'Display name'}
                   />
                 </div>
-                <div>
+                <div className='w-full'>
                   <Input
                     className='lowercase'
                     autoComplete='off'
@@ -109,7 +109,7 @@ function AuthForm({ mode }: { mode?: string }) {
                 </div> */}
                 <Link
                   to='/auth/forgot-password'
-                  className='font-semibold text-grey-700 no-underline duration-300 hover:text-lime-green-500'
+                  className='font-semibold text-cool-grey-700 no-underline duration-300 hover:text-orange-vivid-500'
                 >
                   Forgot password?
                 </Link>
@@ -117,7 +117,7 @@ function AuthForm({ mode }: { mode?: string }) {
             )}
           </div>
           <div className='flex flex-col gap-3 items-center w-full mt-3'>
-            <Button
+            {/* <Button
               color='OrangeLite'
               variant='Rounded'
               className='w-full font-bold'
@@ -125,13 +125,24 @@ function AuthForm({ mode }: { mode?: string }) {
               {isSubmitting
                 ? 'Submitting...'
                 : isLogin
-                ? 'LOGIN'
-                : 'SIGN UP'}
-            </Button>
+                ? 'Log in'
+                : 'Sign up'}
+            </Button> */}
+            <button
+              // color='OrangeLite'
+              // variant='Rounded'
+              className='w-full text-lg font-bold border-none py-2 px-4 cursor-pointer bg-orange-vivid-300 rounded-md hover:bg-orange-vivid-400 duration-300'
+            >
+              {isSubmitting
+                ? 'Submitting...'
+                : isLogin
+                ? 'Log in'
+                : 'Sign up'}
+            </button>
             <Link
               // to={`?mode=${isLogin ? 'signup' : 'login'}`}
               to={`/auth/${isLogin ? 'signup' : 'login'}`}
-              className='m-2 text-xl text-grey-900 no-underline duration-300 hover:text-lime-green-500'
+              className='m-2 text-xl text-cool-grey-900 no-underline duration-300 hover:text-orange-vivid-500'
             >
               {isLogin
                 ? 'Create account'

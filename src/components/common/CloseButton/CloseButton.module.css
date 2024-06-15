@@ -19,14 +19,14 @@
 }
 
 .orange {
-  color: var(--tint-orange-90);
-  background-color: var(--shade-orange-50);
+  color: var(--tint-orange-vivid-90);
+  background-color: var(--shade-orange-vivid-50);
 }
 
 .orange:hover,
 .orange:active {
-  color: var(--shade-orange-50);
-  background-color: var(--tint-orange-90);
+  color: var(--shade-orange-vivid-50);
+  background-color: var(--tint-orange-vivid-90);
 }
 
 .darkBlue {

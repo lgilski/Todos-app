@@ -34,7 +34,7 @@ function Stopwatch() {
   });
 
   return (
-    <div className='mx-auto max-w-3xl bg-white border border-grey-200 border-solid rounded-2xl overflow-hidden dark:bg-grey-900 dark:border-grey-600'>
+    <div className='mx-auto max-w-3xl bg-white border border-cool-grey-200 border-solid rounded-md overflow-hidden dark:bg-cool-grey-900 dark:border-cool-grey-600'>
       <div className='flex flex-col items-center p-5 '>
         <StopwatchTime
           currentHours={currentHours}

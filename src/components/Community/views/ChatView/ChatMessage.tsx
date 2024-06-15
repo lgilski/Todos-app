@@ -81,7 +81,7 @@ function ChatMessage({
 
   return (
     <div
-      className={`flex relative px-4 py-0.5 gap-2 group/message hover:bg-grey-050 dark:hover:bg-grey-800 ${
+      className={`flex relative px-4 py-0.5 gap-2 group/message hover:bg-cool-grey-050 dark:hover:bg-cool-grey-800 ${
         myMessages[index + 1] &&
         myMessages[index + 1].sender !== message.sender &&
         'mb-4'
@@ -97,12 +97,12 @@ function ChatMessage({
       <div className='flex flex-col gap-1'>
         {!onlyMessage && (
           <div className='flex items-baseline gap-2'>
-            <div className=' dark:text-grey-100 font-medium'>
+            <div className=' dark:text-cool-grey-100 font-medium'>
               {message.canNotSendMessage
                 ? 'Your To-dos and stuff UwU'
                 : sentBy}
             </div>
-            <p className='text-xs text-grey-400'>
+            <p className='text-xs text-cool-grey-400'>
               {dateToDisplay} {time}
             </p>
           </div>
@@ -119,12 +119,12 @@ function ChatMessage({
             ref={textAreaRef}
             className={`${
               editable &&
-              'dark:bg-orange-800 h-auto flex items-center p-3 rounded-lg text-lg w-fit focus:outline-none break-all max-w-full'
+              'dark:bg-orange-vivid-800 h-auto flex items-center p-3 rounded-lg text-lg w-fit focus:outline-none break-all max-w-full'
             }`}
           >
             {message.message}{' '}
             {message.edited && (
-              <span className='text-xs dark:text-grey-400 text-grey-300 pl-1'>
+              <span className='text-xs dark:text-cool-grey-400 text-cool-grey-300 pl-1'>
                 (edited)
               </span>
             )}
@@ -135,7 +135,7 @@ function ChatMessage({
                 press esc to
                 <button
                   onClick={() => setEditable(false)}
-                  className='bg-inherit border-none text-orange-500 text-sm cursor-pointer hover:underline'
+                  className='bg-inherit border-none text-orange-vivid-500 text-sm cursor-pointer hover:underline'
                 >
                   cancle
                 </button>
@@ -144,7 +144,7 @@ function ChatMessage({
                 press enter to
                 <button
                   onClick={setEditedMessage}
-                  className='bg-inherit border-none text-orange-500 text-sm cursor-pointer hover:underline'
+                  className='bg-inherit border-none text-orange-vivid-500 text-sm cursor-pointer hover:underline'
                 >
                   save changes
                 </button>
@@ -154,16 +154,16 @@ function ChatMessage({
         </p>
       </div>
       {message.sender === user?.uid && (
-        <div className='absolute overflow-hidden rounded border border-solid border-grey-850 hidden -top-4 right-4 h-7 bg-grey-700 group-hover/message:flex [&_ion-icon]:h-full [&_ion-icon]:w-full'>
+        <div className='absolute overflow-hidden rounded border border-solid border-cool-grey-850 hidden -top-4 right-4 h-7 bg-cool-grey-700 group-hover/message:flex [&_ion-icon]:h-full [&_ion-icon]:w-full'>
           <button
             onClick={editMessage}
-            className='border-y-0 border-l-0 border-r border-solid border-grey-900 h-full w-7 bg-inherit text-grey-050 py-0.5 px-1 hover:bg-grey-600 duration-300 cursor-pointer'
+            className='border-y-0 border-l-0 border-r border-solid border-cool-grey-900 h-full w-7 bg-inherit text-cool-grey-050 py-0.5 px-1 hover:bg-cool-grey-600 duration-300 cursor-pointer'
           >
             <ion-icon name='create-outline' />
           </button>
           <button
             onClick={() => deleteMessage(message)}
-            className='h-full w-7 bg-inherit border-none text-grey-050 p-1 hover:bg-grey-600 hover:text-red-300 duration-300 cursor-pointer'
+            className='h-full w-7 bg-inherit border-none text-cool-grey-050 p-1 hover:bg-cool-grey-600 hover:text-red-300 duration-300 cursor-pointer'
           >
             <ion-icon name='trash-outline' />
           </button>

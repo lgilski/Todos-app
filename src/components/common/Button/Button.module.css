@@ -45,61 +45,61 @@
 
 .btnColorLogout {
   font-weight: 500;
-  color: var(--lime-green-900);
+  color: var(--orange-vivid-900);
   /* border: 2px var(--shade-blue-20) solid;
   background-color: var(--tint-blue-80); */
   /* border: 2px var(--shade-blue-20) solid; */
-  background-color: var(--lime-green-200);
+  background-color: var(--orange-vivid-200);
 }
 
 .btnColorLogout:hover,
 .btnColorLogout:active {
-  color: var(--lime-green-050);
-  background-color: var(--lime-green-600);
+  color: var(--orange-vivid-050);
+  background-color: var(--orange-vivid-600);
 }
 
 .btnColorOrange {
   color: var(--color-gray-first);
-  background-color: var(--tint-orange-80);
+  background-color: var(--tint-orange-vivid-80);
 }
 
 .btnColorOrange:hover,
 .btnColorOrange:active {
-  color: var(--tint-orange-90);
-  background-color: var(--shade-orange-50);
+  color: var(--tint-orange-vivid-90);
+  background-color: var(--shade-orange-vivid-50);
 }
 
 .btnColorGreen {
-  color: var(--lime-green-050);
-  background-color: var(--lime-green-600);
+  color: var(--orange-vivid-050);
+  background-color: var(--orange-vivid-600);
 }
 
 .btnColorGreen:hover,
 .btnColorGreen:active {
-  color: var(--lime-green-050);
-  background-color: var(--lime-green-500);
+  color: var(--orange-vivid-050);
+  background-color: var(--orange-vivid-500);
 }
 
 .btnColorOrangeLight {
   color: var(--color-gray-first);
-  background-color: var(--tint-orange-20);
+  background-color: var(--tint-orange-vivid-20);
 }
 
 .btnColorOrangeLight:hover,
 .btnColorOrangeLight:active {
-  color: var(--tint-orange-90);
-  background-color: var(--shade-orange-30);
+  color: var(--tint-orange-vivid-90);
+  background-color: var(--shade-orange-vivid-30);
 }
 
 .btnColorOrangeDark {
-  color: var(--orange-050);
-  background-color: var(--orange-600);
+  color: var(--orange-vivid-050);
+  background-color: var(--orange-vivid-600);
 }
 
 .btnColorOrangeDark:hover,
 .btnColorOrangeDark:active {
-  color: var(--tint-orange-90);
-  background-color: var(--orange-700);
+  color: var(--tint-orange-vivid-90);
+  background-color: var(--orange-vivid-700);
 }
 
 .btnColorBlue {
@@ -114,35 +114,35 @@
 }
 
 .btnColorOrangeLite {
-  color: var(--orange-900);
-  background-color: var(--orange-200);
+  color: var(--orange-vivid-900);
+  background-color: var(--orange-vivid-200);
 }
 
 .btnColorOrangeLite:hover,
 .btnColorOrangeLite:active {
-  color: var(--orange-050);
-  background-color: var(--orange-400);
+  color: var(--orange-vivid-050);
+  background-color: var(--orange-vivid-400);
 }
 
 .btnColorOrangeLite {
-  color: var(--orange-900);
-  background-color: var(--orange-200);
+  color: var(--orange-vivid-900);
+  background-color: var(--orange-vivid-200);
 }
 
 .btnColorOrangeLite:hover,
 .btnColorOrangeLite:active {
-  color: var(--orange-050);
-  background-color: var(--orange-400);
+  color: var(--orange-vivid-050);
+  background-color: var(--orange-vivid-400);
 }
 
 .btnColorStart {
-  background-color: var(--color-orange-first);
+  background-color: var(--color-orange-vivid-first);
 }
 
 .btnColorStart:hover,
 .btnColorStart:active {
-  color: var(--tint-orange-90);
-  background-color: var(--shade-orange-30);
+  color: var(--tint-orange-vivid-90);
+  background-color: var(--shade-orange-vivid-30);
 }
 
 .btnColorStop {

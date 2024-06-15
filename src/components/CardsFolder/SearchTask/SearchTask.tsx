@@ -20,7 +20,7 @@ function SearchTask({
     <form className='max-w-[400px]'>
       <input
         className={clsx(
-          'max-w-[200px] h-full p-2 text-base bg-orange-050 border-none rounded-s-none rounded-e-full duration-300 max-[640px]:w-[100px]',
+          'max-w-[200px] h-full p-2 text-base bg-orange-vivid-100 placeholder:text-cool-grey-600 border-none rounded-s-none rounded-e-md duration-300 max-[640px]:w-[100px]',
           className
         )}
         ref={ref}

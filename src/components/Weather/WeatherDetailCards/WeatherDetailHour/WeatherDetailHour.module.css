@@ -18,7 +18,7 @@
 
 .time {
   font-size: var(--text-big);
-  color: var(--shade-orange-80);
+  color: var(--shade-orange-vivid-80);
 }
 
 .withIcon {
@@ -41,5 +41,5 @@
 .wind ion-icon {
   width: 24px;
   height: 24px;
-  color: var(--shade-orange-20);
+  color: var(--shade-orange-vivid-20);
 }

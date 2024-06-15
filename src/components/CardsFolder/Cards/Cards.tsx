@@ -119,7 +119,7 @@ const Cards = function () {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className='max-w-[1532px] m-auto overflow-hidden bg-white border border-solid border-grey-200 rounded-2xl max-[1800px]:max-w-[1232px] max-[1500px]:max-w-[1000px] max-[1250px]:max-w-[632px] max-[900px]:max-w-[300px] max-[300px]:max-w-[262px] dark:bg-grey-900 dark:border-grey-600'>
+      <div className='max-w-[1532px] m-auto overflow-hidden bg-white border border-solid border-cool-grey-200 rounded-md max-[1800px]:max-w-[1232px] max-[1500px]:max-w-[1000px] max-[1250px]:max-w-[632px] max-[900px]:max-w-[300px] max-[300px]:max-w-[262px] dark:bg-cool-grey-900 dark:border-cool-grey-600'>
         <div className='m-auto'>
           <Toolbar setShowForm={setShowForm} />
           {showForm && <FormCards setShowForm={setShowForm} />}
@@ -156,21 +156,21 @@ const Cards = function () {
                   )}
                   {!isLoading && (
                     <>
-                      <h4 className='p-4 text-5xl text-yellow-600 text-center rounded-lg dark:text-yellow-500'>
+                      <h4 className='p-4 text-5xl text-cool-grey-800 dark:text-white text-center rounded-lg '>
                         There are no plans yet
                       </h4>
-                      <p className='text-lg mb-6 dark:text-grey-400'>
+                      <p className='text-lg mb-6 dark:text-cool-grey-400'>
                         So why don&apos;t you make a new one?
                       </p>
-                      <Button
+                      <button
                         onClick={() => {
                           setShowForm((prevState) => !prevState);
                         }}
                         color='Green'
-                        variant='RoundedSquare'
+                        className='rounded-md border-none px-4 py-2 bg-orange-vivid-700 hover:bg-orange-vivid-800 duration-300 text-lg cursor-pointer text-orange-vivid-050'
                       >
                         Create a new card
-                      </Button>
+                      </button>
                     </>
                   )}
                 </div>
