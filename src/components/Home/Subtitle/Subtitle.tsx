@@ -6,7 +6,7 @@ const Subtitle = function ({ type }: { type?: string }) {
   const userVerified = auth.currentUser?.emailVerified;
 
   return (
-    <div>
+    <div className='align-middle'>
       <Link
         to={!userVerified ? '/' : '/app/cards'}
         className={clsx(

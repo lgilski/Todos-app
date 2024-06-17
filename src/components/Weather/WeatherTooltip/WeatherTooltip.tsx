@@ -4,6 +4,7 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 import classes from './WeatherTooltip.module.css';
+import { useState } from 'react';
 
 function WeatherTooltip({
   city,
