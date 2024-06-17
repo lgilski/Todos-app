@@ -90,7 +90,7 @@ function Toolbar({
   // }
 
   return (
-    <div className={classes.toolbar}>
+    <div className={'w-full py-2 px-5'}>
       <div className='flex justify-between pt-0 px-2 pb-2 m-auto border-x-0 border-t-0 border-b border-solid border-cool-grey-200 dark:border-cool-grey-600'>
         <div className='flex items-end'>
           <button
@@ -124,8 +124,6 @@ function Toolbar({
             className={
               'rounded-md px-4 py-2 text-lg bg-orange-vivid-700 hover:bg-orange-vivid-800 duration-300 cursor-pointer border-none text-orange-vivid-050'
             }
-            color='Green'
-            // variant='RoundedSquare'
           >
             Add
           </button>

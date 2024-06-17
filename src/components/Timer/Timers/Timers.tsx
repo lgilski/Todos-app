@@ -117,7 +117,7 @@ function Timers() {
         )}
         <div
           className={
-            'flex justify-between px-2 pb-2 mx-auto border-x-0 border-t-0 border-b border-solid border-cool-grey-200'
+            'flex justify-between px-2 pb-2 mx-auto border-x-0 border-t-0 border-b border-solid border-cool-grey-200 dark:border-cool-grey-600'
           }
         >
           <TimerCountDownMethod />

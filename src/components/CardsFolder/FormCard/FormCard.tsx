@@ -75,7 +75,7 @@ const FormCards = function ({
       {createPortal(
         <form
           className={clsx(
-            'fixed top-[40vh] left-[50%] z-[5] flex flex-col items-start w-[400px] max-w-[500px] p-4 mx-auto mt-8 overflow-hidden bg-white rounded-lg shadow-lg translate-x-[-50%] translate-y-[-50%] max-[420px]:max-w-[300px] max-[300px]:max-w-[240px]',
+            'fixed top-1/2 left-1/2 z-[5] flex flex-col items-start w-[400px] max-w-[500px] p-4 mx-auto mt-8 overflow-hidden bg-white rounded-lg shadow-lg -translate-x-1/2 -translate-y-1/2 max-[420px]:max-w-[300px] max-[300px]:max-w-[240px]',
             className
           )}
           onSubmit={onSubmit}
