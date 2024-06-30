@@ -230,6 +230,7 @@ export type Message = {
   photoURL?: string;
   canNotSendMessage?: boolean;
   edited?: boolean;
+  id: string;
 };
 
 export type UserChat = {

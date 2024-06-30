@@ -17,7 +17,7 @@ function ChatsList({
   );
 
   return (
-    <div className='bg-orange-vivid-050 dark:bg-cool-grey-800 flex flex-col overflow-y-auto'>
+    <div className='bg-orange-vivid-050 h-full dark:bg-cool-grey-800 flex flex-col overflow-y-auto'>
       <div className='bg-inherit py-4 px-4 border-x-0 border-t-0 border-b border-solid dark:border-cool-grey-600 border-cool-grey-200 w-full mx-auto'>
         <button
           onClick={goToFriendsList}

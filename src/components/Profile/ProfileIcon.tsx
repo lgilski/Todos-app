@@ -14,7 +14,7 @@ const ProfileIcon = function ({
   settings?: boolean;
   friend?: boolean;
   size?: 'medium' | 'semi-medium';
-  src?: string;
+  src?: string | null;
 }) {
   const user = auth.currentUser;
 

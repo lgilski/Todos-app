@@ -7,6 +7,7 @@ import {
   updateMyAndFriendCurrentUserChats,
 } from '@/api/chat';
 import { auth } from '@/config/firebase';
+import { generateUUID } from '@/helpers/generateUUID';
 import { chatActions } from '@/store/chat';
 import { Friend, Message, UserChat, WholeState } from '@/types';
 import {
@@ -160,6 +161,7 @@ function useChat({
               "You can't send message to this user because you are not friends. Send friend request to this user first.",
             sender: user.uid,
             date: Date.now(),
+            id: generateUUID(),
             canNotSendMessage: true,
           },
         ])
@@ -171,6 +173,7 @@ function useChat({
       messages: [
         ...myMessages,
         {
+          id: generateUUID(),
           message: messageToSend,
           sender: user.uid,
           date: serverTimestamp(),

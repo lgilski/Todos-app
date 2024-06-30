@@ -21,7 +21,7 @@ import { weatherActions } from './store/weather';
 import LoginPage, { action as loginAction } from './pages/LoginPage';
 import SignupPage, {
   action as signupAction,
-} from './pages/SignpuPage';
+} from './pages/SignupPage';
 import ForgotPasswordPage, {
   action as forgotPasswordAction,
 } from './pages/ForgotPasswordPage';

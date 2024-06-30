@@ -58,7 +58,7 @@ const TimerComponent = function ({
     >
       {(provided, snapshot) => (
         <div
-          className='relative w-full py-6 px-8 mb-8 cursor-grab bg-orange-vivid-100 rounded-md text-black dark:bg-orange-vivid-200 '
+          className='relative w-full py-6 px-8 mb-8 cursor-grab bg-orange-vivid-100 rounded-md text-black dark:bg-orange-vivid-100'
           {...provided.dragHandleProps}
           {...provided.draggableProps}
           ref={provided.innerRef}
@@ -90,7 +90,6 @@ const TimerComponent = function ({
             index={index}
           />
           <ProgressBar
-            bgcolor={'#6c3b10'}
             completed={(timeRemaining! / startingTime) * 100}
           />
         </div>
