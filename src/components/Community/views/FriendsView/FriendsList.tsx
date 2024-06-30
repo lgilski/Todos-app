@@ -40,6 +40,7 @@ function FriendsList({
 
           return (
             <>
+              <div className='w-[calc(100%-20px)] mx-auto h-px bg-cool-grey-100 dark:bg-cool-grey-700' />
               <div
                 onClick={(e) => goToChat(e, friend)}
                 key={friend.uid}

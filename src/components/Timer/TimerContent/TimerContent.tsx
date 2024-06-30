@@ -83,7 +83,7 @@ function TimerContent({
         <h4
           onClick={functions.editTimer}
           className={
-            'text-6xl text-center cursor-pointer duration-300 hover:text-orange-vivid-800'
+            'text-6xl text-center cursor-pointer duration-300 hover:text-orange-vivid-800 dark:hover:text-orange-vivid-400'
           }
         >
           <DisplayTime time={currentTime.hours} />

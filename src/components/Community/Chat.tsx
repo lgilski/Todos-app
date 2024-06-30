@@ -7,43 +7,21 @@ import ChatView from './views/ChatView/ChatView';
 function Chat() {
   const dummy = useRef<HTMLDivElement | null>(null);
 
-  const [currentMessage, setCurrentMessage] = useState<
-    string | undefined
-  >(undefined);
-
-  const onMessageChange: ComponentProps<'input'>['onChange'] = (
-    event
-  ) => {
-    setCurrentMessage(event.target.value);
-  };
-
   const functions = useChat({
     dummy,
   });
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (currentMessage && currentMessage?.trimEnd().length <= 0)
-      return;
-
-    functions.sendMessage(currentMessage!);
-    setCurrentMessage('');
-  };
-
   return (
-    <div className=' w-[1600px] h-[800px] bg-white mx-auto rounded-md border border-solid border-cool-grey-200 dark:border-cool-grey-600 dark:bg-cool-grey-850 duration-500 grid grid-cols-[300px_1fr] overflow-hidden relative shadow-md'>
+    <div className=' max-w-[1600px] h-[calc(100vh-120px)] bg-white mx-auto rounded-md border border-solid border-cool-grey-200 dark:border-cool-grey-600 dark:bg-cool-grey-850 duration-500 grid grid-cols-[300px_1fr] overflow-hidden relative shadow-md'>
       <ChatsList
         goToChat={functions.goToChat}
         goToFriendsList={functions.goToFriendsList}
       />
-      <div className='flex flex-col dark:bg-cool-grey-900'>
+      <div className='flex flex-col  dark:bg-cool-grey-900'>
         <FriendsView functions={functions} />
         <ChatView
-          onMessageChange={onMessageChange}
-          onSubmit={onSubmit}
+          sendMessage={functions.sendMessage}
           dummy={dummy}
-          value={currentMessage}
           deleteMessage={functions.deleteMessage}
           editMessage={functions.setEditedMessage}
         />

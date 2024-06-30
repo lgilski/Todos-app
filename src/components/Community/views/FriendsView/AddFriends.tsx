@@ -97,7 +97,7 @@ function AddFriends() {
             />
             <button
               type='submit'
-              className='mx-2 text-xl whitespace-nowrap bg-orange-vivid-200 border-none rounded hover:bg-orange-vivid-300 font-medium text-orange-vivid-800 py-1 px-2 cursor-pointer duration-300'
+              className='mx-2 text-lg whitespace-nowrap bg-orange-vivid-200 border-none rounded-md hover:bg-orange-vivid-300 font-medium text-orange-vivid-800 py-1 px-2 cursor-pointer duration-300'
             >
               Send friend request
             </button>

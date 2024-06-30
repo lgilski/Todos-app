@@ -3,17 +3,30 @@ import { auth } from '@/config/firebase';
 import formatMessageData from '@/helpers/formatMessageData';
 import { Message, WholeState } from '@/types';
 import { getDatabase, ref, update } from 'firebase/database';
-import { useEffect, useRef, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useSelector } from 'react-redux';
 
 function ChatMessage({
   message,
   index,
   deleteMessage,
-}: // setEditedMessage,
-{
+  setCurrentEditedMessage,
+  currentEditedMessage,
+}: {
   message: Message;
   index: number;
+  deleteMessage: (message: Message) => Promise<void>;
+  setCurrentEditedMessage: Dispatch<
+    SetStateAction<string | undefined>
+  >;
+
+  currentEditedMessage: string | undefined;
 }) {
   const user = auth.currentUser;
   const db = getDatabase();
@@ -36,10 +49,10 @@ function ChatMessage({
   const setEditedMessage = function () {
     editMessage();
 
-    if (textAreaRef.current.innerText !== message.message)
+    if (textAreaRef.current?.innerText !== message.message)
       update(
         ref(db, 'chats/' + currentCombinedId + '/messages/' + index),
-        { message: textAreaRef.current.innerText, edited: true }
+        { message: textAreaRef.current?.innerText, edited: true }
       );
   };
 
@@ -51,7 +64,7 @@ function ChatMessage({
     if (e.keyCode === 27) {
       e.preventDefault();
       setEditable(false);
-      textAreaRef.current.innerText = message.message;
+      textAreaRef.current!.innerText = message.message;
     }
   };
 
@@ -66,18 +79,55 @@ function ChatMessage({
     nextDiff,
   } = formatMessageData(message, myMessages, index, currentFriend);
 
+  // Now it works
   useEffect(() => {
-    if (textAreaRef) {
+    if (textAreaRef && editable) {
       textAreaRef.current!.focus();
 
       const range = document.createRange();
       const selection = window.getSelection();
       range.selectNodeContents(textAreaRef.current!);
       range.collapse(false);
+
       selection!.removeAllRanges();
       selection!.addRange(range);
     }
+
+    if (editable) {
+      setCurrentEditedMessage(message.id);
+    }
   }, [editable]);
+
+  useEffect(() => {
+    if (currentEditedMessage !== message.id) setEditable(false);
+  }, [currentEditedMessage]);
+
+  // <div
+  //   role='textbox'
+  //   aria-multiline='true'
+  //   spellcheck='true'
+  //   aria-haspopup='listbox'
+  //   aria-invalid='false'
+  //   aria-autocomplete='list'
+  //   class='markup_d6076c editor_a552a6 slateTextArea_e52116 fontSize16Padding_d0696b textAreaWithoutAttachmentButton_d0696b'
+  //   autocorrect='off'
+  //   data-can-focus='true'
+  //   data-slate-editor='true'
+  //   data-slate-node='value'
+  //   contenteditable='true'
+  //   zindex='-1'
+  //   style='position: relative; outline: none; white-space: pre-wrap; overflow-wrap: break-word;'
+  // >
+  //   <div data-slate-node='element'>
+  //     <span data-slate-node='text'>
+  //       <span data-slate-leaf='true' class=''>
+  //         <span data-slate-string='true'>
+  //           Jasne, to w takim razie jutro się zdzwonimy
+  //         </span>
+  //       </span>
+  //     </span>
+  //   </div>
+  // </div>;
 
   return (
     <div
@@ -107,28 +157,30 @@ function ChatMessage({
             </p>
           </div>
         )}
-        <p
+        <div
           className={`flex flex-col ${
             onlyMessage && 'pl-12'
           } max-w-full`}
         >
-          <span
-            suppressContentEditableWarning={true}
-            contentEditable={editable}
-            onKeyDown={keyHandler}
-            ref={textAreaRef}
-            className={`${
-              editable &&
-              'dark:bg-orange-vivid-800 h-auto flex items-center p-3 rounded-lg text-lg w-fit focus:outline-none break-all max-w-full'
-            }`}
-          >
-            {message.message}{' '}
-            {message.edited && (
-              <span className='text-xs dark:text-cool-grey-400 text-cool-grey-300 pl-1'>
+          <div>
+            <span
+              suppressContentEditableWarning={true}
+              contentEditable={editable}
+              onKeyDown={keyHandler}
+              ref={textAreaRef}
+              className={`${
+                editable &&
+                'dark:bg-orange-vivid-800 bg-orange-vivid-100 h-auto flex items-center p-3 rounded-lg text-lg w-fit focus:outline-none break-all max-w-full'
+              }`}
+            >
+              {message.message}
+            </span>
+            {message.edited && !editable && (
+              <span className='text-xs dark:text-cool-grey-400 text-cool-grey-300 pl-1 cursor-default select-none'>
                 (edited)
               </span>
             )}
-          </span>
+          </div>
           {editable && (
             <div className='flex gap-3 text-sm'>
               <p className='flex gap-1'>
@@ -151,7 +203,7 @@ function ChatMessage({
               </p>
             </div>
           )}
-        </p>
+        </div>
       </div>
       {message.sender === user?.uid && (
         <div className='absolute overflow-hidden rounded border border-solid border-cool-grey-850 hidden -top-4 right-4 h-7 bg-cool-grey-700 group-hover/message:flex [&_ion-icon]:h-full [&_ion-icon]:w-full'>

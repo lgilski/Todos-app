@@ -1,4 +1,4 @@
-import { Friend, WholeState } from '@/types';
+import { Friend, Message, WholeState } from '@/types';
 import FriendsNav from './FriendsNav';
 import FriendsList from './FriendsList';
 import FriendRequestsList from './FriendRequestsList';
@@ -11,10 +11,16 @@ function FriendsView({
   functions: {
     acceptFriendRequest: (sentRequest: Friend) => Promise<void>;
     ingnoreFriendRequest: (sentRequest: Friend) => Promise<void>;
-    goToChat: (friend: Friend) => Promise<void>;
-    setCurrentFriendsViewSection: (e: any) => void;
+    goToChat: (e: any, friend: Friend) => Promise<void>;
+    sendMessage: (messageToSend: string) => Promise<void>;
+    goToFriendsList: () => void;
+    setCurrentFriendsViewSection: (
+      e: React.FormEvent<HTMLFormElement>
+    ) => void;
     setCurrentSearchedFriend: (e: any) => void;
-    deleteFriend: (friend: Friend) => void;
+    deleteFriend: (friend: Friend) => Promise<void>;
+    deleteMessage: (message: Message) => Promise<void>;
+    setEditedMessage: () => Promise<void>;
   };
 }) {
   const currentFriend = useSelector(
@@ -30,7 +36,7 @@ function FriendsView({
               functions.setCurrentFriendsViewSection
             }
           />
-          <div className='flex flex-col px-4 pt-4 dark:bg-cool-grey-900 dark:text-cool-grey-100 h-full'>
+          <div className='flex flex-col grow basis-0 px-4 pt-4 overflow-y-scroll dark:bg-cool-grey-900 dark:text-cool-grey-100 h-full'>
             <FriendsList
               goToChat={functions.goToChat}
               setCurrentSearchedFriend={

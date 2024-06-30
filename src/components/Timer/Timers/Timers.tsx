@@ -159,7 +159,7 @@ function Timers() {
           </button>
         </div>
         {totalTime > 0 && (
-          <div className='flex dark:text-white bg-orange-vivid-050 dark:bg-cool-grey-800 mt-4 rounded-md py-2 justify-center text-lg gap-2'>
+          <div className='flex dark:text-white bg-orange-vivid-050 dark:bg-cool-grey-700 mt-4 rounded-md py-2 justify-center text-lg gap-2'>
             <p className=''>Total time</p>
             <p className=''>
               {totalHours}:
