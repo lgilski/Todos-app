@@ -81,6 +81,8 @@ function ChatView({
           currentFriend?.uid
       ),
       (writingTimestamp: any) => {
+        console.log('aaaaaaaaaaaaaaaaaaa');
+
         // console.log('onValue aaaa:', writingTimestamp);
 
         if (writingTimestamp.exists()) {
@@ -130,6 +132,10 @@ function ChatView({
   useEffect(() => {
     console.log('Is typing', isTyping);
   }, [isTyping]);
+
+  useEffect(() => {
+    console.log('Current friend', currentFriend);
+  }, [currentFriend]);
 
   return (
     <>
