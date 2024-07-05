@@ -81,7 +81,7 @@ function ChatView({
           currentFriend?.uid
       ),
       (writingTimestamp: any) => {
-        console.log('onValue aaaa:', writingTimestamp?.val());
+        // console.log('onValue aaaa:', writingTimestamp);
 
         if (writingTimestamp.exists()) {
           setLastWritingTimestamp(writingTimestamp.val().timestamp);
