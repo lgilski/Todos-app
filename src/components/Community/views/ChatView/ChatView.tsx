@@ -81,6 +81,10 @@ function ChatView({
           currentFriend?.uid
       ),
       (writingTimestamp: any) => {
+        console.log('aaaaaaaaaaaaaaaaaaa');
+
+        // console.log('onValue aaaa:', writingTimestamp);
+
         if (writingTimestamp.exists()) {
           setLastWritingTimestamp(writingTimestamp.val().timestamp);
         }
@@ -90,6 +94,8 @@ function ChatView({
 
   useEffect(() => {
     // This handles displaying when someone is typing
+
+    console.log('last writing timestamp::::', lastWritingTimestamp);
 
     let timer = null;
 
@@ -101,7 +107,7 @@ function ChatView({
     //   lastWritingTimestamp &&
     //   myMessages[myMessages.length - 1]?.date > lastWritingTimestamp
     // ) {
-    //   return setIsTyping(false);
+    //   setIsTyping(false);
     // }
 
     // If last typing was at max 5 seconds ago, display that he/she is typing and after 5 seconds stop displaying
@@ -124,8 +130,12 @@ function ChatView({
   }, [lastWritingTimestamp, myMessages]);
 
   useEffect(() => {
-    console.log(myMessages);
-  }, [myMessages]);
+    console.log('Is typing', isTyping);
+  }, [isTyping]);
+
+  useEffect(() => {
+    console.log('Current friend', currentFriend);
+  }, [currentFriend]);
 
   return (
     <>
