@@ -14,13 +14,13 @@ const Subtitle = function ({ type }: { type?: string }) {
           type === 'small' ? 'text-xl' : 'text-2xl'
         )}
       >
-        Your To-dos{' '}
+        Your{' '}
         <span
           className={`text-cool-grey-900 ${
             userVerified && 'dark:text-gray-50'
           }`}
         >
-          and stuff UwU
+          To-dos
         </span>
       </Link>
     </div>

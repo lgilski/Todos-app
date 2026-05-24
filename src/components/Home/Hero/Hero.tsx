@@ -1,24 +1,20 @@
 import { Link } from 'react-router-dom';
 
-// import classes from './Hero.module.css';
 import { auth } from '../../../config/firebase';
 
 function Hero() {
   const userVerified = auth.currentUser?.emailVerified;
 
   return (
-    <section className='relative flex items-center h-[700px] bg-hero-pattern bg-cover bg-center'>
+    <section className='relative flex items-center h-[800px] bg-orange-vivid-050 overflow-hidden'>
       <div className='w-[1300px] m-auto'>
-        <div className='max-w-[700px] max-[1200px]:m-auto'>
-          {/* <h2 className='text-6xl font-extrabold leading-[1.1] text-transparent tracking-tight bg-gradient-to-tr from-orange-vivid-500 to-orange-vivid-300 bg-clip-text max-[1200px]:text-center'>
-            Here you can keep all your todos and more!
-          </h2> */}
+        <div className='max-w-[700px] max-[1200px]:m-auto relative'>
           <h2 className='text-6xl font-extrabold leading-[1.1] tracking-tight text-orange-vivid-400 max-[1200px]:text-center'>
             Here you can keep all your todos and more!
           </h2>
-          <p className='max-w-[540px] my-4 leading-[160%] text-xl text-orange-vivid-050 max-[1200px]:w-[350px] max-[1200px]:px-0 max-[1200px]:py-3 max-[1200px]:m-auto max-[1200px]:text-center '>
+          <p className='max-w-[540px] my-4 leading-[160%] text-xl text-cool-grey-500 max-[1200px]:w-[350px] max-[1200px]:px-0 max-[1200px]:py-3 max-[1200px]:m-auto max-[1200px]:text-center '>
             We offer a really cool way of planing your to-dos. You
-            will surely have a lot of fun.
+            will surely have a lot of fun!
           </p>
           <div className='flex gap-4 mt-8 max-[1200px]:w-[180px] max-[1200px]:flex-col max-[1200px]:mx-auto max-[1200px]:mt-8 max-[1200px]:text-center'>
             <Link
@@ -36,6 +32,11 @@ function Hero() {
           </div>
         </div>
       </div>
+      <img
+        src='src/components/Home/Hero/cards-preview.png'
+        alt='Cards preview'
+        className='absolute right-60 translate-x-1/2 scale-90 max-[1500px]:right-32 max-[1300px]:right-20 max-[1200px]:hidden drop-shadow-md'
+      />
     </section>
   );
 }
