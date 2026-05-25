@@ -148,9 +148,7 @@ function ChatMessage({
         {!onlyMessage && (
           <div className='flex items-baseline gap-2'>
             <div className=' dark:text-cool-grey-100 font-medium'>
-              {message.canNotSendMessage
-                ? 'Your To-dos and stuff UwU'
-                : sentBy}
+              {message.canNotSendMessage ? 'Your To-dos' : sentBy}
             </div>
             <p className='text-xs text-cool-grey-400'>
               {dateToDisplay} {time}

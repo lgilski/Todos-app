@@ -18,7 +18,6 @@ function HomePage() {
 
   return (
     <>
-      {/* {email && <p>Welcome {email}</p>} */}
       <Hero />
       <section className='max-w-[1200px] mt-16 mb-20 mx-auto'>
         <SectionHeader

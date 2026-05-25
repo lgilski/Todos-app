@@ -83,6 +83,8 @@ const config: Config = {
         'gradient-2': 'rgb(151 82 22 / 70%)',
       },
       backgroundImage: {
+        radial:
+          'radial-gradient(circle at center, var(--tw-gradient-stops))',
         'hero-pattern':
           "linear-gradient(to right top, #160c03b3, #f3562780), url('../src/assets/images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg')",
       },

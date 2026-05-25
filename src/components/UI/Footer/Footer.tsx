@@ -36,8 +36,8 @@ function Footer() {
             </Link>
           </div>
           <p className='mt-auto text-sm'>
-            Copyright &copy; 2023 by Your To-dos and stuff UwU, Inc.
-            All rights reserved.
+            Copyright &copy; 2023 by Your To-dos, Inc. All rights
+            reserved.
           </p>
         </div>
         <div className=' max-[1100px]:row-start-2  max-[1100px]:row-end-3  max-[1100px]:col-start-4 max-[1100px]:col-span-3'>
