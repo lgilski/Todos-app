@@ -24,7 +24,7 @@ function HomePage() {
           // className={classes.headerPadding}
           className='w-full py-8'
           subheader='Features'
-          header='We have many uwu features'
+          header='We have many cool features'
           type='large'
         />
         <Features />

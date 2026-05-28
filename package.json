@@ -1,6 +1,6 @@
 {
-  "name": "your-to-dos-and-stuff-uwu",
-  "version": "0.1.0",
+  "name": "your-to-dos",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

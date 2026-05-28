@@ -276,8 +276,6 @@ function useChat({
   }
 
   async function setEditedMessage() {
-    console.log('uwu');
-
     // const editedMessageIndex = myMessages.findIndex(
     //   (myMessage) => myMessage.date === message.date
     // );
