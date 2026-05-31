@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'url';
 import eslint from 'vite-plugin-eslint';
@@ -40,4 +40,4 @@ export default defineConfig({
     },
     setupFiles: ['./vitest.setup.ts'],
   },
-});
+} as UserConfig);

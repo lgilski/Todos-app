@@ -9,6 +9,7 @@ import { TailSpin } from 'react-loader-spinner';
 import WeatherTooltip from '../WeatherTooltip/WeatherTooltip';
 import { WholeState } from '@/types';
 
+// TODO: Handle when the service is unreachable
 function WeatherCard({ city }: { city: string }) {
   const dispatch = useDispatch();
 
@@ -27,6 +28,7 @@ function WeatherCard({ city }: { city: string }) {
   );
 
   useEffect(() => {
+    console.log(weatherData);
     if (weatherData?.message) {
       dispatch(weatherActions.deleteWeather(city));
       dispatch(weatherActions.setError(weatherData.message));
@@ -70,24 +72,6 @@ function WeatherCard({ city }: { city: string }) {
   const stopShowingOnCards = function () {
     dispatch(weatherActions.stopShowingOnCards());
   };
-
-  // .favorite {
-  //   position: absolute;
-  //   top: 40px;
-  //   right: 4px;
-  //   color: crimson;
-  // }
-
-  // .favorite ion-icon {
-  //   width: 32px;
-  //   height: 32px;
-  // }
-
-  // .currentCondition {
-  //   align-self: center;
-  //   font-size: var(--text-big);
-  //   font-weight: 500;
-  // }
 
   return (
     <>
