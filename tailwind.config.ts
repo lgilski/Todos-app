@@ -8,8 +8,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ...colors,
-
         // Primary
         'orange-vivid-050': '#FFE8D9',
         'orange-vivid-100': '#FFD0B5',

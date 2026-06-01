@@ -2,15 +2,16 @@ import { initializeApp } from 'firebase/app';
 // import { initializeApp } from 'firebase-admin/app';
 import { getAuth } from 'firebase/auth';
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: 'todos-app-72428.firebaseapp.com',
+  authDomain: 'todos-app-841c1.firebaseapp.com',
   databaseURL:
-    'https://todos-app-72428-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'todos-app-72428',
-  storageBucket: 'todos-app-72428.appspot.com',
-  messagingSenderId: '823458145482',
-  appId: '1:823458145482:web:65f71f5b5f778fe6d90033',
+    'https://todos-app-841c1-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'todos-app-841c1',
+  storageBucket: 'todos-app-841c1.firebasestorage.app',
+  messagingSenderId: '918732197665',
+  appId: '1:918732197665:web:da56c5a69be3b6e62fb860',
 };
 
 // Initialize Firebase

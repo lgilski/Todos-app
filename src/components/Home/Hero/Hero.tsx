@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { auth } from '../../../config/firebase';
-import cardsPreview from '/src/assets/images/cards-preview.png';
+import cardsPreview from '/src/assets/images/Screenshot_11_1.png';
 
 function Hero() {
   const userVerified = auth.currentUser?.emailVerified;
@@ -36,7 +36,7 @@ function Hero() {
       <img
         src={cardsPreview}
         alt='Cards preview'
-        className='absolute right-60 translate-x-1/2 scale-90 max-[1500px]:right-32 max-[1300px]:right-20 max-[1200px]:hidden drop-shadow-md'
+        className='absolute right-48 translate-x-1/2 scale-50 max-[1500px]:right-32 max-[1300px]:right-20 max-[1200px]:hidden drop-shadow-md'
       />
     </section>
   );

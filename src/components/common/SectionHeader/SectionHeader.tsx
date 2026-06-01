@@ -10,7 +10,7 @@ function SectionHeader({
   type,
 }: {
   subheader: string;
-  header: string;
+  header?: string;
   type: 'large' | 'medium';
 } & React.HtmlHTMLAttributes<HTMLDivElement>) {
   const userVerified = auth.currentUser?.emailVerified;

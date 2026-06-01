@@ -51,6 +51,7 @@ function useStopwatch({
 
   const resetStopwatch = function () {
     dispatch(stopwatchActions.setCurrentTime(0));
+    setCurrentTime(0);
     dispatch(stopwatchActions.resetLapTimes());
   };
 

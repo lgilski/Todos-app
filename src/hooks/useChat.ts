@@ -62,7 +62,7 @@ function useChat({
     const requests = await getMyFriendRequestsOnce(user, db);
     const myFriendsData = (await getMyFriendsOnce(user, db))
       .val()
-      .filter((el) => el != null);
+      ?.filter((el: any) => el != null);
     const senderFriendsData = await get(
       child(
         ref(db),

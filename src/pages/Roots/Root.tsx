@@ -26,9 +26,6 @@ function RootLayout({ routes }: { routes: any }) {
   const currentOutlet = useOutlet();
   const navigate = useNavigate();
 
-  // const ref: { current: NodeJS.Timeout | undefined } =
-  //   useRef(undefined);
-
   const { nodeRef } =
     routes.find((route: any) => {
       route.path === location.pathname;
@@ -40,13 +37,6 @@ function RootLayout({ routes }: { routes: any }) {
   const isSidenavOpen = useSelector(
     (state: WholeState) => state.data.isSidenavOpen
   );
-  // const activeIndex = useSelector(
-  //   (state: WholeState) => state.timers.activeIndex
-  // );
-  // const timers = useSelector(
-  //   (state: WholeState) => state.timers.timers
-  // );
-
   const userVerified = auth.currentUser?.emailVerified;
 
   useEffect(() => {
@@ -58,13 +48,6 @@ function RootLayout({ routes }: { routes: any }) {
       navigate('/');
     }
   }, [isLoading]);
-
-  // useEffect(() => {
-  //   if (timers[activeIndex])
-  //     setInterval(() => {
-  //       console.log(timers[activeIndex].timeRemaining);
-  //     }, 1000);
-  // }, [activeIndex]);
 
   if (isLoading) {
     return (

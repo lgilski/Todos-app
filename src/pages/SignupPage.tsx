@@ -2,7 +2,6 @@ import { redirect } from 'react-router-dom';
 import AuthForm from '../components/UI/AuthForm/AuthForm';
 import {
   createUserWithEmailAndPassword,
-  // createUserWithEmailAndPassword,
   sendEmailVerification,
   updateProfile,
 } from 'firebase/auth';

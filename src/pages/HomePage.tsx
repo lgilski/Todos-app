@@ -4,6 +4,8 @@ import SectionHeader from '../components/common/SectionHeader/SectionHeader';
 import Features from '../components/Home/Features/Features';
 import { auth } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
+import CardsPreview from '@/components/Home/CardsPreview/CardsPreview';
+import TimersPreview from '@/components/Home/TimersPreview/TimersPreview';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -19,31 +21,9 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <section className='max-w-[1200px] mt-16 mb-20 mx-auto'>
-        <SectionHeader
-          // className={classes.headerPadding}
-          className='w-full py-8'
-          subheader='Features'
-          header='We have many cool features'
-          type='large'
-        />
-        <Features />
-      </section>
-      {/* <section className='dark-section'>
-        <div className={classes.wrapperSecond}>
-          <h4 className='subheader'>What we offer</h4>
-          <h3
-            style={{ color: '#fff' }}
-            className={`header ${classes['light-header']}`}
-          >
-            How does it work?
-          </h3>
-          <div style={{ color: '#fff' }}>AAAAAAAAAAAA</div>
-        </div>
-      </section> */}
-      {/* <section>
-        <div className='developement'>STILL IN DEVELOPEMENT</div>
-      </section> */}
+      <CardsPreview />
+      <TimersPreview />
+      <section className=''></section>
     </>
   );
 }
