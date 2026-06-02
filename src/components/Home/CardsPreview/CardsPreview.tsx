@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/common/SectionHeader/SectionHeader';
 import cardsPreviewTwo from '/src/assets/images/Screenshot_9_1.png';
-import CardFeature from './CardFeature';
+import HomePageFeature from '../HomePageFeature';
 
 function CardsPreview() {
   return (
@@ -17,17 +17,17 @@ function CardsPreview() {
           type='large'
         />
         <div className='flex flex-col gap-8'>
-          <CardFeature
+          <HomePageFeature
             icon='partly-sunny'
             header='Weather'
-            text="Thank's to integrated weather you can see the forcast for the 3 closest days, so you can easily plan ahead! "
+            text='Thanks to integrated weather you can see the forcast for the 3 closest days, so you can easily plan ahead! '
           />
-          <CardFeature
+          <HomePageFeature
             icon='swap-horizontal'
             header='Drag and drop'
             text='You can drag your to-dos between the cards with ease.'
           />
-          <CardFeature
+          <HomePageFeature
             icon='pencil'
             header='Easy edition'
             text='If you will make any mistakes in your to-dos you can edit them with no problem.'

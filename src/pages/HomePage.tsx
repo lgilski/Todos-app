@@ -23,7 +23,6 @@ function HomePage() {
       <Hero />
       <CardsPreview />
       <TimersPreview />
-      <section className=''></section>
     </>
   );
 }
