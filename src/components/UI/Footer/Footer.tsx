@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className='sticky top-full w-full py-32 px-0 text-base text-cool-grey-600 bg-cool-grey-050 border-t-2 border-x-0 border-b-0 border-cool-grey-200 border-solid [&_h6]:mb-9 [&_h6]:text-xl [&_h6]:font-medium [&_h6]:text-cool-grey-700 [&_a]:text-base [&_a]:text-cool-grey-600 [&_a]:no-underline hover:[&_a]:text-cool-grey-800'>
+      <p>Add the github link, info about what was used etc</p>
       <div className='grid grid-cols-6 max-w-[1200px] my-0 mx-auto py-0 px-8 gap-y-24 gap-x-16 max-[1100px]:grid-rows-2 max-[1100px]:grid-cols-6 max-[1100px]:gap-y-16 max-[1100px]:gap-x-12 '>
         <div
           className={

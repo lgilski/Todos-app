@@ -7,7 +7,10 @@ function CardsPreview() {
     <section className='max-w-[1200px] py-32 mx-auto flex gap-24 max-[1200px]:flex-col max-[1200px]:max-w-2xl'>
       <div className='w-full relative'>
         {/* <div className='absolute rounded-full bg-orange-vivid-400 h-[600px] w-[600px] inset-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 bg-[radial-gradient(169.40%_89.55%_at_94.76%_6.29%,rgba(0,0,0,0.40)_0%,rgba(255,255,255,0.00)_100%)]' /> */}
-        <img src={cardsPreviewTwo} className='aspect-auto w-full ' />
+        <img
+          src={cardsPreviewTwo}
+          className='aspect-auto w-full shadow-md'
+        />
       </div>
       <div className='w-full'>
         <SectionHeader

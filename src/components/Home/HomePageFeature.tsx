@@ -3,11 +3,15 @@ function HomePageFeature({
   header,
   text,
   dark,
+  iconAbove,
+  centered,
 }: {
   icon: string;
   header: string;
   text: string;
   dark?: boolean;
+  iconAbove?: boolean;
+  centered?: boolean;
 } & React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
     <div
@@ -17,8 +21,13 @@ function HomePageFeature({
           : '[&_ion-icon]:text-orange-vivid-400 [&_ion-icon]:bg-orange-vivid-100'
       }`}
     >
-      <ion-icon name={icon} />
-      <div className='flex flex-col'>
+      {!iconAbove && <ion-icon name={icon} />}
+      <div
+        className={`flex flex-col ${
+          centered ? 'items-center text-center' : ''
+        }`}
+      >
+        {iconAbove && <ion-icon name={icon} />}
         <h4 className='text-lg font-bold text-orange-vivid-900'>
           {header}
         </h4>

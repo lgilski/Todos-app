@@ -6,6 +6,8 @@ import { auth } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import CardsPreview from '@/components/Home/CardsPreview/CardsPreview';
 import TimersPreview from '@/components/Home/TimersPreview/TimersPreview';
+import WeatherPreview from '@/components/Home/WeatherPreview/WeatherPreview';
+import CommuntityPreview from '@/components/Home/CommunityPerview/CommunityPreview';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -23,6 +25,8 @@ function HomePage() {
       <Hero />
       <CardsPreview />
       <TimersPreview />
+      <WeatherPreview />
+      <CommuntityPreview />
     </>
   );
 }

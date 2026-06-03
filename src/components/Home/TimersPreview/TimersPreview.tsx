@@ -30,12 +30,18 @@ function TimersPreview() {
                 icon='swap-horizontal'
                 text='In both modes you can drag and arange your timers.'
               />
+              <HomePageFeature
+                dark
+                header='Stopwatch'
+                icon='stopwatch'
+                text='Moreover, you can also use a stopwatch.'
+              />
             </div>
           </div>
           <div className='relative w-full'>
             <img
               src={timersPreviewTwo}
-              className='aspect-auto w-full'
+              className='aspect-auto w-full shadow-md'
             />
             {/* <img
             src={timersPreview}

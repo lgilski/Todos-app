@@ -27,7 +27,7 @@ function SectionHeader({
               ? 'text-3xl'
               : type === 'medium' && 'text-xl'
           } text-orange-vivid-900 ${
-            userVerified && 'dark:text-white'
+            userVerified ? 'dark:text-white' : ''
           }`
         )}
       >
