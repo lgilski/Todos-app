@@ -25,8 +25,8 @@ function HomePage() {
       <Hero />
       <CardsPreview />
       <TimersPreview />
-      <WeatherPreview />
       <CommuntityPreview />
+      <WeatherPreview />
     </>
   );
 }

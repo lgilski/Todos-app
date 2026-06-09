@@ -4,8 +4,8 @@ import HomePageFeature from '../HomePageFeature';
 
 function WeatherPreview() {
   return (
-    <section className='max-w-[1200px] py-32 mx-auto gap-24 max-[1200px]:flex-col max-[1200px]:max-w-2xl'>
-      <div className='mx-auto flex flex-col items-center'>
+    <section className='bg-orange-vivid-050 py-32'>
+      <div className='max-w-[1200px] mx-auto flex flex-col items-center'>
         <SectionHeader
           className='pb-2 text-center'
           subheader='Weather'
@@ -14,12 +14,12 @@ function WeatherPreview() {
         />
         <p className='w-[560px] text-center pb-8'>
           Here you can check the weather for the 3 closest days. You
-          can choose which citi&apos;s forecast you want to see on
+          can choose which city&apos;s forecast you want to see on
           your cards.
         </p>
         <img
           src={WeatherViewPreview}
-          className='aspect-auto w-[900px] shadow-lg'
+          className='aspect-auto w-[900px] drop-shadow-lg'
         />
       </div>
     </section>
