@@ -33,14 +33,12 @@ This is an **educational project** designed to learn and practice:
 
 - Real-time weather data display
 - Weather forecasts and detailed information
-- Location-based weather queries
 - Integration with external weather APIs
 
 ### Community Features
 
 - Real-time chat functionality
 - Community engagement and messaging
-- Collaborative space for users
 
 ### User Management
 
@@ -52,7 +50,6 @@ This is an **educational project** designed to learn and practice:
 ### UI/UX Enhancements
 
 - Toast notifications for user feedback
-- Tooltips and interactive help
 - Loading spinners and progress indicators
 - Smooth animations and transitions
 - Mobile-responsive design
