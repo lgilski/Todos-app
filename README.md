@@ -39,7 +39,8 @@ This is an **educational project** designed to learn and practice:
 ### Community Features
 
 - Real-time chat functionality
-- Community engagement and messaging
+- Showing that someone is typing
+- Friend requestes
 
 ### User Management
 

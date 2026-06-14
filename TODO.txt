@@ -1,0 +1,8 @@
+TODO:
+- Add mobile
+- Make a demo account
+
+optionally:
+- Clean up the code
+
+~fin
